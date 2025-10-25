@@ -149,27 +149,37 @@ const WhyChooseUs = () => {
   return (
     <section
       ref={containerRef}
-      className="py-20 px-4 sm:px-6 lg:px-8 bg-gray-50 min-h-screen relative overflow-hidden"
+      className="py-20 px-4 sm:px-6 lg:px-8 min-h-screen relative overflow-hidden"
       id="why-choose-us"
     >
-      <div className="max-w-7xl mx-auto">
+      <video
+        className="absolute inset-0 w-full h-full object-cover z-0"
+        src="/herobg.mp4"
+        autoPlay
+        loop
+        muted
+        playsInline
+      />
+      <div className="absolute inset-0 bg-black/70 z-10" />
+
+      <div className="max-w-7xl mx-auto relative z-20">
         {/* Header */}
         <div className="text-center mb-16">
           <h2
             ref={titleRef}
-            className="text-4xl md:text-5xl lg:text-6xl font-bold text-black mb-4 tracking-tight"
+            className="text-4xl md:text-5xl lg:text-6xl font-bold text-white mb-4 tracking-tight"
           >
             Why Choose <span className="text-[#4ECDC4]">Us</span>
           </h2>
           <h3
             ref={subtitleRef}
-            className="text-2xl md:text-3xl font-semibold text-gray-700 mb-6"
+            className="text-2xl md:text-3xl font-semibold text-gray-300 mb-6"
           >
             Our Key Advantages
           </h3>
           <p
             ref={descriptionRef}
-            className="text-lg md:text-xl text-gray-600 max-w-4xl mx-auto leading-relaxed"
+            className="text-lg md:text-xl text-gray-200 max-w-4xl mx-auto leading-relaxed"
           >
             At Edulink, we don&apos;t just connect students to institutions — we
             connect dreams to opportunities. With years of experience in
@@ -182,14 +192,14 @@ const WhyChooseUs = () => {
         {/* Stats Section */}
         <div
           ref={statsRef}
-          className="grid grid-cols-2 md:grid-cols-4 gap-6 mb-16 bg-white rounded-2xl p-8 shadow-lg"
+          className="grid grid-cols-2 md:grid-cols-4 gap-6 mb-16 bg-white/10 backdrop-blur-sm rounded-2xl p-8 shadow-lg border border-white/10"
         >
           {stats.map((stat, index) => (
             <div key={index} className="text-center">
               <div className="text-3xl md:text-4xl font-bold text-[#4ECDC4] mb-2">
                 {stat.number}
               </div>
-              <div className="text-sm md:text-base text-gray-600 font-medium">
+              <div className="text-sm md:text-base text-gray-300 font-medium">
                 {stat.label}
               </div>
             </div>
@@ -202,7 +212,7 @@ const WhyChooseUs = () => {
             <div
               key={index}
               ref={addToRefs}
-              className="group relative bg-white rounded-2xl p-8 shadow-lg hover:shadow-2xl transition-all duration-500 hover:-translate-y-1 border border-gray-100"
+              className="group relative bg-white/5 backdrop-blur-sm rounded-2xl p-8 shadow-lg hover:shadow-2xl transition-all duration-500 hover:-translate-y-1 border border-white/10"
             >
               {/* Hover Effect Background */}
               <div className="absolute inset-0 bg-linear-to-br from-[#4ECDC4]/5 to-transparent rounded-2xl opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
@@ -215,19 +225,19 @@ const WhyChooseUs = () => {
                 </div>
 
                 {/* Number Badge */}
-                <div className="absolute top-6 right-6 w-10 h-10 bg-gray-100 rounded-full flex items-center justify-center group-hover:bg-[#4ECDC4] group-hover:text-white transition-all duration-300">
+                <div className="absolute top-6 right-6 w-10 h-10 bg-white/10 rounded-full flex items-center justify-center group-hover:bg-[#4ECDC4] group-hover:text-black transition-all duration-300">
                   <span className="text-sm font-bold">
                     {String(index + 1).padStart(2, "0")}
                   </span>
                 </div>
 
                 {/* Title */}
-                <h4 className="text-xl md:text-2xl font-bold text-black mb-4 group-hover:text-[#4ECDC4] transition-colors duration-300">
+                <h4 className="text-xl md:text-2xl font-bold text-white mb-4 group-hover:text-[#4ECDC4] transition-colors duration-300">
                   {advantage.title}
                 </h4>
 
                 {/* Description */}
-                <p className="text-gray-600 leading-relaxed text-base">
+                <p className="text-gray-300 leading-relaxed text-base">
                   {advantage.description}
                 </p>
 
