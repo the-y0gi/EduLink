@@ -8,8 +8,8 @@ export const NAVLINKS = [
   { name: "Contact", path: "/contact" },
 ];
 
-export const tel = ["61 3 9982 0511", "61 3 9982 0512"];
-export const email = "support@eduvisahub.com.au";
+export const tel = ["0403 158 014"];
+export const email = "Info@edulink.com.au";
 
 export const servicesData = [
   {
