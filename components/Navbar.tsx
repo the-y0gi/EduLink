@@ -32,7 +32,7 @@ const MobileDropdownMenu = ({
         <Link
           href={link.path}
           onClick={onLinkClick}
-          className={`hover: transition-all duration-300 py-2 text-base sm:text-lg flex-1 ${
+          className={`text-gray-900 hover:text-primary transition-all duration-300 py-2 text-base sm:text-lg flex-1 ${
             pathname === link.path ? "font-semibold border-l-4 pl-4" : ""
           }`}
         >
@@ -40,7 +40,7 @@ const MobileDropdownMenu = ({
         </Link>
         <button
           onClick={() => setIsOpen(!isOpen)}
-          className="p-2 hover: transition-colors duration-300"
+          className="p-2 text-gray-900 hover:text-primary transition-colors duration-300"
         >
           <ChevronDown
             className={`h-4 w-4 transition-transform duration-200 ${
@@ -78,8 +78,73 @@ const Navbar = () => {
   const [isScrolled, setIsScrolled] = useState(false);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const [mounted, setMounted] = useState(false);
+
+  // Define theme colors based on the current page
+  const getThemeColors = () => {
+    switch (pathname) {
+      case "/landing2":
+        return {
+          textColor: "text-white",
+          hoverColor: "hover:text-[#FF6B6B]",
+          accentColor: "text-[#FF6B6B]",
+          logoSecondary: "#FF6B6B",
+          buttonBg: "bg-[#FF6B6B]",
+          buttonText: "text-white",
+          buttonHover: "hover:bg-white hover:text-black",
+          buttonBorder: "border-[#FF6B6B] hover:border-white",
+        };
+      case "/landing3":
+        return {
+          textColor: "text-cyan-900",
+          hoverColor: "hover:text-cyan-600",
+          accentColor: "text-cyan-600",
+          logoSecondary: "#0891b2",
+          buttonBg: "bg-cyan-600",
+          buttonText: "text-white",
+          buttonHover: "hover:bg-cyan-800",
+          buttonBorder: "border-cyan-600 hover:border-cyan-800",
+        };
+      case "/landing4":
+        return {
+          textColor: "text-gray-900",
+          hoverColor: "hover:text-gray-600",
+          accentColor: "text-gray-600",
+          logoSecondary: "#6b7280",
+          buttonBg: "bg-gray-600",
+          buttonText: "text-white",
+          buttonHover: "hover:bg-gray-800",
+          buttonBorder: "border-gray-600 hover:border-gray-800",
+        };
+      case "/landing5":
+        return {
+          textColor: "text-blue-900",
+          hoverColor: "hover:text-blue-600",
+          accentColor: "text-blue-600",
+          logoSecondary: "#3b82f6",
+          buttonBg: "bg-blue-600",
+          buttonText: "text-white",
+          buttonHover: "hover:bg-blue-800",
+          buttonBorder: "border-blue-600 hover:border-blue-800",
+        };
+      default:
+        return {
+          textColor: "text-gray-900",
+          hoverColor: "hover:text-[#4ECDC4]",
+          accentColor: "text-[#4ECDC4]",
+          logoSecondary: "#4ECDC4",
+          buttonBg: "bg-[#4ECDC4]",
+          buttonText: "text-black",
+          buttonHover: "hover:bg-gray-900 hover:text-white",
+          buttonBorder: "border-gray-900 hover:border-gray-900",
+        };
+    }
+  };
+
+  const themeColors = getThemeColors();
+
   useEffect(() => {
-    setMounted(true);
+    const timer = setTimeout(() => setMounted(true), 0);
+    return () => clearTimeout(timer);
   }, []);
 
   useEffect(() => {
@@ -215,7 +280,7 @@ const Navbar = () => {
               >
                 {/* Logo Icon */}
                 <div className="w-8 h-8 sm:w-12 sm:h-12 flex items-center justify-center">
-                  {/* eslint-disable-next-line jsx-a11y/alt-text, @next/next/no-img-element */}
+                  {/* eslint-disable-next-line @next/next/no-img-element */}
                   <img
                     src={"navlogo.jpg"}
                     alt="Logo"
@@ -225,12 +290,14 @@ const Navbar = () => {
                   />
                 </div>
                 <div className="flex items-center space-x-0.5 sm:space-x-1 ">
-                  <span className="text-base sm:text-lg lg:text-xl tracking-wide font-serif leading-tight">
+                  <span
+                    className={`text-base sm:text-lg lg:text-xl tracking-wide font-serif leading-tight ${themeColors.textColor}`}
+                  >
                     Edu
                   </span>
                   <span
                     className="text-base sm:text-lg lg:text-xl tracking-wide font-bold leading-tight"
-                    style={{ color: "#00A9A6" }}
+                    style={{ color: themeColors.logoSecondary }}
                   >
                     link
                   </span>
@@ -247,18 +314,27 @@ const Navbar = () => {
                       <div key={link.name} className="relative group">
                         <Link
                           href={link.path}
-                          className={`nav-item relative font-sans hover: transition-all duration-300 whitespace-nowrap flex items-center gap-1 ${
+                          className={`nav-item relative font-sans ${
+                            themeColors.textColor
+                          } ${
+                            themeColors.hoverColor
+                          } transition-all duration-300 whitespace-nowrap flex items-center gap-1 ${
                             pathname === link.path ? "font-bold" : ""
                           }`}
                         >
                           {link.name}
                           <ChevronDown className="h-4 w-4 transition-transform duration-200 group-hover:rotate-180" />
                           {pathname === link.path && (
-                            <div className="absolute -bottom-1 left-0 w-full h-0.5 bg-primary"></div>
+                            <div
+                              className={`absolute -bottom-1 left-0 w-full h-0.5 ${themeColors.accentColor.replace(
+                                "text-",
+                                "bg-"
+                              )}`}
+                            ></div>
                           )}
                         </Link>
                         {/* Dropdown Menu */}
-                        <div className="absolute top-full left-0 mt-1 w-64 bg-card/95 backdrop-blur-lg border-2 border-primary/30 rounded-lg shadow-xl opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-300 z-50">
+                        <div className="absolute top-full left-0 mt-1 w-64 bg-white/95 backdrop-blur-lg border-2 border-gray-200 rounded-lg shadow-xl opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-300 z-50">
                           <div className="p-2 max-h-[70vh] overflow-y-auto custom-scrollbar">
                             <div className="space-y-1">
                               {servicesData.map((service, index) => (
@@ -268,9 +344,14 @@ const Navbar = () => {
                                     .toLowerCase()
                                     .replace(/\s+/g, "-")
                                     .replace(/[()]/g, "")}`}
-                                  className="block p-2 rounded-md hover:bg-primary/10 hover:border-primary/20 border border-transparent transition-colors duration-200 group/item"
+                                  className={`block p-2 rounded-md hover:${themeColors.accentColor.replace(
+                                    "text-",
+                                    "bg-"
+                                  )}/10 border border-transparent transition-colors duration-200 group/item`}
                                 >
-                                  <div className="font-medium text-sm text-card-foreground group-hover/item:text-primary transition-colors">
+                                  <div
+                                    className={`font-medium text-sm ${themeColors.textColor} group-hover/item:${themeColors.accentColor} transition-colors`}
+                                  >
                                     {service.title}
                                   </div>
                                 </Link>
@@ -285,13 +366,22 @@ const Navbar = () => {
                     <Link
                       key={link.name}
                       href={link.path}
-                      className={`nav-item relative font-sans hover: transition-all duration-300 whitespace-nowrap ${
+                      className={`nav-item relative font-sans ${
+                        themeColors.textColor
+                      } ${
+                        themeColors.hoverColor
+                      } transition-all duration-300 whitespace-nowrap ${
                         pathname === link.path ? "font-bold" : ""
                       }`}
                     >
                       {link.name}
                       {pathname === link.path && (
-                        <div className="absolute -bottom-1 left-0 w-full h-0.5 bg-primary"></div>
+                        <div
+                          className={`absolute -bottom-1 left-0 w-full h-0.5 ${themeColors.accentColor.replace(
+                            "text-",
+                            "bg-"
+                          )}`}
+                        ></div>
                       )}
                     </Link>
                   );
@@ -303,7 +393,7 @@ const Navbar = () => {
             <div className="hidden lg:flex shrink-0">
               <Link
                 href="/book-appointment"
-                className="nav-item relative font-semibold px-4 py-2 rounded-lg  bg-secondary  text-foreground hover:bg-primary/90 hover:shadow-lg transition-all duration-300 whitespace-nowrap border-2 border-foreground hover:border-primary/90"
+                className={`nav-item relative font-semibold px-4 py-2 rounded-lg ${themeColors.buttonBg} ${themeColors.buttonText} ${themeColors.buttonHover} hover:shadow-lg transition-all duration-300 whitespace-nowrap border-2 ${themeColors.buttonBorder}`}
               >
                 Talk to us
               </Link>
@@ -312,7 +402,7 @@ const Navbar = () => {
             {/* Mobile Menu Button */}
             <button
               onClick={toggleMobileMenu}
-              className="lg:hidden nav-item p-2 hover: transition-colors duration-300 ml-auto"
+              className={`lg:hidden nav-item p-2 ${themeColors.textColor} ${themeColors.hoverColor} transition-colors duration-300 ml-auto`}
               aria-label="Toggle mobile menu"
             >
               {isMobileMenuOpen ? (
@@ -351,7 +441,9 @@ const Navbar = () => {
                       key={link.name}
                       href={link.path}
                       onClick={closeMobileMenu}
-                      className={`mobile-nav-item hover: transition-all duration-300 py-2 text-base sm:text-lg whitespace-nowrap ${
+                      className={`mobile-nav-item ${themeColors.textColor} ${
+                        themeColors.hoverColor
+                      } transition-all duration-300 py-2 text-base sm:text-lg whitespace-nowrap ${
                         pathname === link.path
                           ? "font-semibold border-l-4 pl-4"
                           : ""

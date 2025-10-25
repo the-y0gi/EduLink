@@ -1,6 +1,7 @@
 "use client";
 
 import React, { useRef, useEffect } from "react";
+import Image from "next/image";
 import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import { servicesData } from "@/lib/index";
@@ -9,7 +10,7 @@ import { servicesData } from "@/lib/index";
 gsap.registerPlugin(ScrollTrigger);
 
 interface ServicesProps {
-  theme?: "light" | "dark" | "cyan";
+  theme?: "light" | "dark" | "cyan" | "soft-gray" | "soft-blue";
 }
 
 const Services = ({ theme = "light" }: ServicesProps) => {
@@ -71,6 +72,44 @@ const Services = ({ theme = "light" }: ServicesProps) => {
       gradientTo: "to-[#0e7490]",
       decorativeColor: "bg-cyan-400",
       decorativeColorAlt: "bg-cyan-800",
+    },
+    "soft-gray": {
+      background: "bg-gray-50",
+      titleColor: "text-gray-900",
+      accentColor: "text-[#6b7280]",
+      subtitleColor: "text-gray-700",
+      cardBg: "bg-white/90",
+      cardBorder: "border-gray-200",
+      cardText: "text-gray-700",
+      cardTitle: "text-gray-900",
+      numberBg: "bg-gray-100",
+      numberText: "text-gray-700",
+      buttonBg: "bg-gray-600",
+      buttonText: "text-white",
+      buttonHover: "hover:bg-gray-800",
+      gradientFrom: "from-[#6b7280]",
+      gradientTo: "to-[#4b5563]",
+      decorativeColor: "bg-gray-400",
+      decorativeColorAlt: "bg-gray-800",
+    },
+    "soft-blue": {
+      background: "bg-blue-50",
+      titleColor: "text-blue-900",
+      accentColor: "text-[#3b82f6]",
+      subtitleColor: "text-blue-700",
+      cardBg: "bg-white/90",
+      cardBorder: "border-blue-200",
+      cardText: "text-blue-700",
+      cardTitle: "text-blue-900",
+      numberBg: "bg-blue-100",
+      numberText: "text-blue-700",
+      buttonBg: "bg-blue-600",
+      buttonText: "text-white",
+      buttonHover: "hover:bg-blue-800",
+      gradientFrom: "from-[#3b82f6]",
+      gradientTo: "to-[#2563eb]",
+      decorativeColor: "bg-blue-400",
+      decorativeColorAlt: "bg-blue-800",
     },
   };
 
@@ -181,77 +220,106 @@ const Services = ({ theme = "light" }: ServicesProps) => {
             <div
               key={index}
               ref={addToRefs}
-              className={`group relative ${currentTheme.cardBg} border ${currentTheme.cardBorder} rounded-2xl p-8 shadow-lg hover:shadow-2xl transition-all duration-500 hover:-translate-y-2 cursor-pointer`}
+              className="group relative rounded-2xl overflow-hidden shadow-lg hover:shadow-2xl transition-all duration-500 hover:-translate-y-2 cursor-pointer h-96"
             >
-              {/* Gradient Border Effect */}
-              <div
-                className={`absolute inset-0 rounded-2xl bg-linear-to-r ${currentTheme.gradientFrom} via-transparent ${currentTheme.gradientTo} p-0.5 opacity-0 group-hover:opacity-100 transition-opacity duration-300`}
-              >
+              {/* Background Image */}
+              <div className="absolute inset-0">
+                <Image
+                  src={service.image}
+                  alt={service.title}
+                  fill
+                  className="object-cover group-hover:scale-110 transition-transform duration-700"
+                />
+                {/* Gradient Overlay */}
                 <div
-                  className={`h-full w-full ${currentTheme.cardBg} rounded-2xl`}
+                  className={`absolute inset-0 bg-linear-to-t from-black/80 via-black/40 to-transparent group-hover:from-black/90 transition-all duration-500`}
+                ></div>
+                {/* Theme Color Overlay */}
+                <div
+                  className={`absolute inset-0 ${currentTheme.gradientFrom.replace(
+                    "from-",
+                    "bg-"
+                  )}/20 group-hover:${currentTheme.gradientFrom.replace(
+                    "from-",
+                    "bg-"
+                  )}/30 transition-all duration-500`}
                 ></div>
               </div>
 
-              {/* Content */}
-              <div className="relative z-10">
-                {/* Icon Placeholder */}
-                <div
-                  className={`w-16 h-16 bg-linear-to-br ${currentTheme.gradientFrom} ${currentTheme.gradientTo} rounded-xl mb-6 flex items-center justify-center group-hover:scale-110 transition-transform duration-300`}
-                >
+              {/* Content Overlay */}
+              <div className="relative z-10 h-full flex flex-col justify-between p-6">
+                {/* Top Section - Number Badge */}
+                <div className="flex justify-between items-start">
+                  <div></div>
                   <div
-                    className={`w-8 h-8 ${currentTheme.cardBg} rounded-lg flex items-center justify-center`}
+                    className={`w-12 h-12 ${currentTheme.gradientFrom.replace(
+                      "from-",
+                      "bg-"
+                    )} rounded-full flex items-center justify-center shadow-lg`}
                   >
-                    <div
-                      className={`w-4 h-4 ${currentTheme.decorativeColor} rounded-full`}
-                    ></div>
+                    <span className="text-white font-bold text-lg">
+                      {String(index + 1).padStart(2, "0")}
+                    </span>
                   </div>
                 </div>
 
-                {/* Service Number */}
-                <div
-                  className={`absolute top-4 right-4 w-8 h-8 ${currentTheme.numberBg} rounded-full flex items-center justify-center`}
-                >
-                  <span
-                    className={`text-sm font-bold ${currentTheme.numberText}`}
+                {/* Bottom Section - Content */}
+                <div className="space-y-4">
+                  {/* Icon Badge */}
+                  <div
+                    className={`w-16 h-16 ${currentTheme.gradientFrom.replace(
+                      "from-",
+                      "bg-"
+                    )} rounded-xl flex items-center justify-center mb-4 group-hover:scale-110 transition-transform duration-300 shadow-lg`}
                   >
-                    {String(index + 1).padStart(2, "0")}
-                  </span>
-                </div>
-
-                {/* Title */}
-                <h3
-                  className={`text-xl font-bold ${currentTheme.cardTitle} mb-4 group-hover:${currentTheme.accentColor} transition-colors duration-300`}
-                >
-                  {service.title}
-                </h3>
-
-                {/* Description */}
-                <p
-                  className={`${currentTheme.cardText} leading-relaxed text-sm lg:text-base`}
-                >
-                  {service.description}
-                </p>
-
-                {/* Hover Arrow */}
-                <div
-                  className={`mt-6 flex items-center ${currentTheme.accentColor} font-semibold opacity-0 group-hover:opacity-100 transition-opacity duration-300`}
-                >
-                  <span className="text-sm">Learn More</span>
-                  <svg
-                    className="w-4 h-4 ml-2 transform group-hover:translate-x-1 transition-transform duration-300"
-                    fill="none"
-                    stroke="currentColor"
-                    viewBox="0 0 24 24"
-                  >
-                    <path
-                      strokeLinecap="round"
-                      strokeLinejoin="round"
-                      strokeWidth={2}
-                      d="M9 5l7 7-7 7"
+                    <Image
+                      src={service.image}
+                      alt={service.title}
+                      width={32}
+                      height={32}
+                      className="w-8 h-8 object-contain filter brightness-0 invert"
                     />
-                  </svg>
+                  </div>
+
+                  {/* Title */}
+                  <h3 className="text-xl font-bold text-white mb-3 group-hover:text-opacity-90 transition-colors duration-300">
+                    {service.title}
+                  </h3>
+
+                  {/* Description */}
+                  <p className="text-gray-200 leading-relaxed text-sm opacity-90 line-clamp-4">
+                    {service.description}
+                  </p>
+
+                  {/* Learn More Button */}
+                  <div className="flex items-center text-white font-semibold opacity-0 group-hover:opacity-100 transition-all duration-300 transform translate-y-2 group-hover:translate-y-0">
+                    <span className="text-sm">Learn More</span>
+                    <svg
+                      className="w-4 h-4 ml-2 transform group-hover:translate-x-1 transition-transform duration-300"
+                      fill="none"
+                      stroke="currentColor"
+                      viewBox="0 0 24 24"
+                    >
+                      <path
+                        strokeLinecap="round"
+                        strokeLinejoin="round"
+                        strokeWidth={2}
+                        d="M9 5l7 7-7 7"
+                      />
+                    </svg>
+                  </div>
                 </div>
               </div>
+
+              {/* Hover Border Effect */}
+              <div
+                className={`absolute inset-0 border-2 border-transparent group-hover:border-${currentTheme.gradientFrom
+                  .replace("from-[", "")
+                  .replace(
+                    "]",
+                    ""
+                  )} rounded-2xl transition-all duration-300 pointer-events-none`}
+              ></div>
             </div>
           ))}
         </div>

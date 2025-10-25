@@ -1,9 +1,10 @@
 export const NAVLINKS = [
-  { name: "About Us", path: "/about" },
   { name: "Landing 2", path: "/landing2" },
   { name: "Landing 3", path: "/landing3" },
-
+  { name: "Landing 4", path: "/landing4" },
+  { name: "Landing 5", path: "/landing5" },
   { name: "Services", path: "/services" },
+  { name: "About Us", path: "/about" },
 
   { name: "Courses", path: "/courses" },
   { name: "Blogs", path: "/blogs" },
@@ -18,30 +19,36 @@ export const servicesData = [
     title: "Education & Career Opportunities",
     description:
       "We help you choose the right study program, institution, and career pathway. From academic counselling to course selection, scholarship support, and credit transfer guidance, we ensure every step aligns with your goals.",
+    image: "/Services/CareerPathway.png",
   },
   {
     title: "Visa & Migration Support",
     description:
       "Our team provides end-to-end visa assistance—from student and graduate visas to skilled migration and family applications. We simplify paperwork, guide you through eligibility, and coordinate with registered migration agents for complex cases.",
+    image: "/Services/Visasupport.png",
   },
   {
     title: "Settlement & Living Support",
     description:
       "Moving to a new country can be overwhelming, but we make it easy. From pre-departure briefings and airport pickups to accommodation, bank setup, and local orientation, we ensure you feel at home from day one.",
+    image: "/Services/Settlement.png",
   },
   {
     title: "Personal & Wellbeing Support",
     description:
       "Your wellbeing matters. We offer guidance on mental health resources, cultural adaptation, and workshops that help you stay focused, confident, and connected.",
+    image: "/Services/personal.png",
   },
   {
     title: "Professional & Employment Support",
     description:
       "We assist you in building your career through resume workshops, internship placement, part-time job advice, and insights into workplace rights in Australia.",
+    image: "/Services/Professional.png",
   },
   {
     title: "Ongoing Student Support",
     description:
-      "Our commitment doesn’t stop after enrolment. We continue supporting you with course transfers, visa extensions, compliance guidance, and post-study pathway planning.",
+      "Our commitment doesn't stop after enrolment. We continue supporting you with course transfers, visa extensions, compliance guidance, and post-study pathway planning.",
+    image: "/Services/StudentSupport.png",
   },
 ];

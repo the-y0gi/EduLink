@@ -8,7 +8,7 @@ import { ScrollTrigger } from "gsap/ScrollTrigger";
 gsap.registerPlugin(ScrollTrigger);
 
 interface WhyChooseUsProps {
-  theme?: "light" | "dark" | "cyan";
+  theme?: "light" | "dark" | "cyan" | "soft-gray" | "soft-blue";
 }
 
 const WhyChooseUs = ({ theme = "light" }: WhyChooseUsProps) => {
@@ -84,6 +84,54 @@ const WhyChooseUs = ({ theme = "light" }: WhyChooseUsProps) => {
       ctaText: "text-white",
       ctaButton: "bg-cyan-600 text-white hover:bg-cyan-900",
       decorativeColor: "bg-cyan-500",
+      showVideo: true,
+    },
+    "soft-gray": {
+      background: "bg-gray-50",
+      overlay: "bg-gray-200/60",
+      titleColor: "text-gray-900",
+      accentColor: "text-[#6b7280]",
+      subtitleColor: "text-gray-800",
+      descriptionColor: "text-gray-700",
+      cardBg: "bg-white/85 backdrop-blur-sm",
+      cardBorder: "border-gray-200",
+      cardText: "text-gray-700",
+      cardTitle: "text-gray-900",
+      statsBg: "bg-white/90 backdrop-blur-sm",
+      statsNumber: "text-gray-600",
+      statsLabel: "text-gray-700",
+      numberBg: "bg-gray-100",
+      numberText: "text-gray-700",
+      numberHoverBg: "group-hover:bg-gray-600",
+      numberHoverText: "group-hover:text-white",
+      ctaBg: "bg-gray-800/90 backdrop-blur-sm",
+      ctaText: "text-white",
+      ctaButton: "bg-gray-600 text-white hover:bg-gray-800",
+      decorativeColor: "bg-gray-400",
+      showVideo: true,
+    },
+    "soft-blue": {
+      background: "bg-blue-50",
+      overlay: "bg-blue-200/60",
+      titleColor: "text-blue-900",
+      accentColor: "text-[#3b82f6]",
+      subtitleColor: "text-blue-800",
+      descriptionColor: "text-blue-700",
+      cardBg: "bg-white/85 backdrop-blur-sm",
+      cardBorder: "border-blue-200",
+      cardText: "text-blue-700",
+      cardTitle: "text-blue-900",
+      statsBg: "bg-white/90 backdrop-blur-sm",
+      statsNumber: "text-blue-600",
+      statsLabel: "text-blue-700",
+      numberBg: "bg-blue-100",
+      numberText: "text-blue-700",
+      numberHoverBg: "group-hover:bg-blue-600",
+      numberHoverText: "group-hover:text-white",
+      ctaBg: "bg-blue-800/90 backdrop-blur-sm",
+      ctaText: "text-white",
+      ctaButton: "bg-blue-600 text-white hover:bg-blue-800",
+      decorativeColor: "bg-blue-400",
       showVideo: true,
     },
   };
