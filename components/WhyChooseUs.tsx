@@ -7,7 +7,88 @@ import { ScrollTrigger } from "gsap/ScrollTrigger";
 // Register ScrollTrigger plugin
 gsap.registerPlugin(ScrollTrigger);
 
-const WhyChooseUs = () => {
+interface WhyChooseUsProps {
+  theme?: "light" | "dark" | "cyan";
+}
+
+const WhyChooseUs = ({ theme = "light" }: WhyChooseUsProps) => {
+  // Define color schemes for different themes
+  const themes = {
+    light: {
+      background: "bg-gray-50",
+      overlay: "bg-white/80",
+      titleColor: "text-black",
+      accentColor: "text-[#4ECDC4]",
+      subtitleColor: "text-gray-700",
+      descriptionColor: "text-gray-600",
+      cardBg: "bg-white/90 backdrop-blur-sm",
+      cardBorder: "border-gray-100",
+      cardText: "text-gray-600",
+      cardTitle: "text-black",
+      statsBg: "bg-white/90 backdrop-blur-sm",
+      statsNumber: "text-[#4ECDC4]",
+      statsLabel: "text-gray-600",
+      numberBg: "bg-gray-100",
+      numberText: "text-gray-600",
+      numberHoverBg: "group-hover:bg-[#4ECDC4]",
+      numberHoverText: "group-hover:text-white",
+      ctaBg: "bg-black/90 backdrop-blur-sm",
+      ctaText: "text-white",
+      ctaButton: "bg-[#4ECDC4] text-black hover:bg-white",
+      decorativeColor: "bg-[#4ECDC4]",
+      showVideo: true,
+    },
+    dark: {
+      background: "bg-gray-900",
+      overlay: "bg-black/70",
+      titleColor: "text-white",
+      accentColor: "text-[#FF6B6B]",
+      subtitleColor: "text-gray-300",
+      descriptionColor: "text-gray-200",
+      cardBg: "bg-white/10 backdrop-blur-sm",
+      cardBorder: "border-white/10",
+      cardText: "text-gray-300",
+      cardTitle: "text-white",
+      statsBg: "bg-white/10 backdrop-blur-sm",
+      statsNumber: "text-[#FF6B6B]",
+      statsLabel: "text-gray-300",
+      numberBg: "bg-white/10",
+      numberText: "text-white",
+      numberHoverBg: "group-hover:bg-[#FF6B6B]",
+      numberHoverText: "group-hover:text-black",
+      ctaBg: "bg-gray-800",
+      ctaText: "text-white",
+      ctaButton: "bg-[#FF6B6B] text-white hover:bg-white hover:text-black",
+      decorativeColor: "bg-[#FF6B6B]",
+      showVideo: true,
+    },
+    cyan: {
+      background: "bg-cyan-100",
+      overlay: "bg-cyan-200/70",
+      titleColor: "text-cyan-900",
+      accentColor: "text-[#0891b2]",
+      subtitleColor: "text-cyan-800",
+      descriptionColor: "text-cyan-700",
+      cardBg: "bg-white/80 backdrop-blur-sm",
+      cardBorder: "border-cyan-200",
+      cardText: "text-cyan-700",
+      cardTitle: "text-cyan-900",
+      statsBg: "bg-white/90 backdrop-blur-sm",
+      statsNumber: "text-cyan-600",
+      statsLabel: "text-cyan-700",
+      numberBg: "bg-cyan-200",
+      numberText: "text-cyan-700",
+      numberHoverBg: "group-hover:bg-cyan-600",
+      numberHoverText: "group-hover:text-white",
+      ctaBg: "bg-cyan-800/90 backdrop-blur-sm",
+      ctaText: "text-white",
+      ctaButton: "bg-cyan-600 text-white hover:bg-cyan-900",
+      decorativeColor: "bg-cyan-500",
+      showVideo: true,
+    },
+  };
+
+  const currentTheme = themes[theme];
   const containerRef = useRef<HTMLElement>(null);
   const titleRef = useRef<HTMLHeadingElement>(null);
   const subtitleRef = useRef<HTMLHeadingElement>(null);
@@ -149,37 +230,39 @@ const WhyChooseUs = () => {
   return (
     <section
       ref={containerRef}
-      className="py-20 px-4 sm:px-6 lg:px-8 min-h-screen relative overflow-hidden"
+      className={`py-20 px-4 sm:px-6 lg:px-8 ${currentTheme.background} min-h-screen relative overflow-hidden`}
       id="why-choose-us"
     >
-      <video
-        className="absolute inset-0 w-full h-full object-cover z-0"
-        src="/herobg.mp4"
-        autoPlay
-        loop
-        muted
-        playsInline
-      />
-      <div className="absolute inset-0 bg-black/70 z-10" />
+      <>
+        <video
+          className="absolute inset-0 w-full h-full object-cover z-0"
+          src="/herobg.mp4"
+          autoPlay
+          loop
+          muted
+          playsInline
+        />
+        <div className={`absolute inset-0 ${currentTheme.overlay} z-10`} />
+      </>
 
       <div className="max-w-7xl mx-auto relative z-20">
         {/* Header */}
         <div className="text-center mb-16">
           <h2
             ref={titleRef}
-            className="text-4xl md:text-5xl lg:text-6xl font-bold text-white mb-4 tracking-tight"
+            className={`text-4xl md:text-5xl lg:text-6xl font-bold ${currentTheme.titleColor} mb-4 tracking-tight`}
           >
-            Why Choose <span className="text-[#4ECDC4]">Us</span>
+            Why Choose <span className={currentTheme.accentColor}>Us</span>
           </h2>
           <h3
             ref={subtitleRef}
-            className="text-2xl md:text-3xl font-semibold text-gray-300 mb-6"
+            className={`text-2xl md:text-3xl font-semibold ${currentTheme.subtitleColor} mb-6`}
           >
             Our Key Advantages
           </h3>
           <p
             ref={descriptionRef}
-            className="text-lg md:text-xl text-gray-200 max-w-4xl mx-auto leading-relaxed"
+            className={`text-lg md:text-xl ${currentTheme.descriptionColor} max-w-4xl mx-auto leading-relaxed`}
           >
             At Edulink, we don&apos;t just connect students to institutions — we
             connect dreams to opportunities. With years of experience in
@@ -192,14 +275,22 @@ const WhyChooseUs = () => {
         {/* Stats Section */}
         <div
           ref={statsRef}
-          className="grid grid-cols-2 md:grid-cols-4 gap-6 mb-16 bg-white/10 backdrop-blur-sm rounded-2xl p-8 shadow-lg border border-white/10"
+          className={`grid grid-cols-2 md:grid-cols-4 gap-6 mb-16 ${
+            currentTheme.statsBg
+          } rounded-2xl p-8 shadow-lg ${
+            currentTheme.cardBorder ? `border ${currentTheme.cardBorder}` : ""
+          }`}
         >
           {stats.map((stat, index) => (
             <div key={index} className="text-center">
-              <div className="text-3xl md:text-4xl font-bold text-[#4ECDC4] mb-2">
+              <div
+                className={`text-3xl md:text-4xl font-bold ${currentTheme.statsNumber} mb-2`}
+              >
                 {stat.number}
               </div>
-              <div className="text-sm md:text-base text-gray-300 font-medium">
+              <div
+                className={`text-sm md:text-base ${currentTheme.statsLabel} font-medium`}
+              >
                 {stat.label}
               </div>
             </div>
@@ -212,37 +303,51 @@ const WhyChooseUs = () => {
             <div
               key={index}
               ref={addToRefs}
-              className="group relative bg-white/5 backdrop-blur-sm rounded-2xl p-8 shadow-lg hover:shadow-2xl transition-all duration-500 hover:-translate-y-1 border border-white/10"
+              className={`group relative ${currentTheme.cardBg} rounded-2xl p-8 shadow-lg hover:shadow-2xl transition-all duration-500 hover:-translate-y-1 border ${currentTheme.cardBorder}`}
             >
               {/* Hover Effect Background */}
-              <div className="absolute inset-0 bg-linear-to-br from-[#4ECDC4]/5 to-transparent rounded-2xl opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+              <div
+                className={`absolute inset-0 bg-linear-to-br from-[${currentTheme.accentColor}]/5 to-transparent rounded-2xl opacity-0 group-hover:opacity-100 transition-opacity duration-300`}
+              ></div>
 
               {/* Content */}
               <div className="relative z-10">
                 {/* Icon */}
-                <div className="w-20 h-20 bg-linear-to-br from-[#4ECDC4] to-[#3ab5ad] rounded-2xl mb-6 flex items-center justify-center group-hover:scale-110 transition-transform duration-300 shadow-lg">
+                <div
+                  className={`w-20 h-20 bg-linear-to-br ${currentTheme.decorativeColor} to-[#3ab5ad] rounded-2xl mb-6 flex items-center justify-center group-hover:scale-110 transition-transform duration-300 shadow-lg`}
+                >
                   <span className="text-3xl">{advantage.icon}</span>
                 </div>
 
                 {/* Number Badge */}
-                <div className="absolute top-6 right-6 w-10 h-10 bg-white/10 rounded-full flex items-center justify-center group-hover:bg-[#4ECDC4] group-hover:text-black transition-all duration-300">
-                  <span className="text-sm font-bold">
+                <div
+                  className={`absolute top-6 right-6 w-10 h-10 ${currentTheme.numberBg} rounded-full flex items-center justify-center ${currentTheme.numberHoverBg} ${currentTheme.numberHoverText} transition-all duration-300`}
+                >
+                  <span
+                    className={`text-sm font-bold ${currentTheme.numberText}`}
+                  >
                     {String(index + 1).padStart(2, "0")}
                   </span>
                 </div>
 
                 {/* Title */}
-                <h4 className="text-xl md:text-2xl font-bold text-white mb-4 group-hover:text-[#4ECDC4] transition-colors duration-300">
+                <h4
+                  className={`text-xl md:text-2xl font-bold ${currentTheme.cardTitle} mb-4 group-hover:${currentTheme.accentColor} transition-colors duration-300`}
+                >
                   {advantage.title}
                 </h4>
 
                 {/* Description */}
-                <p className="text-gray-300 leading-relaxed text-base">
+                <p
+                  className={`${currentTheme.cardText} leading-relaxed text-base`}
+                >
                   {advantage.description}
                 </p>
 
                 {/* Decorative Line */}
-                <div className="mt-6 w-12 h-1 bg-[#4ECDC4] rounded-full group-hover:w-20 transition-all duration-300"></div>
+                <div
+                  className={`mt-6 w-12 h-1 ${currentTheme.decorativeColor} rounded-full group-hover:w-20 transition-all duration-300`}
+                ></div>
               </div>
             </div>
           ))}
@@ -250,23 +355,37 @@ const WhyChooseUs = () => {
 
         {/* Call to Action */}
         <div className="text-center mt-16">
-          <div className="bg-black rounded-2xl p-8 md:p-12 text-white relative overflow-hidden">
+          <div
+            className={`${currentTheme.ctaBg} rounded-2xl p-8 md:p-12 ${currentTheme.ctaText} relative overflow-hidden`}
+          >
             {/* Background Pattern */}
             <div className="absolute inset-0 opacity-10">
-              <div className="absolute top-4 left-4 w-32 h-32 bg-[#4ECDC4] rounded-full"></div>
-              <div className="absolute bottom-4 right-4 w-24 h-24 bg-[#4ECDC4] rounded-full"></div>
-              <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-40 h-40 border-2 border-[#4ECDC4] rounded-full"></div>
+              <div
+                className={`absolute top-4 left-4 w-32 h-32 ${currentTheme.decorativeColor} rounded-full`}
+              ></div>
+              <div
+                className={`absolute bottom-4 right-4 w-24 h-24 ${currentTheme.decorativeColor} rounded-full`}
+              ></div>
+              <div
+                className={`absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-40 h-40 border-2 border-[${currentTheme.decorativeColor}] rounded-full`}
+              ></div>
             </div>
 
             <div className="relative z-10">
               <h3 className="text-2xl md:text-3xl font-bold mb-4">
                 Ready to Start Your Journey?
               </h3>
-              <p className="text-lg text-gray-300 mb-8 max-w-2xl mx-auto">
+              <p
+                className={`text-lg ${
+                  theme === "light" ? "text-gray-600" : "text-gray-300"
+                } mb-8 max-w-2xl mx-auto`}
+              >
                 Join thousands of successful students who chose Edulink for
                 their international education dreams.
               </p>
-              <button className="group bg-[#4ECDC4] text-black px-8 py-4 rounded-full font-semibold text-lg hover:bg-white transition-all duration-300 transform hover:scale-105 hover:shadow-xl">
+              <button
+                className={`group ${currentTheme.ctaButton} px-8 py-4 rounded-full font-semibold text-lg transition-all duration-300 transform hover:scale-105 hover:shadow-xl`}
+              >
                 <span className="mr-2">Start Your Application</span>
                 <svg
                   className="w-5 h-5 inline-block group-hover:translate-x-1 transition-transform duration-300"

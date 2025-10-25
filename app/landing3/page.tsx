@@ -7,8 +7,8 @@ const Landing3 = () => {
   return (
     <main className="bg-cyan-300">
       <Hero />
-      <Services />
-      <WhyChooseUs />
+      <Services theme="cyan" />
+      <WhyChooseUs theme="cyan" />
     </main>
   );
 };
