@@ -198,23 +198,24 @@ const Navbar = () => {
       `}</style>
       <nav
         ref={navRef}
-        className={`fixed top-0 z-[999] w-full transition-all duration-300 ${
+        className={`fixed top-0 z-999 w-full transition-all duration-300 ${
           isScrolled
-            ? "bg-gradient-to-r from-primary/20 via-background/80 to-secondary/20 backdrop-blur-lg border-b border-primary/30 shadow-xl max-w-screen-2xl mx-auto left-0 right-0 w-[96vw]"
+            ? "bg-linear-to-r from-primary/20 via-background/80 to-secondary/20 backdrop-blur-lg border-b border-primary/30 shadow-xl max-w-screen-2xl mx-auto left-0 right-0 w-[96vw]"
             : "w-full"
         }`}
         style={{ transformOrigin: "center top" }}
       >
         <div className="container mx-auto px-2 sm:px-4 md:px-6">
-          <div className="flex flex-nowrap items-center min-h-[64px]">
+          <div className="flex flex-nowrap items-center min-h-16">
             {/* Logo - Left Section */}
-            <div className="flex-shrink-0">
+            <div className="shrink-0">
               <Link
                 href="/"
                 className="nav-item flex items-center space-x-1 md:space-x-2 group min-w-[140px] lg:min-w-[180px]"
               >
                 {/* Logo Icon */}
                 <div className="w-8 h-8 sm:w-12 sm:h-12 flex items-center justify-center">
+                  {/* eslint-disable-next-line jsx-a11y/alt-text, @next/next/no-img-element */}
                   <img
                     src={"navlogo.jpg"}
                     alt="Logo"
