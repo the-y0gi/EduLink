@@ -305,7 +305,7 @@ const Navbar = () => {
                 href="/book-appointment"
                 className="nav-item relative font-semibold px-4 py-2 rounded-lg  bg-secondary  text-foreground hover:bg-primary/90 hover:shadow-lg transition-all duration-300 whitespace-nowrap border-2 border-foreground hover:border-primary/90"
               >
-                Book an Appointment
+                Talk to us
               </Link>
             </div>
 
