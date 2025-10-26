@@ -77,75 +77,17 @@ const Navbar = () => {
   const pathname = usePathname();
   const [isScrolled, setIsScrolled] = useState(false);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
-  const [mounted, setMounted] = useState(false);
-
-  // Define theme colors based on the current page
-  const getThemeColors = () => {
-    switch (pathname) {
-      case "/landing2":
-        return {
-          textColor: "text-white",
-          hoverColor: "hover:text-[#FF6B6B]",
-          accentColor: "text-[#FF6B6B]",
-          logoSecondary: "#FF6B6B",
-          buttonBg: "bg-[#FF6B6B]",
-          buttonText: "text-white",
-          buttonHover: "hover:bg-white hover:text-black",
-          buttonBorder: "border-[#FF6B6B] hover:border-white",
-        };
-      case "/landing3":
-        return {
-          textColor: "text-cyan-900",
-          hoverColor: "hover:text-cyan-600",
-          accentColor: "text-cyan-600",
-          logoSecondary: "#0891b2",
-          buttonBg: "bg-cyan-600",
-          buttonText: "text-white",
-          buttonHover: "hover:bg-cyan-800",
-          buttonBorder: "border-cyan-600 hover:border-cyan-800",
-        };
-      case "/landing4":
-        return {
-          textColor: "text-gray-900",
-          hoverColor: "hover:text-gray-600",
-          accentColor: "text-gray-600",
-          logoSecondary: "#6b7280",
-          buttonBg: "bg-gray-600",
-          buttonText: "text-white",
-          buttonHover: "hover:bg-gray-800",
-          buttonBorder: "border-gray-600 hover:border-gray-800",
-        };
-      case "/landing5":
-        return {
-          textColor: "text-blue-900",
-          hoverColor: "hover:text-blue-600",
-          accentColor: "text-blue-600",
-          logoSecondary: "#3b82f6",
-          buttonBg: "bg-blue-600",
-          buttonText: "text-white",
-          buttonHover: "hover:bg-blue-800",
-          buttonBorder: "border-blue-600 hover:border-blue-800",
-        };
-      default:
-        return {
-          textColor: "text-gray-900",
-          hoverColor: "hover:text-[#4ECDC4]",
-          accentColor: "text-[#4ECDC4]",
-          logoSecondary: "#4ECDC4",
-          buttonBg: "bg-[#4ECDC4]",
-          buttonText: "text-black",
-          buttonHover: "hover:bg-gray-900 hover:text-white",
-          buttonBorder: "border-gray-900 hover:border-gray-900",
-        };
-    }
+  // Soft blue theme colors (Landing 5 as default)
+  const themeColors = {
+    textColor: "text-blue-900",
+    hoverColor: "hover:text-blue-600",
+    accentColor: "text-blue-600",
+    logoSecondary: "#3b82f6",
+    buttonBg: "bg-blue-600",
+    buttonText: "text-white",
+    buttonHover: "hover:bg-blue-800",
+    buttonBorder: "border-blue-600 hover:border-blue-800",
   };
-
-  const themeColors = getThemeColors();
-
-  useEffect(() => {
-    const timer = setTimeout(() => setMounted(true), 0);
-    return () => clearTimeout(timer);
-  }, []);
 
   useEffect(() => {
     const ctx = gsap.context(() => {

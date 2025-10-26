@@ -1,11 +1,6 @@
 export const NAVLINKS = [
-  { name: "Landing 2", path: "/landing2" },
-  { name: "Landing 3", path: "/landing3" },
-  { name: "Landing 4", path: "/landing4" },
-  { name: "Landing 5", path: "/landing5" },
-  { name: "Services", path: "/services" },
   { name: "About Us", path: "/about" },
-
+  { name: "Services", path: "/services" },
   { name: "Courses", path: "/courses" },
   { name: "Blogs", path: "/blogs" },
   { name: "Contact", path: "/contact" },

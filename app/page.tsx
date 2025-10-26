@@ -4,10 +4,10 @@ import WhyChooseUs from "@/components/WhyChooseUs";
 
 const Home = () => {
   return (
-    <main>
+    <main className="bg-blue-100">
       <Hero />
-      <Services />
-      <WhyChooseUs />
+      <Services theme="soft-blue" />
+      <WhyChooseUs theme="soft-blue" />
     </main>
   );
 };

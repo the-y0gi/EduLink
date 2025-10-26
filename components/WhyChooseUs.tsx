@@ -7,136 +7,32 @@ import { ScrollTrigger } from "gsap/ScrollTrigger";
 // Register ScrollTrigger plugin
 gsap.registerPlugin(ScrollTrigger);
 
-interface WhyChooseUsProps {
-  theme?: "light" | "dark" | "cyan" | "soft-gray" | "soft-blue";
-}
-
-const WhyChooseUs = ({ theme = "light" }: WhyChooseUsProps) => {
-  // Define color schemes for different themes
-  const themes = {
-    light: {
-      background: "bg-gray-50",
-      overlay: "bg-white/80",
-      titleColor: "text-black",
-      accentColor: "text-[#4ECDC4]",
-      subtitleColor: "text-gray-700",
-      descriptionColor: "text-gray-600",
-      cardBg: "bg-white/90 backdrop-blur-sm",
-      cardBorder: "border-gray-100",
-      cardText: "text-gray-600",
-      cardTitle: "text-black",
-      statsBg: "bg-white/90 backdrop-blur-sm",
-      statsNumber: "text-[#4ECDC4]",
-      statsLabel: "text-gray-600",
-      numberBg: "bg-gray-100",
-      numberText: "text-gray-600",
-      numberHoverBg: "group-hover:bg-[#4ECDC4]",
-      numberHoverText: "group-hover:text-white",
-      ctaBg: "bg-black/90 backdrop-blur-sm",
-      ctaText: "text-white",
-      ctaButton: "bg-[#4ECDC4] text-black hover:bg-white",
-      decorativeColor: "bg-[#4ECDC4]",
-      showVideo: true,
-    },
-    dark: {
-      background: "bg-gray-900",
-      overlay: "bg-black/70",
-      titleColor: "text-white",
-      accentColor: "text-[#FF6B6B]",
-      subtitleColor: "text-gray-300",
-      descriptionColor: "text-gray-200",
-      cardBg: "bg-white/10 backdrop-blur-sm",
-      cardBorder: "border-white/10",
-      cardText: "text-gray-300",
-      cardTitle: "text-white",
-      statsBg: "bg-white/10 backdrop-blur-sm",
-      statsNumber: "text-[#FF6B6B]",
-      statsLabel: "text-gray-300",
-      numberBg: "bg-white/10",
-      numberText: "text-white",
-      numberHoverBg: "group-hover:bg-[#FF6B6B]",
-      numberHoverText: "group-hover:text-black",
-      ctaBg: "bg-gray-800",
-      ctaText: "text-white",
-      ctaButton: "bg-[#FF6B6B] text-white hover:bg-white hover:text-black",
-      decorativeColor: "bg-[#FF6B6B]",
-      showVideo: true,
-    },
-    cyan: {
-      background: "bg-cyan-100",
-      overlay: "bg-cyan-200/70",
-      titleColor: "text-cyan-900",
-      accentColor: "text-[#0891b2]",
-      subtitleColor: "text-cyan-800",
-      descriptionColor: "text-cyan-700",
-      cardBg: "bg-white/80 backdrop-blur-sm",
-      cardBorder: "border-cyan-200",
-      cardText: "text-cyan-700",
-      cardTitle: "text-cyan-900",
-      statsBg: "bg-white/90 backdrop-blur-sm",
-      statsNumber: "text-cyan-600",
-      statsLabel: "text-cyan-700",
-      numberBg: "bg-cyan-200",
-      numberText: "text-cyan-700",
-      numberHoverBg: "group-hover:bg-cyan-600",
-      numberHoverText: "group-hover:text-white",
-      ctaBg: "bg-cyan-800/90 backdrop-blur-sm",
-      ctaText: "text-white",
-      ctaButton: "bg-cyan-600 text-white hover:bg-cyan-900",
-      decorativeColor: "bg-cyan-500",
-      showVideo: true,
-    },
-    "soft-gray": {
-      background: "bg-gray-50",
-      overlay: "bg-gray-200/60",
-      titleColor: "text-gray-900",
-      accentColor: "text-[#6b7280]",
-      subtitleColor: "text-gray-800",
-      descriptionColor: "text-gray-700",
-      cardBg: "bg-white/85 backdrop-blur-sm",
-      cardBorder: "border-gray-200",
-      cardText: "text-gray-700",
-      cardTitle: "text-gray-900",
-      statsBg: "bg-white/90 backdrop-blur-sm",
-      statsNumber: "text-gray-600",
-      statsLabel: "text-gray-700",
-      numberBg: "bg-gray-100",
-      numberText: "text-gray-700",
-      numberHoverBg: "group-hover:bg-gray-600",
-      numberHoverText: "group-hover:text-white",
-      ctaBg: "bg-gray-800/90 backdrop-blur-sm",
-      ctaText: "text-white",
-      ctaButton: "bg-gray-600 text-white hover:bg-gray-800",
-      decorativeColor: "bg-gray-400",
-      showVideo: true,
-    },
-    "soft-blue": {
-      background: "bg-blue-50",
-      overlay: "bg-blue-200/60",
-      titleColor: "text-blue-900",
-      accentColor: "text-[#3b82f6]",
-      subtitleColor: "text-blue-800",
-      descriptionColor: "text-blue-700",
-      cardBg: "bg-white/85 backdrop-blur-sm",
-      cardBorder: "border-blue-200",
-      cardText: "text-blue-700",
-      cardTitle: "text-blue-900",
-      statsBg: "bg-white/90 backdrop-blur-sm",
-      statsNumber: "text-blue-600",
-      statsLabel: "text-blue-700",
-      numberBg: "bg-blue-100",
-      numberText: "text-blue-700",
-      numberHoverBg: "group-hover:bg-blue-600",
-      numberHoverText: "group-hover:text-white",
-      ctaBg: "bg-blue-800/90 backdrop-blur-sm",
-      ctaText: "text-white",
-      ctaButton: "bg-blue-600 text-white hover:bg-blue-800",
-      decorativeColor: "bg-blue-400",
-      showVideo: true,
-    },
+const WhyChooseUs = () => {
+  // Soft blue theme colors (Landing 5 as default)
+  const theme = {
+    background: "bg-blue-50",
+    overlay: "bg-blue-200/60",
+    titleColor: "text-blue-900",
+    accentColor: "text-[#3b82f6]",
+    subtitleColor: "text-blue-800",
+    descriptionColor: "text-blue-700",
+    cardBg: "bg-white/85 backdrop-blur-sm",
+    cardBorder: "border-blue-200",
+    cardText: "text-blue-700",
+    cardTitle: "text-blue-900",
+    statsBg: "bg-white/90 backdrop-blur-sm",
+    statsNumber: "text-blue-600",
+    statsLabel: "text-blue-700",
+    numberBg: "bg-blue-100",
+    numberText: "text-blue-700",
+    numberHoverBg: "group-hover:bg-blue-600",
+    numberHoverText: "group-hover:text-white",
+    ctaBg: "bg-blue-800/90 backdrop-blur-sm",
+    ctaText: "text-white",
+    ctaButton: "bg-blue-600 text-white hover:bg-blue-800",
+    decorativeColor: "bg-blue-400",
+    showVideo: true,
   };
-
-  const currentTheme = themes[theme];
   const containerRef = useRef<HTMLElement>(null);
   const titleRef = useRef<HTMLHeadingElement>(null);
   const subtitleRef = useRef<HTMLHeadingElement>(null);
@@ -278,7 +174,7 @@ const WhyChooseUs = ({ theme = "light" }: WhyChooseUsProps) => {
   return (
     <section
       ref={containerRef}
-      className={`py-20 px-4 sm:px-6 lg:px-8 ${currentTheme.background} min-h-screen relative overflow-hidden`}
+      className={`py-20 px-4 sm:px-6 lg:px-8 ${theme.background} min-h-screen relative overflow-hidden`}
       id="why-choose-us"
     >
       <>
@@ -290,7 +186,7 @@ const WhyChooseUs = ({ theme = "light" }: WhyChooseUsProps) => {
           muted
           playsInline
         />
-        <div className={`absolute inset-0 ${currentTheme.overlay} z-10`} />
+        <div className={`absolute inset-0 ${theme.overlay} z-10`} />
       </>
 
       <div className="max-w-7xl mx-auto relative z-20">
@@ -298,19 +194,19 @@ const WhyChooseUs = ({ theme = "light" }: WhyChooseUsProps) => {
         <div className="text-center mb-16">
           <h2
             ref={titleRef}
-            className={`text-4xl md:text-5xl lg:text-6xl font-bold ${currentTheme.titleColor} mb-4 tracking-tight`}
+            className={`text-4xl md:text-5xl lg:text-6xl font-bold ${theme.titleColor} mb-4 tracking-tight`}
           >
-            Why Choose <span className={currentTheme.accentColor}>Us</span>
+            Why Choose <span className={theme.accentColor}>Us</span>
           </h2>
           <h3
             ref={subtitleRef}
-            className={`text-2xl md:text-3xl font-semibold ${currentTheme.subtitleColor} mb-6`}
+            className={`text-2xl md:text-3xl font-semibold ${theme.subtitleColor} mb-6`}
           >
             Our Key Advantages
           </h3>
           <p
             ref={descriptionRef}
-            className={`text-lg md:text-xl ${currentTheme.descriptionColor} max-w-4xl mx-auto leading-relaxed`}
+            className={`text-lg md:text-xl ${theme.descriptionColor} max-w-4xl mx-auto leading-relaxed`}
           >
             At Edulink, we don&apos;t just connect students to institutions — we
             connect dreams to opportunities. With years of experience in
@@ -324,20 +220,20 @@ const WhyChooseUs = ({ theme = "light" }: WhyChooseUsProps) => {
         <div
           ref={statsRef}
           className={`grid grid-cols-2 md:grid-cols-4 gap-6 mb-16 ${
-            currentTheme.statsBg
+            theme.statsBg
           } rounded-2xl p-8 shadow-lg ${
-            currentTheme.cardBorder ? `border ${currentTheme.cardBorder}` : ""
+            theme.cardBorder ? `border ${theme.cardBorder}` : ""
           }`}
         >
           {stats.map((stat, index) => (
             <div key={index} className="text-center">
               <div
-                className={`text-3xl md:text-4xl font-bold ${currentTheme.statsNumber} mb-2`}
+                className={`text-3xl md:text-4xl font-bold ${theme.statsNumber} mb-2`}
               >
                 {stat.number}
               </div>
               <div
-                className={`text-sm md:text-base ${currentTheme.statsLabel} font-medium`}
+                className={`text-sm md:text-base ${theme.statsLabel} font-medium`}
               >
                 {stat.label}
               </div>
@@ -351,50 +247,46 @@ const WhyChooseUs = ({ theme = "light" }: WhyChooseUsProps) => {
             <div
               key={index}
               ref={addToRefs}
-              className={`group relative ${currentTheme.cardBg} rounded-2xl p-8 shadow-lg hover:shadow-2xl transition-all duration-500 hover:-translate-y-1 border ${currentTheme.cardBorder}`}
+              className={`group relative ${theme.cardBg} rounded-2xl p-8 shadow-lg hover:shadow-2xl transition-all duration-500 hover:-translate-y-1 border ${theme.cardBorder}`}
             >
               {/* Hover Effect Background */}
               <div
-                className={`absolute inset-0 bg-linear-to-br from-[${currentTheme.accentColor}]/5 to-transparent rounded-2xl opacity-0 group-hover:opacity-100 transition-opacity duration-300`}
+                className={`absolute inset-0 bg-linear-to-br from-[${theme.accentColor}]/5 to-transparent rounded-2xl opacity-0 group-hover:opacity-100 transition-opacity duration-300`}
               ></div>
 
               {/* Content */}
               <div className="relative z-10">
                 {/* Icon */}
                 <div
-                  className={`w-20 h-20 bg-linear-to-br ${currentTheme.decorativeColor} to-[#3ab5ad] rounded-2xl mb-6 flex items-center justify-center group-hover:scale-110 transition-transform duration-300 shadow-lg`}
+                  className={`w-20 h-20 bg-linear-to-br ${theme.decorativeColor} to-[#3ab5ad] rounded-2xl mb-6 flex items-center justify-center group-hover:scale-110 transition-transform duration-300 shadow-lg`}
                 >
                   <span className="text-3xl">{advantage.icon}</span>
                 </div>
 
                 {/* Number Badge */}
                 <div
-                  className={`absolute top-6 right-6 w-10 h-10 ${currentTheme.numberBg} rounded-full flex items-center justify-center ${currentTheme.numberHoverBg} ${currentTheme.numberHoverText} transition-all duration-300`}
+                  className={`absolute top-6 right-6 w-10 h-10 ${theme.numberBg} rounded-full flex items-center justify-center ${theme.numberHoverBg} ${theme.numberHoverText} transition-all duration-300`}
                 >
-                  <span
-                    className={`text-sm font-bold ${currentTheme.numberText}`}
-                  >
+                  <span className={`text-sm font-bold ${theme.numberText}`}>
                     {String(index + 1).padStart(2, "0")}
                   </span>
                 </div>
 
                 {/* Title */}
                 <h4
-                  className={`text-xl md:text-2xl font-bold ${currentTheme.cardTitle} mb-4 group-hover:${currentTheme.accentColor} transition-colors duration-300`}
+                  className={`text-xl md:text-2xl font-bold ${theme.cardTitle} mb-4 group-hover:${theme.accentColor} transition-colors duration-300`}
                 >
                   {advantage.title}
                 </h4>
 
                 {/* Description */}
-                <p
-                  className={`${currentTheme.cardText} leading-relaxed text-base`}
-                >
+                <p className={`${theme.cardText} leading-relaxed text-base`}>
                   {advantage.description}
                 </p>
 
                 {/* Decorative Line */}
                 <div
-                  className={`mt-6 w-12 h-1 ${currentTheme.decorativeColor} rounded-full group-hover:w-20 transition-all duration-300`}
+                  className={`mt-6 w-12 h-1 ${theme.decorativeColor} rounded-full group-hover:w-20 transition-all duration-300`}
                 ></div>
               </div>
             </div>
@@ -404,18 +296,18 @@ const WhyChooseUs = ({ theme = "light" }: WhyChooseUsProps) => {
         {/* Call to Action */}
         <div className="text-center mt-16">
           <div
-            className={`${currentTheme.ctaBg} rounded-2xl p-8 md:p-12 ${currentTheme.ctaText} relative overflow-hidden`}
+            className={`${theme.ctaBg} rounded-2xl p-8 md:p-12 ${theme.ctaText} relative overflow-hidden`}
           >
             {/* Background Pattern */}
             <div className="absolute inset-0 opacity-10">
               <div
-                className={`absolute top-4 left-4 w-32 h-32 ${currentTheme.decorativeColor} rounded-full`}
+                className={`absolute top-4 left-4 w-32 h-32 ${theme.decorativeColor} rounded-full`}
               ></div>
               <div
-                className={`absolute bottom-4 right-4 w-24 h-24 ${currentTheme.decorativeColor} rounded-full`}
+                className={`absolute bottom-4 right-4 w-24 h-24 ${theme.decorativeColor} rounded-full`}
               ></div>
               <div
-                className={`absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-40 h-40 border-2 border-[${currentTheme.decorativeColor}] rounded-full`}
+                className={`absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-40 h-40 border-2 border-[${theme.decorativeColor}] rounded-full`}
               ></div>
             </div>
 
@@ -423,16 +315,12 @@ const WhyChooseUs = ({ theme = "light" }: WhyChooseUsProps) => {
               <h3 className="text-2xl md:text-3xl font-bold mb-4">
                 Ready to Start Your Journey?
               </h3>
-              <p
-                className={`text-lg ${
-                  theme === "light" ? "text-gray-600" : "text-gray-300"
-                } mb-8 max-w-2xl mx-auto`}
-              >
+              <p className="text-lg text-gray-300 mb-8 max-w-2xl mx-auto">
                 Join thousands of successful students who chose Edulink for
                 their international education dreams.
               </p>
               <button
-                className={`group ${currentTheme.ctaButton} px-8 py-4 rounded-full font-semibold text-lg transition-all duration-300 transform hover:scale-105 hover:shadow-xl`}
+                className={`group ${theme.ctaButton} px-8 py-4 rounded-full font-semibold text-lg transition-all duration-300 transform hover:scale-105 hover:shadow-xl`}
               >
                 <span className="mr-2">Start Your Application</span>
                 <svg

@@ -9,111 +9,27 @@ import { servicesData } from "@/lib/index";
 // Register ScrollTrigger plugin
 gsap.registerPlugin(ScrollTrigger);
 
-interface ServicesProps {
-  theme?: "light" | "dark" | "cyan" | "soft-gray" | "soft-blue";
-}
-
-const Services = ({ theme = "light" }: ServicesProps) => {
-  // Define color schemes for different themes
-  const themes = {
-    light: {
-      background: "bg-white",
-      titleColor: "text-black",
-      accentColor: "text-[#4ECDC4]",
-      subtitleColor: "text-gray-600",
-      cardBg: "bg-white",
-      cardBorder: "border-gray-100",
-      cardText: "text-gray-600",
-      cardTitle: "text-black",
-      numberBg: "bg-gray-100",
-      numberText: "text-gray-600",
-      buttonBg: "bg-black",
-      buttonText: "text-white",
-      buttonHover: "hover:bg-[#4ECDC4]",
-      gradientFrom: "from-[#4ECDC4]",
-      gradientTo: "to-[#3ab5ad]",
-      decorativeColor: "bg-[#4ECDC4]",
-      decorativeColorAlt: "bg-black",
-    },
-    dark: {
-      background: "bg-gray-900",
-      titleColor: "text-white",
-      accentColor: "text-[#FF6B6B]",
-      subtitleColor: "text-gray-300",
-      cardBg: "bg-gray-800",
-      cardBorder: "border-gray-700",
-      cardText: "text-gray-300",
-      cardTitle: "text-white",
-      numberBg: "bg-gray-700",
-      numberText: "text-gray-300",
-      buttonBg: "bg-[#FF6B6B]",
-      buttonText: "text-white",
-      buttonHover: "hover:bg-white hover:text-black",
-      gradientFrom: "from-[#FF6B6B]",
-      gradientTo: "to-[#e85a5a]",
-      decorativeColor: "bg-[#FF6B6B]",
-      decorativeColorAlt: "bg-white",
-    },
-    cyan: {
-      background: "bg-cyan-50",
-      titleColor: "text-cyan-900",
-      accentColor: "text-[#0891b2]",
-      subtitleColor: "text-cyan-700",
-      cardBg: "bg-white",
-      cardBorder: "border-cyan-200",
-      cardText: "text-cyan-700",
-      cardTitle: "text-cyan-900",
-      numberBg: "bg-cyan-100",
-      numberText: "text-cyan-700",
-      buttonBg: "bg-cyan-600",
-      buttonText: "text-white",
-      buttonHover: "hover:bg-cyan-800",
-      gradientFrom: "from-[#0891b2]",
-      gradientTo: "to-[#0e7490]",
-      decorativeColor: "bg-cyan-400",
-      decorativeColorAlt: "bg-cyan-800",
-    },
-    "soft-gray": {
-      background: "bg-gray-50",
-      titleColor: "text-gray-900",
-      accentColor: "text-[#6b7280]",
-      subtitleColor: "text-gray-700",
-      cardBg: "bg-white/90",
-      cardBorder: "border-gray-200",
-      cardText: "text-gray-700",
-      cardTitle: "text-gray-900",
-      numberBg: "bg-gray-100",
-      numberText: "text-gray-700",
-      buttonBg: "bg-gray-600",
-      buttonText: "text-white",
-      buttonHover: "hover:bg-gray-800",
-      gradientFrom: "from-[#6b7280]",
-      gradientTo: "to-[#4b5563]",
-      decorativeColor: "bg-gray-400",
-      decorativeColorAlt: "bg-gray-800",
-    },
-    "soft-blue": {
-      background: "bg-blue-50",
-      titleColor: "text-blue-900",
-      accentColor: "text-[#3b82f6]",
-      subtitleColor: "text-blue-700",
-      cardBg: "bg-white/90",
-      cardBorder: "border-blue-200",
-      cardText: "text-blue-700",
-      cardTitle: "text-blue-900",
-      numberBg: "bg-blue-100",
-      numberText: "text-blue-700",
-      buttonBg: "bg-blue-600",
-      buttonText: "text-white",
-      buttonHover: "hover:bg-blue-800",
-      gradientFrom: "from-[#3b82f6]",
-      gradientTo: "to-[#2563eb]",
-      decorativeColor: "bg-blue-400",
-      decorativeColorAlt: "bg-blue-800",
-    },
+const Services = () => {
+  // Soft blue theme colors (Landing 5 as default)
+  const theme = {
+    background: "bg-blue-50",
+    titleColor: "text-blue-900",
+    accentColor: "text-[#3b82f6]",
+    subtitleColor: "text-blue-700",
+    cardBg: "bg-white/90",
+    cardBorder: "border-blue-200",
+    cardText: "text-blue-700",
+    cardTitle: "text-blue-900",
+    numberBg: "bg-blue-100",
+    numberText: "text-blue-700",
+    buttonBg: "bg-blue-600",
+    buttonText: "text-white",
+    buttonHover: "hover:bg-blue-800",
+    gradientFrom: "from-[#3b82f6]",
+    gradientTo: "to-[#2563eb]",
+    decorativeColor: "bg-blue-400",
+    decorativeColorAlt: "bg-blue-800",
   };
-
-  const currentTheme = themes[theme];
   const containerRef = useRef<HTMLElement>(null);
   const titleRef = useRef<HTMLHeadingElement>(null);
   const subtitleRef = useRef<HTMLParagraphElement>(null);
@@ -192,7 +108,7 @@ const Services = ({ theme = "light" }: ServicesProps) => {
   return (
     <section
       ref={containerRef}
-      className={`py-20 px-4 sm:px-6 lg:px-8 ${currentTheme.background} min-h-screen`}
+      className={`py-20 px-4 sm:px-6 lg:px-8 ${theme.background} min-h-screen`}
       id="services"
     >
       <div className="max-w-7xl mx-auto">
@@ -200,13 +116,13 @@ const Services = ({ theme = "light" }: ServicesProps) => {
         <div className="text-center mb-16">
           <h2
             ref={titleRef}
-            className={`text-4xl md:text-5xl lg:text-6xl font-bold ${currentTheme.titleColor} mb-6 tracking-tight`}
+            className={`text-4xl md:text-5xl lg:text-6xl font-bold ${theme.titleColor} mb-6 tracking-tight`}
           >
-            Our <span className={currentTheme.accentColor}>Services</span>
+            Our <span className={theme.accentColor}>Services</span>
           </h2>
           <p
             ref={subtitleRef}
-            className={`text-lg md:text-xl ${currentTheme.subtitleColor} max-w-3xl mx-auto leading-relaxed`}
+            className={`text-lg md:text-xl ${theme.subtitleColor} max-w-3xl mx-auto leading-relaxed`}
           >
             Comprehensive support for your educational journey and settlement in
             Australia. From visa assistance to career guidance, we&apos;re here
@@ -236,10 +152,10 @@ const Services = ({ theme = "light" }: ServicesProps) => {
                 ></div>
                 {/* Theme Color Overlay */}
                 <div
-                  className={`absolute inset-0 ${currentTheme.gradientFrom.replace(
+                  className={`absolute inset-0 ${theme.gradientFrom.replace(
                     "from-",
                     "bg-"
-                  )}/20 group-hover:${currentTheme.gradientFrom.replace(
+                  )}/20 group-hover:${theme.gradientFrom.replace(
                     "from-",
                     "bg-"
                   )}/30 transition-all duration-500`}
@@ -252,7 +168,7 @@ const Services = ({ theme = "light" }: ServicesProps) => {
                 <div className="flex justify-between items-start">
                   <div></div>
                   <div
-                    className={`w-12 h-12 ${currentTheme.gradientFrom.replace(
+                    className={`w-12 h-12 ${theme.gradientFrom.replace(
                       "from-",
                       "bg-"
                     )} rounded-full flex items-center justify-center shadow-lg`}
@@ -267,7 +183,7 @@ const Services = ({ theme = "light" }: ServicesProps) => {
                 <div className="space-y-4">
                   {/* Icon Badge */}
                   <div
-                    className={`w-16 h-16 ${currentTheme.gradientFrom.replace(
+                    className={`w-16 h-16 ${theme.gradientFrom.replace(
                       "from-",
                       "bg-"
                     )} rounded-xl flex items-center justify-center mb-4 group-hover:scale-110 transition-transform duration-300 shadow-lg`}
@@ -313,7 +229,7 @@ const Services = ({ theme = "light" }: ServicesProps) => {
 
               {/* Hover Border Effect */}
               <div
-                className={`absolute inset-0 border-2 border-transparent group-hover:border-${currentTheme.gradientFrom
+                className={`absolute inset-0 border-2 border-transparent group-hover:border-${theme.gradientFrom
                   .replace("from-[", "")
                   .replace(
                     "]",
@@ -328,7 +244,7 @@ const Services = ({ theme = "light" }: ServicesProps) => {
         <div className="text-center mt-16">
           <div className="inline-block">
             <button
-              className={`group ${currentTheme.buttonBg} ${currentTheme.buttonText} px-8 py-4 rounded-full font-semibold text-lg ${currentTheme.buttonHover} transition-all duration-300 transform hover:scale-105 hover:shadow-xl`}
+              className={`group ${theme.buttonBg} ${theme.buttonText} px-8 py-4 rounded-full font-semibold text-lg ${theme.buttonHover} transition-all duration-300 transform hover:scale-105 hover:shadow-xl`}
             >
               <span className="mr-2">Get Started Today</span>
               <svg
@@ -351,13 +267,13 @@ const Services = ({ theme = "light" }: ServicesProps) => {
         {/* Background Decorative Elements */}
         <div className="absolute inset-0 overflow-hidden pointer-events-none">
           <div
-            className={`absolute top-20 left-10 w-32 h-32 ${currentTheme.decorativeColor} rounded-full opacity-5`}
+            className={`absolute top-20 left-10 w-32 h-32 ${theme.decorativeColor} rounded-full opacity-5`}
           ></div>
           <div
-            className={`absolute bottom-20 right-10 w-48 h-48 ${currentTheme.decorativeColor} rounded-full opacity-5`}
+            className={`absolute bottom-20 right-10 w-48 h-48 ${theme.decorativeColor} rounded-full opacity-5`}
           ></div>
           <div
-            className={`absolute top-1/2 left-1/4 w-24 h-24 ${currentTheme.decorativeColorAlt} rounded-full opacity-3`}
+            className={`absolute top-1/2 left-1/4 w-24 h-24 ${theme.decorativeColorAlt} rounded-full opacity-3`}
           ></div>
         </div>
       </div>
