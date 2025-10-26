@@ -197,7 +197,7 @@ const About = () => {
         <div className="relative z-10 max-w-7xl mx-auto">
           <div className="text-center mb-16">
             <div className="animate-fade-up">
-              <span className="inline-block px-4 py-2 bg-[#4ECDC4]/20 text-[#4ECDC4] rounded-full text-sm font-medium mb-6 backdrop-blur-sm border border-[#4ECDC4]/30">
+              <span className="inline-block px-4 py-2 bg-[#4ECDC4]/20 text-white rounded-full text-sm font-medium mb-6 backdrop-blur-sm border border-[#4ECDC4]/30">
                 About Edulink
               </span>
             </div>
