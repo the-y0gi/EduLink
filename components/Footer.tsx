@@ -169,7 +169,7 @@ const Footer = () => {
             </p>
             <div ref={socialRef} className="flex flex-col space-y-2 mt-2">
               <div className="flex space-x-4">
-                <a
+                {/* <a
                   href="https://www.instagram.com/eduvisahub.australia?igsh=MW5oMDF4aWxhcjdycA=="
                   target="_blank"
                   rel="noopener noreferrer"
@@ -177,7 +177,7 @@ const Footer = () => {
                   className="hover:text-primary text-foreground transition-colors p-2 rounded-full hover:bg-primary/10"
                 >
                   <FaInstagram className="w-5 h-5" />
-                </a>
+                </a> */}
                 <a
                   href={`mailto:${email}`}
                   aria-label="Email"

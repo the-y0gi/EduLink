@@ -6,8 +6,8 @@ const Home = () => {
   return (
     <main className="bg-blue-100">
       <Hero />
-      <Services theme="soft-blue" />
-      <WhyChooseUs theme="soft-blue" />
+      <Services />
+      {/* <WhyChooseUs theme="soft-blue" /> */}
     </main>
   );
 };
