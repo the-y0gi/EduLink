@@ -117,7 +117,7 @@ const Footer = () => {
   return (
     <section
       ref={contactRef}
-      className="bg-gradient-to-br from-secondary/10 via-background to-primary/10 text-foreground pt-12 pb-4 relative overflow-hidden"
+      className="bg-gradient-to-br from-secondary/10 via-background to-primary/10 text-foreground pt-8 pb-4 relative overflow-hidden"
     >
       {/* Footer background image: hidden on mobile, block on md+ */}
       {/* <div
@@ -146,22 +146,23 @@ const Footer = () => {
         style={{ background: "rgba(0,0,0,0.02)", zIndex: 2 }}
       />
       <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 z-10">
-        <div className="flex flex-col md:flex-row md:flex-wrap md:justify-between md:items-start gap-8 pb-10 border-b-2 border-primary/20">
+        <div className="flex flex-col md:flex-row md:flex-wrap md:justify-between md:items-start gap-6 pb-6 border-b-2 border-primary/20">
           {/* Logo & Company Info */}
-          <div className="flex-1 min-w-0 flex flex-col items-start mb-8 md:mb-0">
+          <div className="flex-1 min-w-0 flex flex-col items-start mb-6 md:mb-0">
             <div className="flex items-center space-x-3 mb-4">
-              <div className="w-32 h-32 md:w-40 md:h-40 flex items-center justify-center">
+              <div className="w-12 h-12 flex items-center justify-center">
                 <img
-                  src={"footer.png"}
+                  src={"navlogo.png"}
                   alt="Logo"
-                  width={120}
-                  height={120}
+                  width={100}
+                  height={100}
                   className="w-full h-full object-contain"
                 />
               </div>
-              {/* <h2 className="font-serif text-2xl md:text-3xl text-[var(--foreground)]">
-                EduVisa Hub
-              </h2> */}
+              <div className="flex items-center space-x-1">
+                <span className="text-lg font-serif text-black">Edu</span>
+                <span className="text-lg font-bold text-[#4ECDC4]">link</span>
+              </div>
             </div>
             <p className="text-muted-foreground mb-6 text-sm leading-relaxed">
               At Edulink, we provide tailored support for every stage of your
@@ -206,7 +207,7 @@ const Footer = () => {
 
           {/* Quick Links - hidden on mobile */}
           <div className="hidden md:flex-1 md:min-w-0 md:flex md:flex-col md:items-start md:mb-8 ">
-            <h3 className="font-semibold text-white text-lg mb-3  font-sans">
+            <h3 className="font-semibold text-black text-lg mb-3  font-sans">
               Quick Links
             </h3>
             <ul className="space-y-2 text-foreground">
@@ -224,8 +225,8 @@ const Footer = () => {
           </div>
 
           {/* Working Hours */}
-          <div className="flex-1 min-w-0 flex flex-col md:items-start mb-8 md:mb-0">
-            <h3 className="font-semibold font-sans text-lg mb-3 text-white">
+          <div className="flex-1 min-w-0 flex flex-col md:items-start mb-6 md:mb-0">
+            <h3 className="font-semibold font-sans text-lg mb-3 text-black">
               Working Hours
             </h3>
             <div className="space-y-3 text-sm">
@@ -255,7 +256,7 @@ const Footer = () => {
 
           {/* Contact Info */}
           <div className="flex-1 min-w-0 flex flex-col md:items-start">
-            <h3 className="font-semibold  font-sans text-lg mb-3 text-white">
+            <h3 className="font-semibold  font-sans text-lg mb-3 text-black">
               Contact
             </h3>
             <div className="space-y-3 text-sm">
@@ -314,7 +315,7 @@ const Footer = () => {
               <button
                 ref={scrollTopRef}
                 onClick={handleScrollTop}
-                className="ml-4 mt-4 md:mt-0 bg-primary hover:bg-primary/90 text-primary-foreground p-2 rounded-full shadow-lg hover:shadow-xl transition-all duration-300 focus:outline-none focus:ring-2 focus:ring-primary/50 flex-shrink-0 w-10 h-10 flex items-center justify-center border-2 border-primary hover:border-primary/90"
+                className="ml-4 mt-4 md:mt-0 bg-primary hover:bg-primary/90 text-primary-foreground p-2 rounded-full shadow-lg hover:shadow-xl transition-all duration-300 focus:outline-none focus:ring-2 focus:ring-primary/50 shrink-0 w-10 h-10 flex items-center justify-center border-2 border-primary hover:border-primary/90"
                 aria-label="Scroll to top"
               >
                 <FaArrowUp className="w-5 h-5" />

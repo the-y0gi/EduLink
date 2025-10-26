@@ -224,10 +224,10 @@ const Navbar = () => {
                 <div className="w-8 h-8 sm:w-12 sm:h-12 flex items-center justify-center">
                   {/* eslint-disable-next-line @next/next/no-img-element */}
                   <img
-                    src={"navlogo.jpg"}
+                    src={"navlogo.png"}
                     alt="Logo"
-                    width={48}
-                    height={48}
+                    width={60}
+                    height={60}
                     className="w-full h-full object-contain"
                   />
                 </div>
