@@ -1,6 +1,7 @@
 "use client";
 import React, { useRef, useEffect, useState, useCallback } from "react";
 import { gsap } from "gsap";
+import Image from "next/image";
 
 export interface BentoCardProps {
   color?: string;
@@ -36,12 +37,13 @@ interface ExtendedBentoCardProps extends BentoCardProps {
   size?: "small" | "medium" | "large" | "wide" | "tall";
   stats?: { number: string; label: string };
   textColor?: "white" | "dark";
+  image?: string;
 }
 
 const cardData: ExtendedBentoCardProps[] = [
   {
     color: "#1f2937",
-    gradient: "linear-gradient(135deg, #1f2937 0%, #374151 100%)",
+    // gradient: "linear-gradient(135deg, #1f2937 0%, #374151 100%)",
     title: "Comprehensive Visa Guidance",
     description:
       "From student to post-study and skilled migration visas, our experienced consultants ensure a smooth, compliant, and stress-free application process.",
@@ -68,6 +70,7 @@ const cardData: ExtendedBentoCardProps[] = [
     icon: "📊",
     size: "large",
     stats: { number: "95%", label: "Visa Success Rate" },
+    image: "/Services/Visasupport.jpg",
   },
   {
     color: "#1f2937",
@@ -81,7 +84,7 @@ const cardData: ExtendedBentoCardProps[] = [
   },
   {
     color: "#1f2937",
-    gradient: "linear-gradient(135deg, #6b7280 0%, #4b5563 100%)",
+    // gradient: "linear-gradient(135deg, #6b7280 0%, #4b5563 100%)",
     title: "Settlement Assistance",
     description:
       "We go beyond admissions — offering practical support for accommodation, cultural adaptation, and settlement so you can feel at home wherever you go.",
@@ -102,14 +105,14 @@ const cardData: ExtendedBentoCardProps[] = [
   },
   {
     color: "#1f2937",
-    gradient: "linear-gradient(135deg, #f3f4f6 0%, #e5e7eb 100%)",
+    // gradient: "linear-gradient(135deg, #f3f4f6 0%, #e5e7eb 100%)",
     title: "Student Testimonials",
     description:
       "Join thousands of successful students who achieved their dreams",
     label: "Reviews",
     icon: "⭐",
     size: "medium",
-    textColor: "dark",
+    textColor: "white",
   },
   {
     color: "#1f2937",
@@ -839,8 +842,21 @@ const MagicBento: React.FC<BentoProps> = ({
                   clickEffect={clickEffect}
                   enableMagnetism={enableMagnetism}
                 >
+                  {card.image && (
+                    <div className="absolute inset-0 z-0">
+                      <Image
+                        src={card.image}
+                        alt={
+                          card.stats?.label || card.title || "Card background"
+                        }
+                        fill
+                        className="object-cover rounded-3xl opacity-30"
+                      />
+                      <div className="absolute inset-0 bg-linear-to-t from-black/60 via-transparent to-transparent rounded-3xl" />
+                    </div>
+                  )}
                   <div
-                    className={`card__header flex justify-between items-start gap-3 relative ${
+                    className={`card__header flex justify-between items-start gap-3 relative z-10 ${
                       card.textColor === "dark" ? "text-gray-800" : "text-white"
                     } mb-4`}
                   >
@@ -860,7 +876,7 @@ const MagicBento: React.FC<BentoProps> = ({
                     )}
                   </div>
                   <div
-                    className={`card__content flex flex-col relative ${
+                    className={`card__content flex flex-col relative z-10 ${
                       card.textColor === "dark" ? "text-gray-800" : "text-white"
                     } grow`}
                   >
@@ -1014,8 +1030,19 @@ const MagicBento: React.FC<BentoProps> = ({
                   el.addEventListener("click", handleClick);
                 }}
               >
+                {card.image && (
+                  <div className="absolute inset-0 z-0">
+                    <Image
+                      src={card.image}
+                      alt={card.stats?.label || card.title || "Card background"}
+                      fill
+                      className="object-cover rounded-3xl opacity-30"
+                    />
+                    <div className="absolute inset-0 bg-linear-to-t from-black/60 via-transparent to-transparent rounded-3xl" />
+                  </div>
+                )}
                 <div
-                  className={`card__header flex justify-between items-start gap-3 relative ${
+                  className={`card__header flex justify-between items-start gap-3 relative z-10 ${
                     card.textColor === "dark" ? "text-gray-800" : "text-white"
                   } mb-4`}
                 >
@@ -1035,7 +1062,7 @@ const MagicBento: React.FC<BentoProps> = ({
                   )}
                 </div>
                 <div
-                  className={`card__content flex flex-col relative ${
+                  className={`card__content flex flex-col relative z-10 ${
                     card.textColor === "dark" ? "text-gray-800" : "text-white"
                   } grow`}
                 >

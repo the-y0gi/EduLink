@@ -1,3 +1,4 @@
+import About from "@/components/About";
 import Hero from "@/components/Hero";
 import Services from "@/components/Services";
 import MagicBento from "@/components/ui/MagicBento";
@@ -35,6 +36,7 @@ const Home = () => {
           <MagicBento />
         </div>
       </section>
+      <About />
     </main>
   );
 };
