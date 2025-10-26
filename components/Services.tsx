@@ -4,6 +4,7 @@ import React, { useRef, useEffect } from "react";
 import Image from "next/image";
 import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
+import { MoveUpRight } from "lucide-react";
 import { servicesData } from "@/lib/index";
 
 // Register ScrollTrigger plugin
@@ -105,8 +106,7 @@ const Services = () => {
               ref={titleRef}
               className="text-4xl md:text-5xl lg:text-6xl font-bold text-black mb-6 leading-tight"
             >
-              Certified <br className="hidden sm:block" />
-              Excellence
+              Our Services
             </h2>
             <p
               ref={subtitleRef}
@@ -120,10 +120,10 @@ const Services = () => {
 
           {/* Right Side - Action Buttons */}
           <div className="flex gap-4 lg:shrink-0">
-            <button className="text-red-500 font-semibold hover:text-red-600 transition-colors">
+            <button className="text-[#4ECDC4] font-semibold hover:text-[#45b8b1] transition-colors">
               View All Services →
             </button>
-            <button className="text-red-500 font-semibold hover:text-red-600 transition-colors">
+            <button className="text-[#4ECDC4] font-semibold hover:text-[#45b8b1] transition-colors">
               Call For Booking →
             </button>
           </div>
@@ -152,37 +152,25 @@ const Services = () => {
 
                 {/* Content Overlay */}
                 <div className="relative z-10 h-full flex flex-col justify-between p-6">
-                  {/* Service Category Badge (if needed) */}
+                  {/* Top Section - Empty for spacing */}
                   <div></div>
 
-                  {/* Bottom Content */}
-                  <div className="space-y-4">
+                  {/* Bottom Section - Title only */}
+                  <div className="flex items-end justify-between">
                     {/* Service Title */}
-                    <h3 className="text-xl font-bold text-white leading-tight">
+                    <h3 className="text-xl font-bold text-white leading-tight max-w-[70%]">
                       {service.title}
                     </h3>
-
-                    {/* Arrow Button */}
-                    <button className="w-12 h-12 bg-yellow-400 hover:bg-yellow-500 rounded-full flex items-center justify-center transition-all duration-300 group-hover:scale-110">
-                      <svg
-                        className="w-5 h-5 text-black transform -rotate-45"
-                        fill="none"
-                        stroke="currentColor"
-                        viewBox="0 0 24 24"
-                      >
-                        <path
-                          strokeLinecap="round"
-                          strokeLinejoin="round"
-                          strokeWidth={2}
-                          d="M7 17l9.2-9.2M17 17V7H7"
-                        />
-                      </svg>
-                    </button>
                   </div>
                 </div>
 
+                {/* Arrow Button - Positioned in bottom right corner */}
+                <button className="absolute bottom-4 right-4 z-20 w-12 h-12 bg-gray-800 group-hover:bg-[#4ECDC4] rounded-full flex items-center justify-center transition-all duration-300 group-hover:scale-110">
+                  <MoveUpRight className="w-5 h-5 text-white" />
+                </button>
+
                 {/* Hover Effects */}
-                <div className="absolute inset-0 bg-linear-to-t from-blue-900/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+                <div className="absolute inset-0 bg-linear-to-t from-[#4ECDC4]/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
               </div>
             ))}
           </div>
