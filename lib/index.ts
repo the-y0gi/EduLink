@@ -1,9 +1,9 @@
 export const NAVLINKS = [
-  { name: "About Us", path: "/" },
-  { name: "Services", path: "/" },
-  { name: "Courses", path: "/" },
-  { name: "Blogs", path: "/" },
-  { name: "Contact", path: "/" },
+  { name: "About Us", path: "" },
+  { name: "Services", path: "" },
+  { name: "Courses", path: "" },
+  { name: "Blogs", path: "" },
+  { name: "Contact", path: "" },
 ];
 
 export const tel = ["0403 158 014"];
