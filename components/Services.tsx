@@ -1,10 +1,10 @@
 "use client";
 
-import React, { useRef, useEffect } from "react";
+import React, { useRef, useEffect, useState } from "react";
 import Image from "next/image";
 import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
-import { MoveUpRight } from "lucide-react";
+import { MoveUpRight, ChevronLeft, ChevronRight } from "lucide-react";
 import { servicesData } from "@/lib/index";
 
 // Register ScrollTrigger plugin
@@ -17,6 +17,9 @@ const Services = () => {
   const titleRef = useRef<HTMLHeadingElement>(null);
   const subtitleRef = useRef<HTMLParagraphElement>(null);
   const cardsRef = useRef<HTMLDivElement[]>([]);
+  const scrollContainerRef = useRef<HTMLDivElement>(null);
+  const [canScrollLeft, setCanScrollLeft] = useState(false);
+  const [canScrollRight, setCanScrollRight] = useState(true);
 
   useEffect(() => {
     const container = containerRef.current;
@@ -82,6 +85,42 @@ const Services = () => {
     };
   }, []);
 
+  // Check scroll position to update button states
+  const checkScrollPosition = () => {
+    if (scrollContainerRef.current) {
+      const { scrollLeft, scrollWidth, clientWidth } =
+        scrollContainerRef.current;
+      setCanScrollLeft(scrollLeft > 0);
+      setCanScrollRight(scrollLeft < scrollWidth - clientWidth - 1);
+    }
+  };
+
+  // Navigation functions
+  const scrollLeft = () => {
+    if (scrollContainerRef.current) {
+      const cardWidth = 320; // 80 * 4 (20rem = 320px)
+      scrollContainerRef.current.scrollBy({
+        left: -cardWidth,
+        behavior: "smooth",
+      });
+    }
+  };
+
+  const scrollRight = () => {
+    if (scrollContainerRef.current) {
+      const cardWidth = 320; // 80 * 4 (20rem = 320px)
+      scrollContainerRef.current.scrollBy({
+        left: cardWidth,
+        behavior: "smooth",
+      });
+    }
+  };
+
+  // Initialize scroll position check
+  useEffect(() => {
+    checkScrollPosition();
+  }, []);
+
   const addToRefs = (el: HTMLDivElement | null) => {
     if (el && !cardsRef.current.includes(el)) {
       cardsRef.current.push(el);
@@ -131,7 +170,11 @@ const Services = () => {
 
         {/* Services Cards - Horizontal Scroll */}
         <div className="relative">
-          <div className="flex gap-6 overflow-x-auto pb-4 scrollbar-hide">
+          <div
+            ref={scrollContainerRef}
+            className="flex gap-6 overflow-x-auto pb-4 scrollbar-hide"
+            onScroll={checkScrollPosition}
+          >
             {servicesData.map((service, index) => (
               <div
                 key={index}
@@ -183,6 +226,32 @@ const Services = () => {
                 className="w-2 h-2 rounded-full bg-gray-300 hover:bg-gray-400 transition-colors cursor-pointer"
               ></div>
             ))}
+          </div>
+
+          {/* Navigation Buttons - Below Dots */}
+          <div className="flex justify-center mt-4 gap-3">
+            <button
+              onClick={scrollLeft}
+              disabled={!canScrollLeft}
+              className={`w-12 h-12 rounded-full flex items-center justify-center transition-all duration-300 ${
+                canScrollLeft
+                  ? "bg-[#4ECDC4] hover:bg-[#45b8b1] text-white shadow-lg hover:shadow-xl"
+                  : "bg-gray-200 text-gray-400 cursor-not-allowed"
+              }`}
+            >
+              <ChevronLeft className="w-6 h-6" />
+            </button>
+            <button
+              onClick={scrollRight}
+              disabled={!canScrollRight}
+              className={`w-12 h-12 rounded-full flex items-center justify-center transition-all duration-300 ${
+                canScrollRight
+                  ? "bg-[#4ECDC4] hover:bg-[#45b8b1] text-white shadow-lg hover:shadow-xl"
+                  : "bg-gray-200 text-gray-400 cursor-not-allowed"
+              }`}
+            >
+              <ChevronRight className="w-6 h-6" />
+            </button>
           </div>
         </div>
       </div>
