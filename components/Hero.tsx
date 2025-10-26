@@ -197,7 +197,7 @@ const Hero = () => {
         <video
           ref={videoRef}
           className="absolute inset-0 w-full h-full object-cover z-0"
-          src="/main.mp4"
+          src="/mainhero.mp4"
           autoPlay
           loop
           muted
