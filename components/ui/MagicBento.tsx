@@ -30,42 +30,96 @@ const DEFAULT_SPOTLIGHT_RADIUS = 300;
 const DEFAULT_GLOW_COLOR = "132, 0, 255";
 const MOBILE_BREAKPOINT = 768;
 
-const cardData: BentoCardProps[] = [
+interface ExtendedBentoCardProps extends BentoCardProps {
+  icon?: string;
+  gradient?: string;
+  size?: "small" | "medium" | "large" | "wide" | "tall";
+  stats?: { number: string; label: string };
+  textColor?: "white" | "dark";
+}
+
+const cardData: ExtendedBentoCardProps[] = [
   {
-    color: "#060010",
-    title: "Analytics",
-    description: "Track user behavior",
-    label: "Insights",
+    color: "#1f2937",
+    gradient: "linear-gradient(135deg, #1f2937 0%, #374151 100%)",
+    title: "Comprehensive Visa Guidance",
+    description:
+      "From student to post-study and skilled migration visas, our experienced consultants ensure a smooth, compliant, and stress-free application process.",
+    label: "Guidance",
+    icon: "🛂",
+    size: "medium",
   },
   {
-    color: "#060010",
-    title: "Dashboard",
-    description: "Centralized data view",
-    label: "Overview",
+    color: "#1f2937",
+    gradient: "linear-gradient(135deg, #4ECDC4 0%, #45b8b1 100%)",
+    title: "Study Pathway Expertise",
+    description:
+      "We help you choose the right course, university, and country that align with your career goals — ensuring your education investment leads to real success.",
+    label: "Expertise",
+    icon: "🎓",
+    size: "medium",
   },
   {
-    color: "#060010",
-    title: "Collaboration",
-    description: "Work together seamlessly",
-    label: "Teamwork",
+    color: "#1f2937",
+    gradient: "linear-gradient(135deg, #3b82f6 0%, #1d4ed8 100%)",
+    title: "Success Statistics",
+    description: "Our proven track record speaks for itself",
+    label: "Stats",
+    icon: "📊",
+    size: "large",
+    stats: { number: "95%", label: "Visa Success Rate" },
   },
   {
-    color: "#060010",
-    title: "Automation",
-    description: "Streamline workflows",
-    label: "Efficiency",
+    color: "#1f2937",
+    gradient: "linear-gradient(135deg, #4ECDC4 0%, #2dd4bf 100%)",
+    title: "Career and Work Support",
+    description:
+      "Edulink assists with employment advice, internship connections, and post-study work opportunities to help you gain valuable global experience.",
+    label: "Support",
+    icon: "💼",
+    size: "wide",
   },
   {
-    color: "#060010",
-    title: "Integration",
-    description: "Connect favorite tools",
-    label: "Connectivity",
+    color: "#1f2937",
+    gradient: "linear-gradient(135deg, #6b7280 0%, #4b5563 100%)",
+    title: "Settlement Assistance",
+    description:
+      "We go beyond admissions — offering practical support for accommodation, cultural adaptation, and settlement so you can feel at home wherever you go.",
+    label: "Assistance",
+    icon: "🏠",
+    size: "medium",
   },
   {
-    color: "#060010",
-    title: "Security",
-    description: "Enterprise-grade protection",
-    label: "Protection",
+    color: "#1f2937",
+    gradient: "linear-gradient(135deg, #e5e7eb 0%, #d1d5db 100%)",
+    title: "Global Network",
+    description: "Connected to 50+ universities worldwide",
+    label: "Network",
+    icon: "🌍",
+    size: "small",
+    stats: { number: "50+", label: "Partner Universities" },
+    textColor: "dark",
+  },
+  {
+    color: "#1f2937",
+    gradient: "linear-gradient(135deg, #f3f4f6 0%, #e5e7eb 100%)",
+    title: "Student Testimonials",
+    description:
+      "Join thousands of successful students who achieved their dreams",
+    label: "Reviews",
+    icon: "⭐",
+    size: "medium",
+    textColor: "dark",
+  },
+  {
+    color: "#1f2937",
+    gradient: "linear-gradient(135deg, #4ECDC4 0%, #22d3ee 100%)",
+    title: "Experience",
+    description: "A decade of expertise in international education",
+    label: "Trust",
+    icon: "🏆",
+    size: "small",
+    stats: { number: "10+", label: "Years Experience" },
   },
 ];
 
@@ -532,7 +586,7 @@ const BentoCardGrid: React.FC<{
   gridRef?: React.RefObject<HTMLDivElement | null>;
 }> = ({ children, gridRef }) => (
   <div
-    className="bento-section grid gap-2 p-3 max-w-[54rem] select-none relative"
+    className="bento-section grid gap-2 p-3 max-w-7xl select-none relative"
     style={{ fontSize: "clamp(1rem, 0.9rem + 0.5vw, 1.5rem)" }}
     ref={gridRef}
   >
@@ -593,35 +647,65 @@ const MagicBento: React.FC<BentoProps> = ({
           
           .card-responsive {
             grid-template-columns: 1fr;
-            width: 90%;
+            width: 95%;
             margin: 0 auto;
-            padding: 0.5rem;
+            padding: 1rem;
+            gap: 1rem;
+          }
+          
+          .card-size-small {
+            min-height: 180px;
+          }
+          
+          .card-size-medium {
+            min-height: 220px;
+          }
+          
+          .card-size-large {
+            min-height: 280px;
+          }
+          
+          .card-size-wide {
+            min-height: 200px;
+          }
+          
+          .card-size-tall {
+            min-height: 320px;
           }
           
           @media (min-width: 600px) {
             .card-responsive {
-              grid-template-columns: repeat(2, 1fr);
+              grid-template-columns: repeat(3, 1fr);
+              gap: 1.25rem;
+            }
+            
+            .card-responsive .card-size-wide {
+              grid-column: span 2;
+            }
+            
+            .card-responsive .card-size-large {
+              grid-column: span 2;
+              grid-row: span 2;
             }
           }
           
           @media (min-width: 1024px) {
             .card-responsive {
               grid-template-columns: repeat(4, 1fr);
+              gap: 1.5rem;
             }
             
-            .card-responsive .card:nth-child(3) {
+            .card-responsive .card-size-large {
               grid-column: span 2;
               grid-row: span 2;
             }
             
-            .card-responsive .card:nth-child(4) {
-              grid-column: 1 / span 2;
-              grid-row: 2 / span 2;
+            .card-responsive .card-size-wide {
+              grid-column: span 2;
             }
             
-            .card-responsive .card:nth-child(6) {
-              grid-column: 4;
-              grid-row: 3;
+            .card-responsive .card-size-tall {
+              grid-row: span 2;
             }
           }
           
@@ -686,6 +770,15 @@ const MagicBento: React.FC<BentoProps> = ({
             text-overflow: ellipsis;
           }
           
+          .text-clamp-3 {
+            display: -webkit-box;
+            -webkit-box-orient: vertical;
+            -webkit-line-clamp: 3;
+            line-clamp: 3;
+            overflow: hidden;
+            text-overflow: ellipsis;
+          }
+          
           @media (max-width: 599px) {
             .card-responsive {
               grid-template-columns: 1fr;
@@ -715,18 +808,22 @@ const MagicBento: React.FC<BentoProps> = ({
       <BentoCardGrid gridRef={gridRef}>
         <div className="card-responsive grid gap-2">
           {cardData.map((card, index) => {
-            const baseClassName = `card flex flex-col justify-between relative aspect-[4/3] min-h-[200px] w-full max-w-full p-5 rounded-[20px] border border-solid font-light overflow-hidden transition-all duration-300 ease-in-out hover:-translate-y-0.5 hover:shadow-[0_8px_25px_rgba(0,0,0,0.15)] ${
+            const baseClassName = `card card-size-${
+              card.size || "medium"
+            } flex flex-col justify-between relative w-full max-w-full p-6 rounded-3xl border border-solid font-light overflow-hidden transition-all duration-500 ease-in-out hover:-translate-y-1 hover:shadow-2xl hover:shadow-purple-500/20 ${
               enableBorderGlow ? "card--border-glow" : ""
             }`;
 
             const cardStyle = {
-              backgroundColor: card.color || "var(--background-dark)",
-              borderColor: "var(--border-color)",
+              background:
+                card.gradient || card.color || "var(--background-dark)",
+              borderColor: "rgba(255, 255, 255, 0.1)",
               color: "var(--white)",
               "--glow-x": "50%",
               "--glow-y": "50%",
               "--glow-intensity": "0",
               "--glow-radius": "200px",
+              backdropFilter: "blur(10px)",
             } as React.CSSProperties;
 
             if (enableStars) {
@@ -742,20 +839,57 @@ const MagicBento: React.FC<BentoProps> = ({
                   clickEffect={clickEffect}
                   enableMagnetism={enableMagnetism}
                 >
-                  <div className="card__header flex justify-between gap-3 relative text-white">
-                    <span className="card__label text-base">{card.label}</span>
+                  <div
+                    className={`card__header flex justify-between items-start gap-3 relative ${
+                      card.textColor === "dark" ? "text-gray-800" : "text-white"
+                    } mb-4`}
+                  >
+                    <span
+                      className={`card__label text-sm font-medium px-3 py-1 rounded-full backdrop-blur-sm ${
+                        card.textColor === "dark"
+                          ? "bg-gray-800/20 text-gray-800"
+                          : "bg-white/20 text-white"
+                      }`}
+                    >
+                      {card.label}
+                    </span>
+                    {card.icon && (
+                      <div className="text-3xl opacity-80 transform hover:scale-110 transition-transform duration-300">
+                        {card.icon}
+                      </div>
+                    )}
                   </div>
-                  <div className="card__content flex flex-col relative text-white">
+                  <div
+                    className={`card__content flex flex-col relative ${
+                      card.textColor === "dark" ? "text-gray-800" : "text-white"
+                    } grow`}
+                  >
+                    {card.stats ? (
+                      <div className="flex flex-col items-center text-center mb-4">
+                        <div
+                          className={`text-5xl font-bold mb-2 ${
+                            card.textColor === "dark"
+                              ? "bg-linear-to-r from-gray-800 to-gray-600 bg-clip-text text-transparent"
+                              : "bg-linear-to-r from-white to-gray-300 bg-clip-text text-transparent"
+                          }`}
+                        >
+                          {card.stats.number}
+                        </div>
+                        <div className="text-lg font-semibold opacity-90 mb-3">
+                          {card.stats.label}
+                        </div>
+                      </div>
+                    ) : null}
                     <h3
-                      className={`card__title font-normal text-base m-0 mb-1 ${
-                        textAutoHide ? "text-clamp-1" : ""
+                      className={`card__title font-bold text-xl mb-3 leading-tight ${
+                        textAutoHide && !card.stats ? "text-clamp-1" : ""
                       }`}
                     >
                       {card.title}
                     </h3>
                     <p
-                      className={`card__description text-xs leading-5 opacity-90 ${
-                        textAutoHide ? "text-clamp-2" : ""
+                      className={`card__description text-sm leading-relaxed opacity-80 ${
+                        textAutoHide ? "text-clamp-3" : ""
                       }`}
                     >
                       {card.description}
@@ -880,20 +1014,57 @@ const MagicBento: React.FC<BentoProps> = ({
                   el.addEventListener("click", handleClick);
                 }}
               >
-                <div className="card__header flex justify-between gap-3 relative text-white">
-                  <span className="card__label text-base">{card.label}</span>
+                <div
+                  className={`card__header flex justify-between items-start gap-3 relative ${
+                    card.textColor === "dark" ? "text-gray-800" : "text-white"
+                  } mb-4`}
+                >
+                  <span
+                    className={`card__label text-sm font-medium px-3 py-1 rounded-full backdrop-blur-sm ${
+                      card.textColor === "dark"
+                        ? "bg-gray-800/20 text-gray-800"
+                        : "bg-white/20 text-white"
+                    }`}
+                  >
+                    {card.label}
+                  </span>
+                  {card.icon && (
+                    <div className="text-3xl opacity-80 transform hover:scale-110 transition-transform duration-300">
+                      {card.icon}
+                    </div>
+                  )}
                 </div>
-                <div className="card__content flex flex-col relative text-white">
+                <div
+                  className={`card__content flex flex-col relative ${
+                    card.textColor === "dark" ? "text-gray-800" : "text-white"
+                  } grow`}
+                >
+                  {card.stats ? (
+                    <div className="flex flex-col items-center text-center mb-4">
+                      <div
+                        className={`text-5xl font-bold mb-2 ${
+                          card.textColor === "dark"
+                            ? "bg-linear-to-r from-gray-800 to-gray-600 bg-clip-text text-transparent"
+                            : "bg-linear-to-r from-white to-gray-300 bg-clip-text text-transparent"
+                        }`}
+                      >
+                        {card.stats.number}
+                      </div>
+                      <div className="text-lg font-semibold opacity-90 mb-3">
+                        {card.stats.label}
+                      </div>
+                    </div>
+                  ) : null}
                   <h3
-                    className={`card__title font-normal text-base m-0 mb-1 ${
-                      textAutoHide ? "text-clamp-1" : ""
+                    className={`card__title font-bold text-xl mb-3 leading-tight ${
+                      textAutoHide && !card.stats ? "text-clamp-1" : ""
                     }`}
                   >
                     {card.title}
                   </h3>
                   <p
-                    className={`card__description text-xs leading-5 opacity-90 ${
-                      textAutoHide ? "text-clamp-2" : ""
+                    className={`card__description text-sm leading-relaxed opacity-80 ${
+                      textAutoHide ? "text-clamp-3" : ""
                     }`}
                   >
                     {card.description}
