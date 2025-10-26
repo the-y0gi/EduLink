@@ -55,10 +55,7 @@ const MobileDropdownMenu = ({
           {services.map((service, index) => (
             <Link
               key={index}
-              href={`${link.path}/${service.title
-                .toLowerCase()
-                .replace(/\s+/g, "-")
-                .replace(/[()]/g, "")}`}
+              href="/"
               onClick={onLinkClick}
               className="block py-2 text-sm text-gray-600 dark:text-gray-400 hover:text-primary transition-colors duration-200"
             >
@@ -282,10 +279,7 @@ const Navbar = () => {
                               {servicesData.map((service, index) => (
                                 <Link
                                   key={index}
-                                  href={`${link.path}/${service.title
-                                    .toLowerCase()
-                                    .replace(/\s+/g, "-")
-                                    .replace(/[()]/g, "")}`}
+                                  href="/"
                                   className={`block p-2 rounded-md hover:${themeColors.accentColor.replace(
                                     "text-",
                                     "bg-"
@@ -334,7 +328,7 @@ const Navbar = () => {
             {/* Right Section - Book Appointment Button */}
             <div className="hidden lg:flex shrink-0">
               <Link
-                href="/book-appointment"
+                href="/"
                 className={`nav-item relative font-semibold px-4 py-2 rounded-lg ${themeColors.buttonBg} ${themeColors.buttonText} ${themeColors.buttonHover} hover:shadow-lg transition-all duration-300 whitespace-nowrap border-2 ${themeColors.buttonBorder}`}
               >
                 Talk to us
