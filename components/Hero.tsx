@@ -210,9 +210,9 @@ const Hero = () => {
         <div className="relative z-20 flex flex-col items-center justify-center h-full text-center px-6 max-w-4xl mx-auto">
           {/* Main Heading */}
           <h1 className="text-4xl md:text-6xl lg:text-7xl font-bold text-white mb-6 leading-tight">
-            Your Global <span className="text-[#4ECDC4]">Education</span>{" "}
+            Your Global <span className="text-primary">Education</span>{" "}
             <span className="text-gray-300">&</span>{" "}
-            <span className="text-[#4ECDC4]">Immigration</span> Partner.
+            <span className="text-primary">Immigration</span> Partner.
           </h1>
 
           {/* Subtitle */}
@@ -223,7 +223,7 @@ const Hero = () => {
 
           {/* Buttons */}
           <div className="flex flex-col sm:flex-row gap-4">
-            <button className="bg-[#4ECDC4] hover:bg-[#45b8b1] text-white font-semibold px-8 py-4 rounded-full transition-colors duration-300 text-lg">
+            <button className="bg-primary hover:bg-primary/90 text-white font-semibold px-8 py-4 rounded-full transition-colors duration-300 text-lg">
               Get a Consultation →
             </button>
             <button className="border-2 border-white text-white hover:bg-white hover:text-gray-900 font-semibold px-8 py-4 rounded-full transition-all duration-300 text-lg">
