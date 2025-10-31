@@ -2,7 +2,6 @@ import About from "@/components/About";
 import Hero from "@/components/Hero";
 import Services from "@/components/Services";
 import MagicBento from "@/components/ui/MagicBento";
-import WhyChooseUs from "@/components/WhyChooseUs";
 
 const Home = () => {
   return (
