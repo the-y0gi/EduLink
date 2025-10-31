@@ -1,8 +1,8 @@
 export const NAVLINKS = [
   { name: "About Us", path: "/about" },
-  { name: "Services", path: "" },
-  { name: "Courses", path: "" },
-  { name: "Blogs", path: "" },
+  { name: "Services", path: "/services" },
+  { name: "Courses", path: "/courses" },
+  // { name: "Blogs", path: "" },
   { name: "Contact", path: "/contact" },
 ];
 
