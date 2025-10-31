@@ -20,7 +20,7 @@ const MobileDropdownMenu = ({
   onLinkClick,
 }: {
   link: { name: string; path: string };
-  services: Array<{ title: string; description: string }>;
+  services: Array<{ title: string; description: string; slug: string }>;
   pathname: string;
   onLinkClick: () => void;
 }) => {
@@ -55,7 +55,7 @@ const MobileDropdownMenu = ({
           {services.map((service, index) => (
             <Link
               key={index}
-              href="/"
+              href={`/services/${service.slug}`}
               onClick={onLinkClick}
               className="block py-2 text-sm text-gray-600 dark:text-gray-400 hover:text-primary transition-colors duration-200"
             >
@@ -279,7 +279,7 @@ const Navbar = () => {
                               {servicesData.map((service, index) => (
                                 <Link
                                   key={index}
-                                  href="/"
+                                  href={`/services/${service.slug}`}
                                   className={`block p-2 rounded-md hover:${themeColors.accentColor.replace(
                                     "text-",
                                     "bg-"

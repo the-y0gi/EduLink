@@ -1,99 +1,21 @@
 "use client";
 
 import { useEffect, useRef } from "react";
+import { useRouter } from "next/navigation";
 import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
+import { servicesData } from "@/lib";
 
 gsap.registerPlugin(ScrollTrigger);
 
 const ServicesPage = () => {
+  const router = useRouter();
   const heroRef = useRef(null);
   const overviewRef = useRef(null);
   const mainServicesRef = useRef(null);
   const visaTypesRef = useRef(null);
   const processRef = useRef(null);
   const whyChooseRef = useRef(null);
-
-  const mainServices = [
-    {
-      title: "Education & Career Opportunities",
-      description:
-        "We help you choose the right study program, institution, and career pathway. From academic counselling to course selection, scholarship support, and credit transfer guidance.",
-      icon: "🎓",
-      features: [
-        "Academic counselling & course selection",
-        "Scholarship support & guidance",
-        "Credit transfer assistance",
-        "University application support",
-        "Career pathway planning",
-      ],
-    },
-    {
-      title: "Visa & Migration Support",
-      description:
-        "Our team provides end-to-end visa assistance—from student and graduate visas to skilled migration and family applications.",
-      icon: "📋",
-      features: [
-        "Student visa applications (Subclass 500)",
-        "Graduate visa support (Subclass 485)",
-        "Skilled migration guidance",
-        "Family & partner visas",
-        "Compliance & renewals",
-      ],
-    },
-    {
-      title: "Settlement & Living Support",
-      description:
-        "Moving to a new country can be overwhelming, but we make it easy. From pre-departure briefings to local orientation.",
-      icon: "🏠",
-      features: [
-        "Pre-departure preparation",
-        "Airport pickup services",
-        "Accommodation assistance",
-        "Bank account setup",
-        "Local orientation programs",
-      ],
-    },
-    {
-      title: "Personal & Wellbeing Support",
-      description:
-        "Your wellbeing matters. We offer guidance on mental health resources, cultural adaptation, and workshops.",
-      icon: "💚",
-      features: [
-        "Mental health resources",
-        "Cultural adaptation support",
-        "Wellbeing workshops",
-        "Community connections",
-        "24/7 emergency support",
-      ],
-    },
-    {
-      title: "Professional & Employment Support",
-      description:
-        "We assist you in building your career through resume workshops, internship placement, and workplace guidance.",
-      icon: "💼",
-      features: [
-        "Resume & CV workshops",
-        "Interview preparation",
-        "Internship placement",
-        "Part-time job guidance",
-        "Workplace rights education",
-      ],
-    },
-    {
-      title: "Ongoing Student Support",
-      description:
-        "Our commitment doesn't stop after enrolment. We continue supporting you throughout your journey.",
-      icon: "🤝",
-      features: [
-        "Course transfers & changes",
-        "Visa extensions",
-        "Academic progress monitoring",
-        "Post-study planning",
-        "Alumni network access",
-      ],
-    },
-  ];
 
   const visaTypes = [
     {
@@ -400,10 +322,11 @@ const ServicesPage = () => {
           </h2>
 
           <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
-            {mainServices.map((service, index) => (
+            {servicesData.map((service) => (
               <div
-                key={index}
-                className="service-card bg-white rounded-xl p-8 shadow-lg hover:shadow-2xl transition-all duration-300 group"
+                key={service.id}
+                className="service-card bg-white rounded-xl p-8 shadow-lg hover:shadow-2xl transition-all duration-300 group cursor-pointer"
+                onClick={() => router.push(`/services/${service.slug}`)}
               >
                 <div className="w-16 h-16 bg-primary/20 rounded-full flex items-center justify-center mb-6 group-hover:scale-110 transition-transform">
                   <span className="text-2xl">{service.icon}</span>
@@ -417,7 +340,7 @@ const ServicesPage = () => {
                 </p>
 
                 <div className="space-y-2">
-                  {service.features.map((feature, idx) => (
+                  {service.features.slice(0, 5).map((feature, idx) => (
                     <div key={idx} className="flex items-center space-x-2">
                       <div className="w-2 h-2 bg-primary rounded-full"></div>
                       <span className="text-sm text-foreground/70">
@@ -425,9 +348,20 @@ const ServicesPage = () => {
                       </span>
                     </div>
                   ))}
+                  {service.features.length > 5 && (
+                    <div className="flex items-center space-x-2">
+                      <div className="w-2 h-2 bg-secondary rounded-full"></div>
+                      <span className="text-sm text-foreground/70 font-semibold">
+                        +{service.features.length - 5} more features
+                      </span>
+                    </div>
+                  )}
                 </div>
 
-                <div className="mt-6">
+                <div className="mt-6 flex items-center justify-between">
+                  <span className="text-primary/70 text-sm">
+                    {service.duration}
+                  </span>
                   <button className="text-primary font-semibold hover:text-secondary transition-colors group-hover:translate-x-2 transform duration-300">
                     Learn More →
                   </button>

@@ -2,6 +2,8 @@
 
 import React, { useRef, useEffect, useState } from "react";
 import Image from "next/image";
+import Link from "next/link";
+import { useRouter } from "next/navigation";
 import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import { MoveUpRight, ChevronLeft, ChevronRight } from "lucide-react";
@@ -11,8 +13,7 @@ import { servicesData } from "@/lib/index";
 gsap.registerPlugin(ScrollTrigger);
 
 const Services = () => {
-  // Soft blue theme colors (Landing 5 as default)
-
+  const router = useRouter();
   const containerRef = useRef<HTMLElement>(null);
   const titleRef = useRef<HTMLHeadingElement>(null);
   const subtitleRef = useRef<HTMLParagraphElement>(null);
@@ -159,10 +160,16 @@ const Services = () => {
 
           {/* Right Side - Action Buttons */}
           <div className="flex gap-4 lg:shrink-0">
-            <button className="text-primary font-semibold hover:text-primary/80 transition-colors">
+            <button
+              onClick={() => router.push("/services")}
+              className="text-primary font-semibold hover:text-primary/80 transition-colors"
+            >
               View All Services →
             </button>
-            <button className="text-primary font-semibold hover:text-primary/80 transition-colors">
+            <button
+              onClick={() => router.push("/contact")}
+              className="text-primary font-semibold hover:text-primary/80 transition-colors"
+            >
               Call For Booking →
             </button>
           </div>
@@ -180,6 +187,7 @@ const Services = () => {
                 key={index}
                 ref={addToRefs}
                 className="group relative shrink-0 w-80 h-96 rounded-2xl overflow-hidden cursor-pointer"
+                onClick={() => router.push(`/services/${service.slug}`)}
               >
                 {/* Service Image */}
                 <div className="absolute inset-0">
