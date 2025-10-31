@@ -210,21 +210,18 @@ const Navbar = () => {
                 <div className="w-8 h-8 sm:w-12 sm:h-12 flex items-center justify-center">
                   {/* eslint-disable-next-line @next/next/no-img-element */}
                   <img
-                    src={"navlogo.png"}
+                    src={"Logo.png"}
                     alt="Logo"
                     width={60}
                     height={60}
                     className="w-full h-full object-contain"
                   />
                 </div>
-                <div className="flex items-center space-x-0.5 sm:space-x-1 ">
+                <div className="flex items-center">
                   <span
-                    className={`text-base sm:text-lg lg:text-xl tracking-wide font-serif leading-tight text-gray-900`}
+                    className={`text-base sm:text-lg lg:text-xl tracking-wide font-bold leading-tight text-gray-900`}
                   >
-                    Edu
-                  </span>
-                  <span className="text-base sm:text-lg lg:text-xl tracking-wide font-bold text-primary leading-tight">
-                    link
+                    Edu<span className="text-primary">link</span>
                   </span>
                 </div>
               </Link>

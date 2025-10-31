@@ -146,20 +146,20 @@ const Footer = () => {
         <div className="flex flex-col md:flex-row md:flex-wrap md:justify-between md:items-start gap-6 pb-6 border-b-2 border-primary/20">
           {/* Logo & Company Info */}
           <div className="flex-1 min-w-0 flex flex-col items-start mb-6 md:mb-0">
-            <div className="flex items-center space-x-3 mb-4">
-              <div className="w-12 h-12 flex items-center justify-center">
+            <div className="flex flex-col items-center  mb-4">
+              <div className="w-20 h-20 sm:w-24 sm:h-24 lg:w-28 lg:h-28 flex items-center justify-center">
                 <Image
-                  src={"/navlogo.png"}
+                  src={"/footerlogo.png"}
                   alt="Logo"
-                  width={100}
-                  height={100}
-                  className="w-full h-full object-contain"
+                  width={160}
+                  height={160}
+                  className="w-full h-full object-contain drop-shadow-lg"
                 />
               </div>
-              <div className="flex items-center space-x-1">
-                <span className="text-lg font-serif text-black">Edu</span>
-                <span className="text-lg font-bold text-primary">link</span>
-              </div>
+
+              <span className="text-base sm:text-lg lg:text-xl font-medium italic text-primary text-center drop-shadow-md">
+                Where dreams take flight
+              </span>
             </div>
             <p className="text-muted-foreground mb-6 text-sm leading-relaxed">
               At Edulink, we provide tailored support for every stage of your
