@@ -1,5 +1,5 @@
 "use client";
-import React, { useRef, useLayoutEffect } from "react";
+import React, { useRef } from "react";
 import Image from "next/image";
 import {
   FaEnvelope,
@@ -8,103 +8,11 @@ import {
   FaArrowUp,
   FaClock,
 } from "react-icons/fa";
-// import { useGSAP } from "@gsap/react";
-import gsap from "gsap";
-import { ScrollTrigger } from "gsap/ScrollTrigger";
 import Link from "next/link";
 import { NAVLINKS, tel, email } from "@/lib/index";
 
 const Footer = () => {
-  const contactRef = useRef(null);
-  const socialRef = useRef(null);
   const scrollTopRef = useRef(null);
-
-  useLayoutEffect(() => {
-    gsap.registerPlugin(ScrollTrigger);
-
-    const isMobile = window.innerWidth < 768;
-    const triggers: gsap.core.Animation[] = [];
-
-    if (contactRef.current) {
-      triggers.push(
-        gsap.fromTo(
-          contactRef.current,
-          { opacity: 0, y: 60 },
-          {
-            opacity: 1,
-            y: 0,
-            duration: isMobile ? 0.8 : 1.2,
-            ease: "power3.out",
-            scrollTrigger: {
-              trigger: contactRef.current,
-              start: isMobile ? "top 90%" : "top 85%",
-              toggleActions: "play none none none",
-            },
-          }
-        )
-      );
-    }
-    if (socialRef.current) {
-      const icons = Array.from((socialRef.current as HTMLDivElement).children);
-      triggers.push(
-        gsap.fromTo(
-          icons,
-          { opacity: 0, y: 30 },
-          {
-            opacity: 1,
-            y: 0,
-            duration: isMobile ? 0.5 : 0.8,
-            stagger: isMobile ? 0.08 : 0.15,
-            delay: isMobile ? 0.1 : 0.3,
-            ease: "power2.out",
-            scrollTrigger: {
-              trigger: socialRef.current,
-              start: isMobile ? "top 95%" : "top 90%",
-              toggleActions: "play none none none",
-            },
-          }
-        )
-      );
-    }
-    if (scrollTopRef.current) {
-      triggers.push(
-        gsap.fromTo(
-          scrollTopRef.current,
-          { opacity: 0, y: 20 },
-          {
-            opacity: 1,
-            y: 0,
-            duration: isMobile ? 0.4 : 0.7,
-            delay: isMobile ? 0.3 : 1.2,
-            ease: "power2.out",
-            scrollTrigger: {
-              trigger: scrollTopRef.current,
-              start: "top 98%",
-              toggleActions: "play none none none",
-            },
-          }
-        )
-      );
-    }
-
-    // Refresh ScrollTrigger after mount and on resize
-
-    ScrollTrigger.refresh();
-    const handleResize = () => ScrollTrigger.refresh();
-    window.addEventListener("resize", handleResize);
-
-    return () => {
-      triggers.forEach((t) => {
-        // Type guard for scrollTrigger property
-        if ("scrollTrigger" in t && t.scrollTrigger) {
-          t.scrollTrigger.kill();
-        }
-        t.kill();
-      });
-      ScrollTrigger.getAll().forEach((st) => st.kill());
-      window.removeEventListener("resize", handleResize);
-    };
-  }, []);
 
   const handleScrollTop = () => {
     window.scrollTo({ top: 0, behavior: "smooth" });
@@ -112,10 +20,7 @@ const Footer = () => {
 
   // Removed unused mounted state
   return (
-    <section
-      ref={contactRef}
-      className="bg-linear-to-br from-secondary/10 via-background to-primary/10 text-foreground pt-8 pb-4 relative overflow-hidden"
-    >
+    <section className="bg-linear-to-br from-secondary/10 via-background to-primary/10 text-foreground pt-8 pb-4 relative overflow-hidden">
       {/* Footer background image: hidden on mobile, block on md+ */}
       {/* <div
         className="hidden 2xl:block absolute inset-x-0 bottom-0 w-full h-full pointer-events-none"
@@ -165,7 +70,7 @@ const Footer = () => {
               At Edulink, we provide tailored support for every stage of your
               international education journey
             </p>
-            <div ref={socialRef} className="flex flex-col space-y-2 mt-2">
+            <div className="flex flex-col space-y-2 mt-2">
               <div className="flex space-x-4">
                 {/* <a
                   href=""
