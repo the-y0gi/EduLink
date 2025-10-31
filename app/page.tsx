@@ -5,7 +5,7 @@ import WhyChooseUS from "@/components/homepage/WhyChooseUS";
 
 const Home = () => {
   return (
-    <main className="bg-secondary/10">
+    <main>
       <Hero />
       <Services />
       <WhyChooseUS />

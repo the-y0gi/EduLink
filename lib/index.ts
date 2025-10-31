@@ -1,13 +1,14 @@
 export const NAVLINKS = [
-  { name: "About Us", path: "" },
+  { name: "About Us", path: "/about" },
   { name: "Services", path: "" },
   { name: "Courses", path: "" },
   { name: "Blogs", path: "" },
-  { name: "Contact", path: "" },
+  { name: "Contact", path: "/contact" },
 ];
 
 export const tel = ["0403 158 014"];
 export const email = "Info@edulink.com.au";
+export const address = "Level 5/12 Clarke St, Sunshine, VIC 3020";
 
 export const servicesData = [
   {
