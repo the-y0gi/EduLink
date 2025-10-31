@@ -74,17 +74,6 @@ const Navbar = () => {
   const pathname = usePathname();
   const [isScrolled, setIsScrolled] = useState(false);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
-  // Soft blue theme colors (Landing 5 as default)
-  const themeColors = {
-    textColor: "text-blue-900",
-    hoverColor: "hover:text-blue-600",
-    accentColor: "text-blue-600",
-    logoSecondary: "#3b82f6",
-    buttonBg: "bg-blue-600",
-    buttonText: "text-white",
-    buttonHover: "hover:bg-blue-800",
-    buttonBorder: "border-blue-600 hover:border-blue-800",
-  };
 
   useEffect(() => {
     const ctx = gsap.context(() => {
@@ -230,14 +219,11 @@ const Navbar = () => {
                 </div>
                 <div className="flex items-center space-x-0.5 sm:space-x-1 ">
                   <span
-                    className={`text-base sm:text-lg lg:text-xl tracking-wide font-serif leading-tight ${themeColors.textColor}`}
+                    className={`text-base sm:text-lg lg:text-xl tracking-wide font-serif leading-tight text-gray-900`}
                   >
                     Edu
                   </span>
-                  <span
-                    className="text-base sm:text-lg lg:text-xl tracking-wide font-bold leading-tight"
-                    style={{ color: themeColors.logoSecondary }}
-                  >
+                  <span className="text-base sm:text-lg lg:text-xl tracking-wide font-bold text-primary leading-tight">
                     link
                   </span>
                 </div>
@@ -253,22 +239,16 @@ const Navbar = () => {
                       <div key={link.name} className="relative group">
                         <Link
                           href={link.path}
-                          className={`nav-item relative font-sans ${
-                            themeColors.textColor
-                          } ${
-                            themeColors.hoverColor
-                          } transition-all duration-300 whitespace-nowrap flex items-center gap-1 ${
-                            pathname === link.path ? "font-bold" : ""
-                          }`}
+                          className={`nav-item relative font-sans text-gray-900 hover:text-primary
+                           transition-all duration-300 whitespace-nowrap flex items-center gap-1 ${
+                             pathname === link.path ? "font-bold" : ""
+                           }`}
                         >
                           {link.name}
                           <ChevronDown className="h-4 w-4 transition-transform duration-200 group-hover:rotate-180" />
                           {pathname === link.path && (
                             <div
-                              className={`absolute -bottom-1 left-0 w-full h-0.5 ${themeColors.accentColor.replace(
-                                "text-",
-                                "bg-"
-                              )}`}
+                              className={`absolute -bottom-1 left-0 w-full h-0.5 bg-primary`}
                             ></div>
                           )}
                         </Link>
@@ -280,13 +260,10 @@ const Navbar = () => {
                                 <Link
                                   key={index}
                                   href={`/services/${service.slug}`}
-                                  className={`block p-2 rounded-md hover:${themeColors.accentColor.replace(
-                                    "text-",
-                                    "bg-"
-                                  )}/10 border border-transparent transition-colors duration-200 group/item`}
+                                  className={`block p-2 rounded-md /10 border border-transparent transition-colors duration-200 group/item`}
                                 >
                                   <div
-                                    className={`font-medium text-sm ${themeColors.textColor} group-hover/item:${themeColors.accentColor} transition-colors`}
+                                    className={`font-medium text-sm text-gray-900 group-hover/item:text-primary transition-colors`}
                                   >
                                     {service.title}
                                   </div>
@@ -302,21 +279,14 @@ const Navbar = () => {
                     <Link
                       key={link.name}
                       href={link.path}
-                      className={`nav-item relative font-sans ${
-                        themeColors.textColor
-                      } ${
-                        themeColors.hoverColor
-                      } transition-all duration-300 whitespace-nowrap ${
+                      className={`nav-item relative font-sans text-gray-900 hover:text-primary transition-all duration-300 whitespace-nowrap ${
                         pathname === link.path ? "font-bold" : ""
                       }`}
                     >
                       {link.name}
                       {pathname === link.path && (
                         <div
-                          className={`absolute -bottom-1 left-0 w-full h-0.5 ${themeColors.accentColor.replace(
-                            "text-",
-                            "bg-"
-                          )}`}
+                          className={`absolute -bottom-1 left-0 w-full h-0.5 bg-primary`}
                         ></div>
                       )}
                     </Link>
@@ -329,7 +299,7 @@ const Navbar = () => {
             <div className="hidden lg:flex shrink-0">
               <Link
                 href="/"
-                className={`nav-item relative font-semibold px-4 py-2 rounded-lg ${themeColors.buttonBg} ${themeColors.buttonText} ${themeColors.buttonHover} hover:shadow-lg transition-all duration-300 whitespace-nowrap border-2 ${themeColors.buttonBorder}`}
+                className="nav-item relative font-semibold px-4 py-2 rounded-lg  hover:shadow-lg transition-all duration-300 whitespace-nowrap border-2 bg-secondary text-white"
               >
                 Talk to us
               </Link>
@@ -338,7 +308,7 @@ const Navbar = () => {
             {/* Mobile Menu Button */}
             <button
               onClick={toggleMobileMenu}
-              className={`lg:hidden nav-item p-2 ${themeColors.textColor} ${themeColors.hoverColor} transition-colors duration-300 ml-auto`}
+              className={`lg:hidden nav-item p-2 text-gray-900 hover:text-primary transition-colors duration-300 ml-auto`}
               aria-label="Toggle mobile menu"
             >
               {isMobileMenuOpen ? (
@@ -377,9 +347,7 @@ const Navbar = () => {
                       key={link.name}
                       href={link.path}
                       onClick={closeMobileMenu}
-                      className={`mobile-nav-item ${themeColors.textColor} ${
-                        themeColors.hoverColor
-                      } transition-all duration-300 py-2 text-base sm:text-lg whitespace-nowrap ${
+                      className={`mobile-nav-item text-gray-900 hover:text-primary transition-all duration-300 py-2 text-base sm:text-lg whitespace-nowrap ${
                         pathname === link.path
                           ? "font-semibold border-l-4 pl-4"
                           : ""
