@@ -281,7 +281,7 @@ const ServicesPage = () => {
           <div className="absolute inset-0 bg-linear-to-r from-secondary/80 to-primary/60">
             <video
               className="absolute inset-0 w-full h-full object-cover opacity-70"
-              src="/herobg.mp4"
+              src="/main.mp4"
               autoPlay
               loop
               muted
