@@ -193,7 +193,7 @@ const Navbar = () => {
         ref={navRef}
         className={`fixed top-0 z-999 w-full transition-all duration-300 ${
           isScrolled
-            ? "bg-linear-to-r from-primary/20 via-background/80 to-secondary/20 backdrop-blur-lg border-b border-primary/30 shadow-xl max-w-screen-2xl mx-auto left-0 right-0 w-[96vw]"
+            ? "bg-white/20 backdrop-blur-lg border-b border-primary/30 shadow-xl max-w-screen-2xl mx-auto left-0 right-0 w-[96vw]"
             : "w-full"
         }`}
         style={{ transformOrigin: "center top" }}
@@ -321,7 +321,7 @@ const Navbar = () => {
         {isMobileMenuOpen && (
           <div
             ref={mobileMenuRef}
-            className="lg:hidden absolute top-full left-0 right-0 bg-linear-to-b from-card/95 to-card/90 backdrop-blur-lg border-b-2 border-primary/50 shadow-xl"
+            className="lg:hidden absolute top-full left-0 right-0 bg-white/90 backdrop-blur-lg border-b-2 border-primary/50 shadow-xl"
           >
             <div className="container mx-auto px-2 sm:px-4 py-6">
               <div className="flex flex-col space-y-4">
