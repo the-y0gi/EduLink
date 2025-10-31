@@ -3,6 +3,7 @@
 import { useEffect, useRef } from "react";
 import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
+import { Target, Handshake, Star, Heart } from "lucide-react";
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -147,7 +148,16 @@ const AboutPage = () => {
         <div className="parallax-container absolute inset-0">
           <div className="parallax-bg absolute inset-0 bg-gradient-to-br from-primary/20 to-secondary/30"></div>
           {/* Placeholder for hero image/video */}
-          <div className="absolute inset-0 bg-gradient-to-r from-secondary/80 to-primary/60"></div>
+          <div className="absolute inset-0 bg-gradient-to-r from-secondary/80 to-primary/60">
+            <video
+              className="absolute inset-0 w-full h-full object-cover opacity-70"
+              src="/herobg.mp4"
+              autoPlay
+              loop
+              muted
+              playsInline
+            />
+          </div>
         </div>
 
         <div className="relative z-10 text-center text-white px-4 max-w-4xl mx-auto">
@@ -237,7 +247,7 @@ const AboutPage = () => {
           <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
             <div className="value-item bg-white rounded-xl p-8 shadow-lg hover:shadow-2xl transition-all duration-300">
               <div className="w-16 h-16 bg-primary/20 rounded-full flex items-center justify-center mb-6">
-                <span className="text-2xl">🎯</span>
+                <Target className="text-primary" size={28} />
               </div>
               <h3 className="text-xl font-bold text-secondary mb-4">
                 Excellence
@@ -250,7 +260,7 @@ const AboutPage = () => {
 
             <div className="value-item bg-white rounded-xl p-8 shadow-lg hover:shadow-2xl transition-all duration-300">
               <div className="w-16 h-16 bg-secondary/20 rounded-full flex items-center justify-center mb-6">
-                <span className="text-2xl">🤝</span>
+                <Handshake className="text-secondary" size={28} />
               </div>
               <h3 className="text-xl font-bold text-secondary mb-4">Trust</h3>
               <p className="text-foreground/70">
@@ -261,7 +271,7 @@ const AboutPage = () => {
 
             <div className="value-item bg-white rounded-xl p-8 shadow-lg hover:shadow-2xl transition-all duration-300">
               <div className="w-16 h-16 bg-primary/20 rounded-full flex items-center justify-center mb-6">
-                <span className="text-2xl">🌟</span>
+                <Star className="text-primary" size={28} />
               </div>
               <h3 className="text-xl font-bold text-secondary mb-4">
                 Innovation
@@ -273,7 +283,7 @@ const AboutPage = () => {
 
             <div className="value-item bg-white rounded-xl p-8 shadow-lg hover:shadow-2xl transition-all duration-300">
               <div className="w-16 h-16 bg-secondary/20 rounded-full flex items-center justify-center mb-6">
-                <span className="text-2xl">💚</span>
+                <Heart className="text-secondary" size={28} />
               </div>
               <h3 className="text-xl font-bold text-secondary mb-4">Care</h3>
               <p className="text-foreground/70">

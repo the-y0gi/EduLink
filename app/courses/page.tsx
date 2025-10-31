@@ -284,7 +284,16 @@ const CoursesPage = () => {
       >
         <div className="parallax-container absolute inset-0">
           <div className="parallax-bg absolute inset-0 bg-linear-to-br from-primary/20 to-secondary/30"></div>
-          <div className="absolute inset-0 bg-linear-to-r from-secondary/80 to-primary/60"></div>
+          <div className="absolute inset-0 bg-linear-to-r from-secondary/80 to-primary/60">
+            <video
+              className="absolute inset-0 w-full h-full object-cover opacity-70"
+              src="/herobg.mp4"
+              autoPlay
+              loop
+              muted
+              playsInline
+            />
+          </div>
         </div>
 
         <div className="relative z-10 text-center text-white px-4 max-w-5xl mx-auto">

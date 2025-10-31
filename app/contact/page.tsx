@@ -3,6 +3,16 @@
 import { useEffect, useRef, useState } from "react";
 import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
+import {
+  MapPin,
+  Phone,
+  Mail,
+  Globe,
+  Facebook,
+  Instagram,
+  Linkedin,
+  Music,
+} from "lucide-react";
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -200,7 +210,16 @@ const ContactPage = () => {
       >
         <div className="parallax-container absolute inset-0">
           <div className="parallax-bg absolute inset-0 bg-linear-to-br from-primary/20 to-secondary/30"></div>
-          <div className="absolute inset-0 bg-linear-to-r from-secondary/80 to-primary/60"></div>
+          <div className="absolute inset-0 bg-linear-to-r from-secondary/80 to-primary/60">
+            <video
+              className="absolute inset-0 w-full h-full object-cover opacity-70"
+              src="/herobg.mp4"
+              autoPlay
+              loop
+              muted
+              playsInline
+            />
+          </div>
         </div>
 
         <div className="relative z-10 text-center text-white px-4 max-w-4xl mx-auto">
@@ -386,7 +405,7 @@ const ContactPage = () => {
                 <div className="bg-white rounded-xl p-6 shadow-lg">
                   <h3 className="text-xl font-bold text-secondary mb-4 flex items-center">
                     <span className="w-8 h-8 bg-primary/20 rounded-full flex items-center justify-center mr-3">
-                      📍
+                      <MapPin size={18} className="text-primary" />
                     </span>
                     Our Location
                   </h3>
@@ -400,7 +419,7 @@ const ContactPage = () => {
                 <div className="bg-white rounded-xl p-6 shadow-lg">
                   <h3 className="text-xl font-bold text-secondary mb-4 flex items-center">
                     <span className="w-8 h-8 bg-primary/20 rounded-full flex items-center justify-center mr-3">
-                      📞
+                      <Phone size={18} className="text-primary" />
                     </span>
                     Phone
                   </h3>
@@ -410,7 +429,7 @@ const ContactPage = () => {
                 <div className="bg-white rounded-xl p-6 shadow-lg">
                   <h3 className="text-xl font-bold text-secondary mb-4 flex items-center">
                     <span className="w-8 h-8 bg-primary/20 rounded-full flex items-center justify-center mr-3">
-                      ✉️
+                      <Mail size={18} className="text-primary" />
                     </span>
                     Email
                   </h3>
@@ -420,7 +439,7 @@ const ContactPage = () => {
                 <div className="bg-white rounded-xl p-6 shadow-lg">
                   <h3 className="text-xl font-bold text-secondary mb-4 flex items-center">
                     <span className="w-8 h-8 bg-primary/20 rounded-full flex items-center justify-center mr-3">
-                      🌐
+                      <Globe size={18} className="text-primary" />
                     </span>
                     Website
                   </h3>
@@ -433,16 +452,16 @@ const ContactPage = () => {
                   </h3>
                   <div className="flex space-x-4">
                     <div className="w-10 h-10 bg-primary/20 rounded-full flex items-center justify-center cursor-pointer hover:bg-primary/30 transition-colors">
-                      <span>📘</span>
+                      <Facebook size={16} className="text-primary" />
                     </div>
                     <div className="w-10 h-10 bg-primary/20 rounded-full flex items-center justify-center cursor-pointer hover:bg-primary/30 transition-colors">
-                      <span>📷</span>
+                      <Instagram size={16} className="text-primary" />
                     </div>
                     <div className="w-10 h-10 bg-primary/20 rounded-full flex items-center justify-center cursor-pointer hover:bg-primary/30 transition-colors">
-                      <span>💼</span>
+                      <Linkedin size={16} className="text-primary" />
                     </div>
                     <div className="w-10 h-10 bg-primary/20 rounded-full flex items-center justify-center cursor-pointer hover:bg-primary/30 transition-colors">
-                      <span>🎵</span>
+                      <Music size={16} className="text-primary" />
                     </div>
                   </div>
                 </div>

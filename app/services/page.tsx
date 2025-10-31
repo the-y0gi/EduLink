@@ -1,10 +1,55 @@
 "use client";
 
-import { useEffect, useRef } from "react";
+import React, { useEffect, useRef } from "react";
 import { useRouter } from "next/navigation";
 import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import { servicesData } from "@/lib";
+import {
+  Target,
+  Trophy,
+  Handshake,
+  GraduationCap,
+  Briefcase,
+  Globe,
+  Zap,
+  Users,
+  Wrench,
+  MessageCircle,
+  Map,
+  FileText,
+  Clipboard,
+  Plane,
+} from "lucide-react";
+
+const ICON_MAP: Record<string, React.ComponentType<Record<string, unknown>>> = {
+  "🎯": Target,
+  "🏆": Trophy,
+  "🤝": Handshake,
+  "🎓": GraduationCap,
+  "👨‍💼": Briefcase,
+  "🌏": Globe,
+  "⚡": Zap,
+  "👨‍👩‍👧‍👦": Users,
+  "🔧": Wrench,
+  "💬": MessageCircle,
+  "🗺️": Map,
+  "📝": FileText,
+  "📋": Clipboard,
+  "✈️": Plane,
+  "💚": Handshake,
+  "💼": Briefcase,
+};
+
+const renderIcon = (
+  key: string | undefined,
+  className = "text-primary",
+  size = 20
+) => {
+  if (!key) return <Target className={className} size={size} />;
+  const Icon = ICON_MAP[key] || Target;
+  return <Icon className={className} size={size} />;
+};
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -233,7 +278,16 @@ const ServicesPage = () => {
       >
         <div className="parallax-container absolute inset-0">
           <div className="parallax-bg absolute inset-0 bg-linear-to-br from-primary/20 to-secondary/30"></div>
-          <div className="absolute inset-0 bg-linear-to-r from-secondary/80 to-primary/60"></div>
+          <div className="absolute inset-0 bg-linear-to-r from-secondary/80 to-primary/60">
+            <video
+              className="absolute inset-0 w-full h-full object-cover opacity-70"
+              src="/herobg.mp4"
+              autoPlay
+              loop
+              muted
+              playsInline
+            />
+          </div>
         </div>
 
         <div className="relative z-10 text-center text-white px-4 max-w-5xl mx-auto">
@@ -272,7 +326,7 @@ const ServicesPage = () => {
             <div className="grid md:grid-cols-3 gap-8 text-center">
               <div className="bg-white rounded-xl p-6 shadow-lg">
                 <div className="w-16 h-16 bg-primary/20 rounded-full flex items-center justify-center mx-auto mb-4">
-                  <span className="text-2xl">🎯</span>
+                  {renderIcon("🎯", "text-primary", 26)}
                 </div>
                 <h3 className="text-xl font-bold text-secondary mb-2">
                   Personalized Approach
@@ -284,7 +338,7 @@ const ServicesPage = () => {
 
               <div className="bg-white rounded-xl p-6 shadow-lg">
                 <div className="w-16 h-16 bg-secondary/20 rounded-full flex items-center justify-center mx-auto mb-4">
-                  <span className="text-2xl">🏆</span>
+                  {renderIcon("🏆", "text-secondary", 26)}
                 </div>
                 <h3 className="text-xl font-bold text-secondary mb-2">
                   Expert Guidance
@@ -297,7 +351,7 @@ const ServicesPage = () => {
 
               <div className="bg-white rounded-xl p-6 shadow-lg">
                 <div className="w-16 h-16 bg-primary/20 rounded-full flex items-center justify-center mx-auto mb-4">
-                  <span className="text-2xl">🤝</span>
+                  {renderIcon("🤝", "text-primary", 26)}
                 </div>
                 <h3 className="text-xl font-bold text-secondary mb-2">
                   End-to-End Support
@@ -329,7 +383,7 @@ const ServicesPage = () => {
                 onClick={() => router.push(`/services/${service.slug}`)}
               >
                 <div className="w-16 h-16 bg-primary/20 rounded-full flex items-center justify-center mb-6 group-hover:scale-110 transition-transform">
-                  <span className="text-2xl">{service.icon}</span>
+                  {renderIcon(service.icon, "text-primary", 24)}
                 </div>
 
                 <h3 className="text-xl font-bold text-secondary mb-4">
@@ -391,7 +445,7 @@ const ServicesPage = () => {
                 className="visa-card bg-white rounded-xl p-6 shadow-lg hover:shadow-2xl transition-all duration-300"
               >
                 <div className="w-12 h-12 bg-primary/20 rounded-full flex items-center justify-center mb-4">
-                  <span className="text-xl">{visa.icon}</span>
+                  {renderIcon(visa.icon, "text-primary", 18)}
                 </div>
 
                 <h3 className="text-lg font-bold text-secondary mb-3">
@@ -442,7 +496,7 @@ const ServicesPage = () => {
                 </div>
 
                 <div className="w-16 h-16 bg-secondary/20 rounded-full flex items-center justify-center mb-6 ml-4">
-                  <span className="text-2xl">{step.icon}</span>
+                  {renderIcon(step.icon, "text-secondary", 22)}
                 </div>
 
                 <h3 className="text-xl font-bold text-secondary mb-4">
