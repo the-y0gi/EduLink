@@ -53,7 +53,7 @@ const cardData: ExtendedBentoCardProps[] = [
   },
   {
     color: "#1f2937",
-    gradient: "linear-gradient(135deg, #4ECDC4 0%, #45b8b1 100%)",
+    gradient: "linear-gradient(135deg, var(--primary) 0%, #45b8b1 100%)",
     title: "Study Pathway Expertise",
     description:
       "We help you choose the right course, university, and country that align with your career goals — ensuring your education investment leads to real success.",
@@ -63,7 +63,8 @@ const cardData: ExtendedBentoCardProps[] = [
   },
   {
     color: "#1f2937",
-    gradient: "linear-gradient(135deg, #3b82f6 0%, #1d4ed8 100%)",
+    gradient:
+      "linear-gradient(135deg, var(--secondary) 0%, var(--secondary) 100%)",
     title: "Success Statistics",
     description: "Our proven track record speaks for itself",
     label: "Stats",
@@ -74,7 +75,7 @@ const cardData: ExtendedBentoCardProps[] = [
   },
   {
     color: "#1f2937",
-    gradient: "linear-gradient(135deg, #4ECDC4 0%, #2dd4bf 100%)",
+    gradient: "linear-gradient(135deg, var(--primary) 0%, #2dd4bf 100%)",
     title: "Career and Work Support",
     description:
       "Edulink assists with employment advice, internship connections, and post-study work opportunities to help you gain valuable global experience.",
@@ -116,7 +117,7 @@ const cardData: ExtendedBentoCardProps[] = [
   },
   {
     color: "#1f2937",
-    gradient: "linear-gradient(135deg, #4ECDC4 0%, #22d3ee 100%)",
+    gradient: "linear-gradient(135deg, var(--primary) 0%, #22d3ee 100%)",
     title: "Experience",
     description: "A decade of expertise in international education",
     label: "Trust",

@@ -5,7 +5,7 @@ import MagicBento from "@/components/ui/MagicBento";
 
 const Home = () => {
   return (
-    <main className="bg-blue-100">
+    <main className="bg-secondary/10">
       <Hero />
       <Services />
       {/* <WhyChooseUs theme="soft-blue" /> */}
@@ -13,17 +13,17 @@ const Home = () => {
         <div className="max-w-7xl mx-auto">
           <div className="text-center mb-16">
             <h2
-              className={`text-4xl md:text-5xl lg:text-6xl font-bold text-blue-900 mb-4 tracking-tight`}
+              className={`text-4xl md:text-5xl lg:text-6xl font-bold text-secondary mb-4 tracking-tight`}
             >
-              Why Choose <span className="text-[#4ECDC4]">Us</span>
+              Why Choose <span className="text-primary">Us</span>
             </h2>
             <h3
-              className={`text-2xl md:text-3xl font-semibold text-blue-800 mb-6`}
+              className={`text-2xl md:text-3xl font-semibold text-secondary/80 mb-6`}
             >
               Our Key Advantages
             </h3>
             <p
-              className={`text-lg md:text-xl text-blue-700 max-w-4xl mx-auto leading-relaxed`}
+              className={`text-lg md:text-xl text-secondary/70 max-w-4xl mx-auto leading-relaxed`}
             >
               At Edulink, we don&apos;t just connect students to institutions —
               we connect dreams to opportunities. With years of experience in

@@ -172,13 +172,13 @@ const About = () => {
   return (
     <section
       ref={containerRef}
-      className="bg-blue-50 min-h-screen overflow-hidden"
+      className="bg-secondary/10 min-h-screen overflow-hidden"
       id="about"
     >
       {/* Hero Section */}
       <div
         ref={heroRef}
-        className="relative py-20 px-4 sm:px-6 lg:px-8 bg-linear-to-br  text-white overflow-hidden"
+        className="relative py-20 px-4 sm:px-6 lg:px-8 bg-linear-to-br text-white overflow-hidden"
       >
         {/* Background Video */}
         <video
@@ -191,19 +191,19 @@ const About = () => {
         />
 
         {/* Overlay */}
-        <div className="absolute inset-0 bg-linear-to-br from-blue-900/80 via-gray-900/70 to-blue-800/80" />
+        <div className="absolute inset-0 bg-linear-to-br from-secondary/80 via-gray-900/70 to-secondary/80" />
 
         {/* Content */}
         <div className="relative z-10 max-w-7xl mx-auto">
           <div className="text-center mb-16">
             <div className="animate-fade-up">
-              <span className="inline-block px-4 py-2 bg-[#4ECDC4]/20 text-white rounded-full text-sm font-medium mb-6 backdrop-blur-sm border border-[#4ECDC4]/30">
+              <span className="inline-block px-4 py-2 bg-primary/20 text-white rounded-full text-sm font-medium mb-6 backdrop-blur-sm border border-primary/30">
                 About Edulink
               </span>
             </div>
             <h1 className="animate-fade-up text-4xl md:text-6xl lg:text-7xl font-bold mb-8 leading-tight">
-              We Are a <span className="text-[#4ECDC4]">Trusted</span> Visa and{" "}
-              <span className="text-[#4ECDC4]">Immigration</span> Agent
+              We Are a <span className="text-primary">Trusted</span> Visa and{" "}
+              <span className="text-primary">Immigration</span> Agent
             </h1>
             <p className="animate-fade-up text-xl md:text-2xl text-gray-200 max-w-4xl mx-auto leading-relaxed">
               At Edulink, we connect ambition with opportunity. Our expert team
@@ -236,8 +236,8 @@ const About = () => {
         </div>
 
         {/* Decorative Elements */}
-        <div className="absolute top-20 left-10 w-32 h-32 bg-[#4ECDC4]/10 rounded-full blur-3xl" />
-        <div className="absolute bottom-20 right-10 w-40 h-40 bg-blue-500/10 rounded-full blur-3xl" />
+        <div className="absolute top-20 left-10 w-32 h-32 bg-primary/10 rounded-full blur-3xl" />
+        <div className="absolute bottom-20 right-10 w-40 h-40 bg-secondary/10 rounded-full blur-3xl" />
       </div>
 
       {/* Mission Section */}
@@ -257,7 +257,7 @@ const About = () => {
                 <div className="absolute inset-0 bg-linear-to-t from-blue-900/50 to-transparent" />
               </div>
               {/* Floating card */}
-              <div className="absolute -bottom-8 -right-8 bg-[#4ECDC4] rounded-2xl p-6 shadow-xl max-w-xs">
+              <div className="absolute -bottom-8 -right-8 bg-primary rounded-2xl p-6 shadow-xl max-w-xs">
                 <div className="text-white">
                   <div className="text-2xl font-bold mb-1">Your Success</div>
                   <div className="text-sm opacity-90">Is Our Priority</div>
@@ -268,12 +268,12 @@ const About = () => {
             {/* Content */}
             <div className="mission-content">
               <div className="mb-8">
-                <span className="inline-block px-4 py-2 bg-[#4ECDC4]/10 text-[#4ECDC4] rounded-full text-sm font-medium mb-6">
+                <span className="inline-block px-4 py-2 bg-primary/10 text-primary rounded-full text-sm font-medium mb-6">
                   Our Mission
                 </span>
                 <h2 className="text-4xl md:text-5xl font-bold text-gray-900 mb-6 leading-tight">
                   From Your First Inquiry to Career{" "}
-                  <span className="text-[#4ECDC4]">Success</span>
+                  <span className="text-primary">Success</span>
                 </h2>
                 <p className="text-lg text-gray-700 leading-relaxed mb-8">
                   We understand that every student&apos;s journey is unique,
@@ -287,8 +287,8 @@ const About = () => {
               {/* Key Points */}
               <div className="space-y-4">
                 <div className="flex items-start gap-4">
-                  <div className="w-8 h-8 bg-[#4ECDC4]/20 rounded-full flex items-center justify-center shrink-0 mt-1">
-                    <span className="text-[#4ECDC4] font-bold text-sm">✓</span>
+                  <div className="w-8 h-8 bg-primary/20 rounded-full flex items-center justify-center shrink-0 mt-1">
+                    <span className="text-primary font-bold text-sm">✓</span>
                   </div>
                   <div>
                     <h3 className="font-semibold text-gray-900 mb-1">
@@ -301,8 +301,8 @@ const About = () => {
                   </div>
                 </div>
                 <div className="flex items-start gap-4">
-                  <div className="w-8 h-8 bg-[#4ECDC4]/20 rounded-full flex items-center justify-center shrink-0 mt-1">
-                    <span className="text-[#4ECDC4] font-bold text-sm">✓</span>
+                  <div className="w-8 h-8 bg-primary/20 rounded-full flex items-center justify-center shrink-0 mt-1">
+                    <span className="text-primary font-bold text-sm">✓</span>
                   </div>
                   <div>
                     <h3 className="font-semibold text-gray-900 mb-1">
@@ -363,23 +363,23 @@ const About = () => {
       </div> */}
 
       {/* CTA Section */}
-      <div className="py-20 px-4 sm:px-6 lg:px-8 bg-linear-to-br from-gray-900 via-blue-900 to-gray-800 text-white relative overflow-hidden">
+      <div className="py-20 px-4 sm:px-6 lg:px-8 bg-linear-to-br from-gray-900 via-secondary to-gray-800 text-white relative overflow-hidden">
         {/* Background Pattern */}
         <div className="absolute inset-0 opacity-10">
-          <div className="absolute top-0 left-0 w-96 h-96 bg-[#4ECDC4] rounded-full blur-3xl" />
-          <div className="absolute bottom-0 right-0 w-96 h-96 bg-blue-500 rounded-full blur-3xl" />
+          <div className="absolute top-0 left-0 w-96 h-96 bg-primary rounded-full blur-3xl" />
+          <div className="absolute bottom-0 right-0 w-96 h-96 bg-secondary rounded-full blur-3xl" />
         </div>
 
         <div className="relative z-10 max-w-4xl mx-auto text-center">
           <h2 className="text-4xl md:text-5xl font-bold mb-6 leading-tight">
-            Ready to Start Your <span className="text-[#4ECDC4]">Journey</span>?
+            Ready to Start Your <span className="text-primary">Journey</span>?
           </h2>
           <p className="text-xl text-gray-300 mb-10 max-w-2xl mx-auto">
             Let us help you turn your dreams of studying abroad into reality.
             Get personalized guidance from our expert team today.
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
-            <button className="bg-[#4ECDC4] hover:bg-[#45b8b1] text-white font-semibold px-8 py-4 rounded-full transition-all duration-300 text-lg hover:scale-105 hover:shadow-xl">
+            <button className="bg-primary hover:bg-primary/90 text-white font-semibold px-8 py-4 rounded-full transition-all duration-300 text-lg hover:scale-105 hover:shadow-xl">
               Get Free Consultation →
             </button>
             <button className="border-2 border-white text-white hover:bg-white hover:text-gray-900 font-semibold px-8 py-4 rounded-full transition-all duration-300 text-lg hover:scale-105">

@@ -138,18 +138,18 @@ const Services = () => {
         <div className="flex flex-col lg:flex-row lg:items-end lg:justify-between mb-12 gap-8">
           {/* Left Side - Title and Description */}
           <div className="lg:max-w-xl">
-            <div className="text-sm font-medium text-gray-500 mb-2">
+            <div className="text-sm font-medium text-secondary mb-2">
               / Services We Offer
             </div>
             <h2
               ref={titleRef}
-              className="text-4xl md:text-5xl lg:text-6xl font-bold text-black mb-6 leading-tight"
+              className="text-4xl md:text-5xl lg:text-6xl font-bold text-secondary mb-6 leading-tight"
             >
               Our Services
             </h2>
             <p
               ref={subtitleRef}
-              className="text-lg text-gray-600 leading-relaxed"
+              className="text-lg text-secondary/70 leading-relaxed"
             >
               From visa assistance to career guidance, we&apos;ve got you
               covered. <br className="hidden sm:block" />
@@ -159,10 +159,10 @@ const Services = () => {
 
           {/* Right Side - Action Buttons */}
           <div className="flex gap-4 lg:shrink-0">
-            <button className="text-[#4ECDC4] font-semibold hover:text-[#45b8b1] transition-colors">
+            <button className="text-primary font-semibold hover:text-primary/80 transition-colors">
               View All Services →
             </button>
-            <button className="text-[#4ECDC4] font-semibold hover:text-[#45b8b1] transition-colors">
+            <button className="text-primary font-semibold hover:text-primary/80 transition-colors">
               Call For Booking →
             </button>
           </div>
@@ -208,12 +208,12 @@ const Services = () => {
                 </div>
 
                 {/* Arrow Button - Positioned in bottom right corner */}
-                <button className="absolute bottom-4 right-4 z-20 w-12 h-12 bg-gray-800 group-hover:bg-[#4ECDC4] rounded-full flex items-center justify-center transition-all duration-300 group-hover:scale-110">
+                <button className="absolute bottom-4 right-4 z-20 w-12 h-12 bg-secondary group-hover:bg-primary rounded-full flex items-center justify-center transition-all duration-300 group-hover:scale-110">
                   <MoveUpRight className="w-5 h-5 text-white" />
                 </button>
 
                 {/* Hover Effects */}
-                <div className="absolute inset-0 bg-linear-to-t from-[#4ECDC4]/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+                <div className="absolute inset-0 bg-linear-to-t from-primary/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
               </div>
             ))}
           </div>
@@ -235,7 +235,7 @@ const Services = () => {
               disabled={!canScrollLeft}
               className={`w-12 h-12 rounded-full flex items-center justify-center transition-all duration-300 ${
                 canScrollLeft
-                  ? "bg-[#4ECDC4] hover:bg-[#45b8b1] text-white shadow-lg hover:shadow-xl"
+                  ? "bg-primary hover:bg-primary/80 text-white shadow-lg hover:shadow-xl"
                   : "bg-gray-200 text-gray-400 cursor-not-allowed"
               }`}
             >
@@ -246,7 +246,7 @@ const Services = () => {
               disabled={!canScrollRight}
               className={`w-12 h-12 rounded-full flex items-center justify-center transition-all duration-300 ${
                 canScrollRight
-                  ? "bg-[#4ECDC4] hover:bg-[#45b8b1] text-white shadow-lg hover:shadow-xl"
+                  ? "bg-primary hover:bg-primary/80 text-white shadow-lg hover:shadow-xl"
                   : "bg-gray-200 text-gray-400 cursor-not-allowed"
               }`}
             >

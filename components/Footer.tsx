@@ -161,7 +161,7 @@ const Footer = () => {
               </div>
               <div className="flex items-center space-x-1">
                 <span className="text-lg font-serif text-black">Edu</span>
-                <span className="text-lg font-bold text-[#4ECDC4]">link</span>
+                <span className="text-lg font-bold text-primary">link</span>
               </div>
             </div>
             <p className="text-muted-foreground mb-6 text-sm leading-relaxed">
