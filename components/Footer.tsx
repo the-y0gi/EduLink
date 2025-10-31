@@ -1,7 +1,7 @@
 "use client";
-import React, { useRef, useEffect, useState, useLayoutEffect } from "react";
+import React, { useRef, useLayoutEffect } from "react";
+import Image from "next/image";
 import {
-  FaInstagram,
   FaEnvelope,
   FaPhoneAlt,
   FaMapMarkerAlt,
@@ -110,14 +110,11 @@ const Footer = () => {
     window.scrollTo({ top: 0, behavior: "smooth" });
   };
 
-  const [mounted, setMounted] = useState(false);
-  useEffect(() => {
-    setMounted(true);
-  }, []);
+  // Removed unused mounted state
   return (
     <section
       ref={contactRef}
-      className="bg-gradient-to-br from-secondary/10 via-background to-primary/10 text-foreground pt-8 pb-4 relative overflow-hidden"
+      className="bg-linear-to-br from-secondary/10 via-background to-primary/10 text-foreground pt-8 pb-4 relative overflow-hidden"
     >
       {/* Footer background image: hidden on mobile, block on md+ */}
       {/* <div
@@ -151,8 +148,8 @@ const Footer = () => {
           <div className="flex-1 min-w-0 flex flex-col items-start mb-6 md:mb-0">
             <div className="flex items-center space-x-3 mb-4">
               <div className="w-12 h-12 flex items-center justify-center">
-                <img
-                  src={"navlogo.png"}
+                <Image
+                  src={"/navlogo.png"}
                   alt="Logo"
                   width={100}
                   height={100}
@@ -171,7 +168,7 @@ const Footer = () => {
             <div ref={socialRef} className="flex flex-col space-y-2 mt-2">
               <div className="flex space-x-4">
                 {/* <a
-                  href="https://www.instagram.com/eduvisahub.australia?igsh=MW5oMDF4aWxhcjdycA=="
+                  href=""
                   target="_blank"
                   rel="noopener noreferrer"
                   aria-label="Instagram"

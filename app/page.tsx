@@ -8,7 +8,7 @@ const Home = () => {
     <main className="bg-secondary/10">
       <Hero />
       <Services />
-      {/* <WhyChooseUs theme="soft-blue" /> */}
+
       <section className="py-20 px-4 sm:px-6 lg:px-8 bg-white">
         <div className="max-w-7xl mx-auto">
           <div className="text-center mb-16">

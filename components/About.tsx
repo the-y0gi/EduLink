@@ -135,40 +135,6 @@ const About = () => {
     };
   }, []);
 
-  const stats = [
-    { number: "1000+", label: "Students Guided", icon: "👥" },
-    { number: "95%", label: "Visa Success Rate", icon: "✅" },
-    { number: "50+", label: "Partner Universities", icon: "🎓" },
-    { number: "8+", label: "Years of Experience", icon: "⭐" },
-  ];
-
-  const values = [
-    {
-      icon: "🎯",
-      title: "Personalized Guidance",
-      description:
-        "Every student's journey is unique. We provide tailored advice and support based on your individual goals, background, and aspirations.",
-    },
-    {
-      icon: "🤝",
-      title: "Genuine Support",
-      description:
-        "From your first inquiry to your career success, we're committed to being your trusted partner every step of the way.",
-    },
-    {
-      icon: "📚",
-      title: "Expert Knowledge",
-      description:
-        "Our experienced team stays updated with the latest immigration policies, education trends, and industry requirements.",
-    },
-    {
-      icon: "🌟",
-      title: "Proven Results",
-      description:
-        "With a 95% visa success rate and thousands of happy students, our track record speaks for itself.",
-    },
-  ];
-
   return (
     <section
       ref={containerRef}
