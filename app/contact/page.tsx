@@ -4,16 +4,7 @@ import { useEffect, useRef, useState } from "react";
 import Image from "next/image";
 import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
-import {
-  MapPin,
-  Phone,
-  Mail,
-  Globe,
-  Facebook,
-  Instagram,
-  Linkedin,
-  Music,
-} from "lucide-react";
+import { MapPin, Phone, Mail } from "lucide-react";
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -225,229 +216,309 @@ const ContactPage = () => {
 
         {/* Floating Elements */}
       </section>
-      {/* Contact Form & Info Section */}
+      {/* Contact Form & Info Section - reworked for balanced modern layout */}
       <section className="py-24 px-4">
         <div className="max-w-7xl mx-auto">
-          <div className="grid lg:grid-cols-2 gap-16">
-            {/* Contact Form */}
-            <div ref={contactFormRef} className="form-container">
-              <h2 className="text-4xl font-momo text-secondary mb-8">
-                Get in Touch
-              </h2>
-              <p className="text-lg text-foreground/80 mb-8 ">
-                Ready to start your Australian journey? Fill out the form below
-                and our expert consultants will get back to you within 24 hours.
-              </p>
+          <div className="grid lg:grid-cols-12 gap-10 items-start">
+            {/* Left: Form - slightly wider */}
+            <div ref={contactFormRef} className="lg:col-span-7">
+              <div className="bg-white rounded-2xl shadow-sm border border-gray-100 p-8">
+                <h2 className="text-3xl md:text-4xl font-momo text-secondary mb-2">
+                  Get in Touch
+                </h2>
+                <p className="text-base text-foreground/80 mb-6">
+                  Ready to start your Australian journey? Fill out the form and
+                  our consultants will get back to you within 24 hours.
+                </p>
 
-              <form onSubmit={handleSubmit} className="space-y-6">
-                <div className="grid md:grid-cols-2 gap-4">
+                <form onSubmit={handleSubmit} className="space-y-4">
+                  <div className="grid md:grid-cols-2 gap-4">
+                    <div>
+                      <label
+                        htmlFor="firstName"
+                        className="block text-sm font-medium text-gray-700"
+                      >
+                        First name
+                      </label>
+                      <input
+                        id="firstName"
+                        name="firstName"
+                        value={formData.firstName}
+                        onChange={handleInputChange}
+                        required
+                        className="mt-1 block w-full rounded-lg border border-gray-200 px-4 py-3 shadow-sm focus:outline-none focus:ring-2 focus:ring-primary"
+                        placeholder="John"
+                      />
+                    </div>
+                    <div>
+                      <label
+                        htmlFor="lastName"
+                        className="block text-sm font-medium text-gray-700"
+                      >
+                        Last name
+                      </label>
+                      <input
+                        id="lastName"
+                        name="lastName"
+                        value={formData.lastName}
+                        onChange={handleInputChange}
+                        required
+                        className="mt-1 block w-full rounded-lg border border-gray-200 px-4 py-3 shadow-sm focus:outline-none focus:ring-2 focus:ring-primary"
+                        placeholder="Doe"
+                      />
+                    </div>
+                  </div>
+
                   <div>
-                    <label className="block text-secondary font-semibold mb-2">
-                      First Name *
+                    <label
+                      htmlFor="email"
+                      className="block text-sm font-medium text-gray-700"
+                    >
+                      Email
                     </label>
                     <input
-                      type="text"
-                      name="firstName"
-                      value={formData.firstName}
+                      id="email"
+                      name="email"
+                      type="email"
+                      value={formData.email}
                       onChange={handleInputChange}
                       required
-                      className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary focus:border-transparent transition-all duration-300"
-                      placeholder="Enter your first name"
+                      className="mt-1 block w-full rounded-lg border border-gray-200 px-4 py-3 shadow-sm focus:outline-none focus:ring-2 focus:ring-primary"
+                      placeholder="you@email.com"
                     />
                   </div>
+
+                  <div className="grid md:grid-cols-2 gap-4">
+                    <div>
+                      <label
+                        htmlFor="phone"
+                        className="block text-sm font-medium text-gray-700"
+                      >
+                        Phone
+                      </label>
+                      <input
+                        id="phone"
+                        name="phone"
+                        type="tel"
+                        value={formData.phone}
+                        onChange={handleInputChange}
+                        required
+                        className="mt-1 block w-full rounded-lg border border-gray-200 px-4 py-3 shadow-sm focus:outline-none focus:ring-2 focus:ring-primary"
+                        placeholder="(+61) 4xx xxx xxx"
+                      />
+                    </div>
+                    <div>
+                      <label
+                        htmlFor="country"
+                        className="block text-sm font-medium text-gray-700"
+                      >
+                        Country
+                      </label>
+                      <input
+                        id="country"
+                        name="country"
+                        value={formData.country}
+                        onChange={handleInputChange}
+                        required
+                        className="mt-1 block w-full rounded-lg border border-gray-200 px-4 py-3 shadow-sm focus:outline-none focus:ring-2 focus:ring-primary"
+                        placeholder="India"
+                      />
+                    </div>
+                  </div>
+
+                  <div className="grid md:grid-cols-2 gap-4">
+                    <div>
+                      <label
+                        htmlFor="course"
+                        className="block text-sm font-medium text-gray-700"
+                      >
+                        Intended course / level
+                      </label>
+                      <select
+                        id="course"
+                        name="course"
+                        value={formData.course}
+                        onChange={handleInputChange}
+                        required
+                        className="mt-1 block w-full rounded-lg border border-gray-200 px-4 py-3 bg-white shadow-sm focus:outline-none focus:ring-2 focus:ring-primary"
+                      >
+                        <option value="">Select</option>
+                        {courseCategories.map((category) => (
+                          <option key={category} value={category}>
+                            {category}
+                          </option>
+                        ))}
+                      </select>
+                    </div>
+                    <div>
+                      <label
+                        htmlFor="city"
+                        className="block text-sm font-medium text-gray-700"
+                      >
+                        Preferred city
+                      </label>
+                      <select
+                        id="city"
+                        name="city"
+                        value={formData.city}
+                        onChange={handleInputChange}
+                        required
+                        className="mt-1 block w-full rounded-lg border border-gray-200 px-4 py-3 bg-white shadow-sm focus:outline-none focus:ring-2 focus:ring-primary"
+                      >
+                        <option value="">Select</option>
+                        {australianCities.map((city) => (
+                          <option key={city.name} value={city.name}>
+                            {city.name}
+                          </option>
+                        ))}
+                      </select>
+                    </div>
+                  </div>
+
                   <div>
-                    <label className="block text-secondary font-semibold mb-2">
-                      Last Name *
+                    <label
+                      htmlFor="message"
+                      className="block text-sm font-medium text-gray-700"
+                    >
+                      Message
                     </label>
-                    <input
-                      type="text"
-                      name="lastName"
-                      value={formData.lastName}
+                    <textarea
+                      id="message"
+                      name="message"
+                      value={formData.message}
                       onChange={handleInputChange}
-                      required
-                      className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary focus:border-transparent transition-all duration-300"
-                      placeholder="Enter your last name"
+                      rows={5}
+                      className="mt-1 block w-full rounded-lg border border-gray-200 px-4 py-3 shadow-sm focus:outline-none focus:ring-2 focus:ring-primary"
+                      placeholder="How can we help?"
                     />
                   </div>
-                </div>
 
-                <div>
-                  <label className="block text-secondary font-semibold mb-2">
-                    Email *
-                  </label>
-                  <input
-                    type="email"
-                    name="email"
-                    value={formData.email}
-                    onChange={handleInputChange}
-                    required
-                    className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary focus:border-transparent transition-all duration-300"
-                    placeholder="Enter your email address"
-                  />
-                </div>
-
-                <div>
-                  <label className="block text-secondary font-semibold mb-2">
-                    Phone Number *
-                  </label>
-                  <input
-                    type="tel"
-                    name="phone"
-                    value={formData.phone}
-                    onChange={handleInputChange}
-                    required
-                    className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary focus:border-transparent transition-all duration-300"
-                    placeholder="Enter your phone number"
-                  />
-                </div>
-
-                <div>
-                  <label className="block text-secondary font-semibold mb-2">
-                    Country of Residence *
-                  </label>
-                  <input
-                    type="text"
-                    name="country"
-                    value={formData.country}
-                    onChange={handleInputChange}
-                    required
-                    className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary focus:border-transparent transition-all duration-300"
-                    placeholder="Enter your country"
-                  />
-                </div>
-
-                <div>
-                  <label className="block text-secondary font-semibold mb-2">
-                    Intended Course / Level of Study *
-                  </label>
-                  <select
-                    name="course"
-                    value={formData.course}
-                    onChange={handleInputChange}
-                    required
-                    className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary focus:border-transparent transition-all duration-300"
-                  >
-                    <option value="">Select your intended course level</option>
-                    {courseCategories.map((category) => (
-                      <option key={category} value={category}>
-                        {category}
-                      </option>
-                    ))}
-                  </select>
-                </div>
-
-                <div>
-                  <label className="block text-secondary font-semibold mb-2">
-                    Preferred City in Australia *
-                  </label>
-                  <select
-                    name="city"
-                    value={formData.city}
-                    onChange={handleInputChange}
-                    required
-                    className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary focus:border-transparent transition-all duration-300"
-                  >
-                    <option value="">Select your preferred city</option>
-                    {australianCities.map((city) => (
-                      <option key={city.name} value={city.name}>
-                        {city.name}
-                      </option>
-                    ))}
-                  </select>
-                </div>
-
-                <div>
-                  <label className="block text-secondary font-semibold mb-2">
-                    Message / Questions
-                  </label>
-                  <textarea
-                    name="message"
-                    value={formData.message}
-                    onChange={handleInputChange}
-                    rows={4}
-                    className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary focus:border-transparent transition-all duration-300"
-                    placeholder="Tell us about your goals and any questions you have..."
-                  />
-                </div>
-
-                <button
-                  type="submit"
-                  className="w-full bg-primary text-white py-4 px-6 rounded-lg font-semibold text-lg hover:bg-primary/90 transition-all duration-300 transform hover:scale-105"
-                >
-                  Send Message
-                </button>
-              </form>
-            </div>
-
-            {/* Contact Information */}
-            <div ref={contactInfoRef} className="contact-info">
-              <h2 className="text-4xl font-momo text-secondary mb-8">
-                Contact Information
-              </h2>
-
-              <div className="space-y-8">
-                <div className="bg-white rounded-xl p-6 shadow-lg">
-                  <h3 className="text-xl font-bold text-secondary mb-4 flex items-center">
-                    <span className="w-8 h-8 bg-primary/20 rounded-full flex items-center justify-center mr-3">
-                      <MapPin size={18} className="text-primary" />
-                    </span>
-                    Our Location
-                  </h3>
-                  <p className="text-foreground/80">
-                    Level 5/12 Clarke St, Sunshine, VIC 3020
-                    <br />
-                    Melbourne, Australia
-                  </p>
-                </div>
-
-                <div className="bg-white rounded-xl p-6 shadow-lg">
-                  <h3 className="text-xl font-bold text-secondary mb-4 flex items-center">
-                    <span className="w-8 h-8 bg-primary/20 rounded-full flex items-center justify-center mr-3">
-                      <Phone size={18} className="text-primary" />
-                    </span>
-                    Phone
-                  </h3>
-                  <p className="text-foreground/80">(+61) 403 158 014</p>
-                </div>
-
-                <div className="bg-white rounded-xl p-6 shadow-lg">
-                  <h3 className="text-xl font-bold text-secondary mb-4 flex items-center">
-                    <span className="w-8 h-8 bg-primary/20 rounded-full flex items-center justify-center mr-3">
-                      <Mail size={18} className="text-primary" />
-                    </span>
-                    Email
-                  </h3>
-                  <p className="text-foreground/80">Info@edulink.com.au</p>
-                </div>
-
-                <div className="bg-white rounded-xl p-6 shadow-lg">
-                  <h3 className="text-xl font-bold text-secondary mb-4 flex items-center">
-                    <span className="w-8 h-8 bg-primary/20 rounded-full flex items-center justify-center mr-3">
-                      <Globe size={18} className="text-primary" />
-                    </span>
-                    Website
-                  </h3>
-                  <p className="text-foreground/80">https://edulink.com.au</p>
-                </div>
-
-                <div className="bg-white rounded-xl p-6 shadow-lg">
-                  <h3 className="text-xl font-bold text-secondary mb-4">
-                    Follow Us
-                  </h3>
-                  <div className="flex space-x-4">
-                    <div className="w-10 h-10 bg-primary/20 rounded-full flex items-center justify-center cursor-pointer hover:bg-primary/30 transition-colors">
-                      <Facebook size={16} className="text-primary" />
-                    </div>
-                    <div className="w-10 h-10 bg-primary/20 rounded-full flex items-center justify-center cursor-pointer hover:bg-primary/30 transition-colors">
-                      <Instagram size={16} className="text-primary" />
-                    </div>
-                    <div className="w-10 h-10 bg-primary/20 rounded-full flex items-center justify-center cursor-pointer hover:bg-primary/30 transition-colors">
-                      <Linkedin size={16} className="text-primary" />
-                    </div>
+                  <div className="flex items-center justify-between gap-4">
+                    <button
+                      type="submit"
+                      className="inline-flex items-center justify-center rounded-lg bg-primary px-6 py-3 text-white font-semibold shadow hover:bg-primary/90 transition"
+                    >
+                      Send message
+                    </button>
+                    <p className="text-sm text-foreground/70">
+                      We will respond within 24 hours
+                    </p>
                   </div>
-                </div>
+                </form>
               </div>
             </div>
+
+            {/* Right: Contact details - clean and balanced */}
+            <aside ref={contactInfoRef} className="lg:col-span-5">
+              <div className="sticky top-28 space-y-6">
+                {/* Main contact card */}
+                <div className="bg-white rounded-2xl p-8 border border-gray-100 shadow-sm">
+                  <h2 className="text-2xl font-momo text-secondary mb-6">
+                    Contact Information
+                  </h2>
+
+                  {/* Phone */}
+                  <div className="flex items-start gap-4 mb-6">
+                    <span className="inline-flex items-center justify-center w-12 h-12 rounded-lg bg-primary/10 text-primary">
+                      <Phone size={20} />
+                    </span>
+                    <div className="flex-1">
+                      <h3 className="font-semibold text-gray-900 mb-1">
+                        Phone
+                      </h3>
+                      <a
+                        href="tel:+61403158014"
+                        className="text-lg text-primary font-medium hover:underline"
+                      >
+                        (+61) 403 158 014
+                      </a>
+                      <p className="text-sm text-gray-600 mt-1">
+                        Available Mon-Fri, 9:00 AM - 5:00 PM
+                      </p>
+                    </div>
+                  </div>
+
+                  {/* Email */}
+                  <div className="flex items-start gap-4 mb-6">
+                    <span className="inline-flex items-center justify-center w-12 h-12 rounded-lg bg-primary/10 text-primary">
+                      <Mail size={20} />
+                    </span>
+                    <div className="flex-1">
+                      <h3 className="font-semibold text-gray-900 mb-1">
+                        Email
+                      </h3>
+                      <a
+                        href="mailto:info@edulink.com.au"
+                        className="text-lg text-primary font-medium hover:underline"
+                      >
+                        info@edulink.com.au
+                      </a>
+                      <p className="text-sm text-gray-600 mt-1">
+                        We respond within 24 hours
+                      </p>
+                    </div>
+                  </div>
+
+                  {/* Address */}
+                  <div className="flex items-start gap-4 mb-8">
+                    <span className="inline-flex items-center justify-center w-12 h-12 rounded-lg bg-primary/10 text-primary">
+                      <MapPin size={20} />
+                    </span>
+                    <div className="flex-1">
+                      <h3 className="font-semibold text-gray-900 mb-1">
+                        Visit Us
+                      </h3>
+                      <p className="text-gray-700 mb-1">
+                        Level 5/12 Clarke St, Sunshine
+                      </p>
+                      <p className="text-gray-700 mb-3">
+                        Melbourne, VIC 3020, Australia
+                      </p>
+                      <a
+                        href="https://www.google.com/maps/search/?api=1&query=Level+5%2F12+Clarke+St+Sunshine+VIC+3020"
+                        target="_blank"
+                        rel="noreferrer"
+                        className="inline-flex items-center gap-2 text-primary font-medium hover:underline"
+                      >
+                        Get directions →
+                      </a>
+                    </div>
+                  </div>
+
+                  {/* CTA Button */}
+                  <div className="pt-6 border-t border-gray-100">
+                    <a
+                      href="tel:+61403158014"
+                      className="w-full inline-flex items-center justify-center gap-2 bg-primary text-white font-semibold py-3 px-6 rounded-lg hover:bg-primary/90 transition"
+                    >
+                      <Phone size={18} />
+                      Call Now for Free Consultation
+                    </a>
+                  </div>
+                </div>
+
+                {/* Quick info card */}
+                <div className="bg-linear-to-br from-primary/5 to-secondary/5 rounded-2xl p-6 border border-gray-100">
+                  <h3 className="font-semibold text-secondary mb-3">
+                    Why Choose EduLink?
+                  </h3>
+                  <ul className="space-y-2 text-sm text-gray-700">
+                    <li className="flex items-center gap-2">
+                      <span className="w-2 h-2 bg-primary rounded-full"></span>
+                      Expert guidance from certified counselors
+                    </li>
+                    <li className="flex items-center gap-2">
+                      <span className="w-2 h-2 bg-primary rounded-full"></span>
+                      100% success rate in visa approvals
+                    </li>
+                    <li className="flex items-center gap-2">
+                      <span className="w-2 h-2 bg-primary rounded-full"></span>
+                      Free consultation & career assessment
+                    </li>
+                  </ul>
+                </div>
+              </div>
+            </aside>
           </div>
         </div>
       </section>
