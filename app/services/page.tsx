@@ -374,46 +374,36 @@ const ServicesPage = () => {
             {servicesData.map((service) => (
               <div
                 key={service.id}
-                className="service-card bg-white rounded-xl p-8 shadow-lg hover:shadow-2xl transition-all duration-300 group cursor-pointer"
+                className="relative overflow-hidden rounded-xl shadow-lg cursor-pointer group"
                 onClick={() => router.push(`/services/${service.slug}`)}
+                role="button"
+                aria-label={`Open ${service.title}`}
               >
-                <div className="w-16 h-16 bg-primary/20 rounded-full flex items-center justify-center mb-6 group-hover:scale-110 transition-transform">
-                  {renderIcon(service.icon, "text-primary", 24)}
-                </div>
+                {/* image */}
+                <img
+                  src={service.image}
+                  alt={service.title}
+                  className="w-full h-56 object-cover block"
+                />
 
-                <h3 className="text-xl font-bold text-secondary mb-4">
-                  {service.title}
-                </h3>
-                <p className="text-foreground/70 mb-6 leading-relaxed">
-                  {service.description}
-                </p>
+                {/* overlay gradient */}
+                <div className="absolute inset-0 bg-linear-to-t from-black/40 to-transparent pointer-events-none"></div>
 
-                <div className="space-y-2">
-                  {service.features.slice(0, 5).map((feature, idx) => (
-                    <div key={idx} className="flex items-center space-x-2">
-                      <div className="w-2 h-2 bg-primary rounded-full"></div>
-                      <span className="text-sm text-foreground/70">
-                        {feature}
-                      </span>
+                {/* title pinned to bottom */}
+                <div className="absolute left-4 right-4 bottom-4 flex items-center justify-between">
+                  <h3 className="text-lg font-bold text-white drop-shadow-md">
+                    {service.title}
+                  </h3>
+
+                  {/* hidden on idle - shown on hover */}
+                  <div className="opacity-0 translate-y-2 group-hover:opacity-100 group-hover:translate-y-0 transition-all duration-300 flex items-center space-x-3">
+                    <div className="w-10 h-10 bg-white/90 rounded-full flex items-center justify-center text-primary shadow">
+                      {renderIcon(service.icon, "text-primary", 18)}
                     </div>
-                  ))}
-                  {service.features.length > 5 && (
-                    <div className="flex items-center space-x-2">
-                      <div className="w-2 h-2 bg-secondary rounded-full"></div>
-                      <span className="text-sm text-foreground/70 font-semibold">
-                        +{service.features.length - 5} more features
-                      </span>
-                    </div>
-                  )}
-                </div>
-
-                <div className="mt-6 flex items-center justify-between">
-                  <span className="text-primary/70 text-sm">
-                    {service.duration}
-                  </span>
-                  <button className="text-primary font-semibold hover:text-secondary transition-colors group-hover:translate-x-2 transform duration-300">
-                    Learn More →
-                  </button>
+                    <span className="hidden sm:inline text-sm font-semibold text-white/95">
+                      Learn more →
+                    </span>
+                  </div>
                 </div>
               </div>
             ))}
