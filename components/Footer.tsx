@@ -196,15 +196,20 @@ const Footer = () => {
             </h3>
             <div className="w-full h-56 rounded-lg overflow-hidden shadow-lg border-2 border-primary/20 hover:border-primary/40 transition-colors">
               <iframe
-                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3154.9679541892647!2d144.83274337663932!3d-37.78354597197186!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x6ad65f90b6c3e7e9%3A0x8d4b9e2e7a6f8f7!2s12%20Clarke%20St%2C%20Sunshine%20VIC%203020%2C%20Australia!5e0!3m2!1sen!2s!4v1699282800000!5m2!1sen!2s"
-                width="100%"
-                height="100%"
-                style={{ border: 0 }}
+                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3154.9679541892647!2d144.83274337663932!3d-37.78354597197186!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x6ad65f90b6c3e7e9%3A0x8d4b9e2e7a6f8f7!2s12%20Clarke%20St%2C%20Sunshine%20VIC%203020%2C%20Australia!5e0!3m2!1sen!2s!4v1699282800000!5m2!1sen!2s&output=embed"
+                width="800"
+                height="600"
+                style={{
+                  border: 0,
+                  width: "100%",
+                  height: "100%",
+                  imageRendering: "-webkit-optimize-contrast",
+                }}
                 allowFullScreen
                 loading="lazy"
                 referrerPolicy="no-referrer-when-downgrade"
                 title="Edulink Office Location"
-                className="grayscale hover:grayscale-0 transition-all duration-500"
+                className="transition-all duration-300"
               ></iframe>
             </div>
             <div className="mt-3">
