@@ -285,18 +285,18 @@ const ServicePage = ({ params }: ServicePageProps) => {
         </div>
       </section>
 
-      {/* Features & What We Provide */}
+      {/* Key Features */}
       <section
         ref={featuresRef}
         className="py-24 px-4 bg-linear-to-b from-primary/5 to-background"
       >
         <div className="max-w-7xl mx-auto">
           <h2 className="text-4xl font-bold text-center text-secondary mb-16">
-            What We Provide
+            Key Features
           </h2>
 
-          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
-            {service.features.map((feature, index) => (
+          <div className="grid md:grid-cols-2 gap-8">
+            {service.keyFeatures.map((feature, index) => (
               <div
                 key={index}
                 className="feature-item bg-white rounded-xl p-6 shadow-lg hover:shadow-xl transition-all duration-300 group"
@@ -305,7 +305,7 @@ const ServicePage = ({ params }: ServicePageProps) => {
                   <div className="w-8 h-8 bg-primary/20 rounded-full flex items-center justify-center mt-1 group-hover:scale-110 transition-transform">
                     <div className="w-3 h-3 bg-primary rounded-full"></div>
                   </div>
-                  <span className="text-foreground/80 leading-relaxed">
+                  <span className="text-foreground/80 leading-relaxed font-medium">
                     {feature}
                   </span>
                 </div>
@@ -367,6 +367,31 @@ const ServicePage = ({ params }: ServicePageProps) => {
                 </div>
                 <span className="text-foreground/80 leading-relaxed font-medium">
                   {benefit}
+                </span>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* Why Choose Us */}
+      <section className="py-24 px-4">
+        <div className="max-w-6xl mx-auto">
+          <h2 className="text-4xl font-bold text-center text-secondary mb-16">
+            Why Choose Us
+          </h2>
+
+          <div className="grid md:grid-cols-2 gap-8">
+            {service.whyChooseUs.map((reason, index) => (
+              <div
+                key={index}
+                className="flex items-start space-x-4 bg-white rounded-xl p-6 shadow-lg hover:shadow-xl transition-all duration-300"
+              >
+                <div className="w-8 h-8 bg-primary/20 rounded-full flex items-center justify-center mt-1">
+                  <span className="text-lg">★</span>
+                </div>
+                <span className="text-foreground/80 leading-relaxed font-medium">
+                  {reason}
                 </span>
               </div>
             ))}
