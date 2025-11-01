@@ -6,6 +6,52 @@ import Image from "next/image";
 import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import { servicesData, ServiceData } from "@/lib";
+import {
+  Target,
+  Trophy,
+  Handshake,
+  GraduationCap,
+  Briefcase,
+  Globe,
+  Zap,
+  Users,
+  Wrench,
+  MessageCircle,
+  Map,
+  FileText,
+  Clipboard,
+  Plane,
+} from "lucide-react";
+
+const ICON_MAP: Record<string, React.ComponentType<Record<string, unknown>>> = {
+  "🎯": Target,
+  "🏆": Trophy,
+  "🤝": Handshake,
+  "🎓": GraduationCap,
+  "👨‍💼": Briefcase,
+  "🌏": Globe,
+  "⚡": Zap,
+  "👨‍👩‍👧‍👦": Users,
+  "🔧": Wrench,
+  "💬": MessageCircle,
+  "🗺️": Map,
+  "📝": FileText,
+  "📋": Clipboard,
+  "✈️": Plane,
+  "💚": Handshake,
+  "💼": Briefcase,
+  "🏠": Target,
+};
+
+const renderIcon = (
+  key: string | undefined,
+  className = "text-white",
+  size = 24
+) => {
+  if (!key) return <Target className={className} size={size} />;
+  const Icon = ICON_MAP[key] || Target;
+  return <Icon className={className} size={size} />;
+};
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -170,56 +216,39 @@ const ServicePage = ({ params }: ServicePageProps) => {
       {/* Hero Section */}
       <section
         ref={heroRef}
-        className="relative min-h-screen flex items-center justify-center overflow-hidden"
+        className="h-screen flex items-center justify-center overflow-hidden"
       >
-        <div className="parallax-container absolute inset-0">
-          <div className="parallax-bg absolute inset-0 bg-linear-to-br from-primary/20 to-secondary/30"></div>
-          <div className="absolute inset-0 bg-linear-to-r from-secondary/70 to-primary/50"></div>
-        </div>
+        <div className="hero-card relative h-[80vh] rounded-2xl w-[90vw] flex flex-col overflow-hidden">
+          {/* Image Background for Card */}
+          <Image
+            src={service.image}
+            alt={service.title}
+            fill
+            className="absolute inset-0 w-full h-full object-cover z-0"
+            priority
+          />
+          {/* Overlay on image */}
+          <div className="absolute inset-0 bg-linear-to-br from-secondary/60 via-black/40 to-primary/50 z-10 pointer-events-none" />
 
-        <div className="relative z-10 max-w-7xl mx-auto px-4 grid lg:grid-cols-2 gap-12 items-center">
-          <div className="text-white">
-            <div className="flex items-center mb-6">
-              <span className="text-4xl mr-4">{service.icon}</span>
-              <span className="bg-white/20 text-white px-4 py-2 rounded-full text-sm font-semibold">
+          {/* Content Section */}
+          <div className="relative z-20 flex flex-col items-center justify-center h-full text-center px-6 max-w-4xl mx-auto">
+            {/* Lucide Icon at top */}
+            <div className="hero-title mb-8">
+              <div className="w-20 h-20 bg-white/20 rounded-full flex items-center justify-center mx-auto mb-6 backdrop-blur-sm">
+                {renderIcon(service.icon, "text-white", 32)}
+              </div>
+              <span className="bg-white/20 text-white px-4 py-2 rounded-full text-sm font-semibold backdrop-blur-sm">
                 {service.duration}
               </span>
             </div>
 
-            <h1 className="hero-title text-5xl md:text-6xl font-bold mb-6 leading-tight">
+            <h1 className="hero-title text-4xl md:text-6xl lg:text-7xl font-momo text-white mb-6 leading-tight">
               {service.title}
             </h1>
 
-            <p className="hero-subtitle text-xl leading-relaxed mb-8 opacity-90">
+            <p className="hero-subtitle text-lg md:text-xl text-gray-200 mb-10 max-w-2xl font-normal leading-relaxed">
               {service.description}
             </p>
-
-            <div className="flex flex-col sm:flex-row gap-4">
-              <button className="bg-white text-secondary px-8 py-4 rounded-full font-semibold hover:bg-gray-100 transition-all duration-300 transform hover:scale-105">
-                Get Started Today
-              </button>
-              <button className="border-2 border-white text-white px-8 py-4 rounded-full font-semibold hover:bg-white hover:text-secondary transition-all duration-300">
-                Learn More
-              </button>
-            </div>
-          </div>
-
-          <div className="hero-image">
-            <div className="aspect-square bg-white/10 rounded-2xl backdrop-blur-sm border border-white/20 flex items-center justify-center overflow-hidden">
-              <Image
-                src={service.image}
-                alt={service.title}
-                width={500}
-                height={500}
-                className="w-full h-full object-cover rounded-2xl"
-                onError={() => {
-                  // Handle error with fallback
-                  console.log(`Failed to load image: ${service.image}`);
-                }}
-                placeholder="blur"
-                blurDataURL="data:image/jpeg;base64,/9j/4AAQSkZJRgABAQAAAQABAAD/2wBDAAYEBQYFBAYGBQYHBwYIChAKCgkJChQODwwQFxQYGBcUFhYaHSUfGhsjHBYWICwgIyYnKSopGR8tMC0oMCUoKSj/2wBDAQcHBwoIChMKChMoGhYaKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCj/wAARCAABAAEDASIAAhEBAxEB/8QAFQABAQAAAAAAAAAAAAAAAAAAAAv/xAAUEAEAAAAAAAAAAAAAAAAAAAAA/8QAFQEBAQAAAAAAAAAAAAAAAAAAAAX/xAAUEQEAAAAAAAAAAAAAAAAAAAAA/9oADAMBAAIRAxEAPwCdABmX/9k="
-              />
-            </div>
           </div>
         </div>
       </section>
@@ -373,27 +402,6 @@ const ServicePage = ({ params }: ServicePageProps) => {
                 </span>
               </div>
             ))}
-          </div>
-        </div>
-      </section>
-
-      {/* Call to Action */}
-      <section className="py-24 px-4 bg-linear-to-r from-secondary to-primary">
-        <div className="max-w-4xl mx-auto text-center text-white">
-          <h2 className="text-4xl font-bold mb-8">Ready to Get Started?</h2>
-          <p className="text-xl mb-12 leading-relaxed opacity-90">
-            Take the next step in your Australian journey. Our expert team is
-            ready to provide personalized {service.title.toLowerCase()} tailored
-            to your unique needs and goals.
-          </p>
-
-          <div className="flex flex-col sm:flex-row gap-6 justify-center">
-            <button className="bg-white text-secondary px-8 py-4 rounded-full text-lg font-semibold hover:bg-gray-100 transition-all duration-300 transform hover:scale-105">
-              Book Free Consultation
-            </button>
-            <button className="border-2 border-white text-white px-8 py-4 rounded-full text-lg font-semibold hover:bg-white hover:text-secondary transition-all duration-300 transform hover:scale-105">
-              Contact Our Team
-            </button>
           </div>
         </div>
       </section>
