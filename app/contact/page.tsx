@@ -321,7 +321,7 @@ const ContactPage = () => {
                         onChange={handleInputChange}
                         required
                         className="mt-1 block w-full rounded-lg border border-gray-200 px-4 py-3 shadow-sm focus:outline-none focus:ring-2 focus:ring-primary"
-                        placeholder="India"
+                        placeholder="Country"
                       />
                     </div>
                   </div>
