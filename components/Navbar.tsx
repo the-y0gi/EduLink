@@ -76,6 +76,35 @@ const Navbar = () => {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
 
   useEffect(() => {
+    // Check initial scroll position
+    const checkInitialScroll = () => {
+      const scrollY = window.scrollY;
+      const shouldBeScrolled = scrollY > 50;
+      setIsScrolled(shouldBeScrolled);
+
+      // Apply initial transforms based on scroll position
+      if (navRef.current) {
+        if (shouldBeScrolled) {
+          gsap.set(navRef.current, {
+            scale: 0.9,
+            y: 16,
+            borderRadius: "50px",
+            transformOrigin: "center top",
+          });
+        } else {
+          gsap.set(navRef.current, {
+            scale: 1,
+            y: 0,
+            borderRadius: "0px",
+            transformOrigin: "center top",
+          });
+        }
+      }
+    };
+
+    // Check initial state immediately
+    checkInitialScroll();
+
     const ctx = gsap.context(() => {
       gsap.fromTo(
         ".nav-item",
@@ -90,15 +119,15 @@ const Navbar = () => {
         }
       );
 
-      ScrollTrigger.create({
-        trigger: "body",
-        start: "top -50px",
-        end: "bottom bottom",
-        onUpdate: (self) => {
-          const isScrolledNow = self.progress > 0;
-          setIsScrolled(isScrolledNow);
+      // Native scroll event handler for more reliable detection
+      const handleScroll = () => {
+        const scrollY = window.scrollY;
+        const shouldBeScrolled = scrollY > 50;
 
-          if (isScrolledNow) {
+        if (shouldBeScrolled !== isScrolled) {
+          setIsScrolled(shouldBeScrolled);
+
+          if (shouldBeScrolled) {
             gsap.to(navRef.current, {
               scale: 0.9,
               y: 16,
@@ -117,12 +146,93 @@ const Navbar = () => {
               transformOrigin: "center top",
             });
           }
+        }
+      };
+
+      // Add scroll event listener
+      window.addEventListener("scroll", handleScroll, { passive: true });
+
+      // Also keep ScrollTrigger for additional reliability
+      ScrollTrigger.create({
+        trigger: "body",
+        start: "top -50px",
+        end: "bottom bottom",
+        onUpdate: (self) => {
+          const isScrolledNow = self.progress > 0;
+
+          if (isScrolledNow !== isScrolled) {
+            setIsScrolled(isScrolledNow);
+
+            if (isScrolledNow) {
+              gsap.to(navRef.current, {
+                scale: 0.9,
+                y: 16,
+                borderRadius: "50px",
+                duration: 0.25,
+                ease: "power2.out",
+                transformOrigin: "center top",
+              });
+            } else {
+              gsap.to(navRef.current, {
+                scale: 1,
+                y: 0,
+                borderRadius: "0px",
+                duration: 0.25,
+                ease: "power2.out",
+                transformOrigin: "center top",
+              });
+            }
+          }
         },
+        refreshPriority: -1,
       });
+
+      // Refresh ScrollTrigger after a short delay to ensure proper setup
+      const refreshTimeout = setTimeout(() => {
+        ScrollTrigger.refresh();
+        checkInitialScroll(); // Double-check the state
+      }, 100);
+
+      return () => {
+        window.removeEventListener("scroll", handleScroll);
+        clearTimeout(refreshTimeout);
+      };
     }, navRef);
 
     return () => ctx.revert();
-  }, []);
+  }, [isScrolled]); // Add isScrolled as dependency to prevent stale state
+
+  // Handle route changes - reset scroll state
+  useEffect(() => {
+    const checkScrollOnRouteChange = () => {
+      setTimeout(() => {
+        const scrollY = window.scrollY;
+        const shouldBeScrolled = scrollY > 50;
+        setIsScrolled(shouldBeScrolled);
+
+        if (navRef.current) {
+          if (shouldBeScrolled) {
+            gsap.set(navRef.current, {
+              scale: 0.9,
+              y: 16,
+              borderRadius: "50px",
+              transformOrigin: "center top",
+            });
+          } else {
+            gsap.set(navRef.current, {
+              scale: 1,
+              y: 0,
+              borderRadius: "0px",
+              transformOrigin: "center top",
+            });
+          }
+        }
+        ScrollTrigger.refresh();
+      }, 50);
+    };
+
+    checkScrollOnRouteChange();
+  }, [pathname]);
 
   const toggleMobileMenu = () => {
     if (!isMobileMenuOpen) {
