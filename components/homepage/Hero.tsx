@@ -216,7 +216,7 @@ const Hero = () => {
           </h1>
 
           {/* Subtitle */}
-          <p className="text-lg md:text-xl text-gray-200 mb-10 max-w-2xl leading-relaxed">
+          <p className="text-lg md:text-xl text-gray-200 mb-10 max-w-2xl font-normal leading-relaxed">
             Personalized guidance for education, immigration, and skill
             recognition to help you achieve your dreams.
           </p>

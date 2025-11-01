@@ -214,7 +214,7 @@ const ContactPage = () => {
           <h1 className="hero-title text-6xl md:text-8xl  mb-6 font-momo">
             Contact <span className="text-primary">EduLink</span>
           </h1>
-          <p className="hero-subtitle text-xl md:text-2xl font-light leading-relaxed mb-4">
+          <p className="hero-subtitle text-xl md:text-2xl font-semibold capitalize leading-relaxed mb-4">
             Start Your Journey with Confidence
           </p>
           <p className="hero-subtitle text-lg md:text-xl opacity-90">
@@ -224,9 +224,6 @@ const ContactPage = () => {
         </div>
 
         {/* Floating Elements */}
-        <div className="absolute top-20 left-10 w-20 h-20 bg-primary/30 rounded-full animate-pulse"></div>
-        <div className="absolute bottom-32 right-16 w-16 h-16 bg-secondary/40 rounded-full animate-bounce"></div>
-        <div className="absolute top-1/2 right-1/4 w-12 h-12 bg-primary/25 rounded-full animate-ping"></div>
       </section>
 
       {/* Contact Form & Info Section */}

@@ -164,7 +164,7 @@ const AboutPage = () => {
           <h1 className="hero-title text-6xl md:text-8xl font-momo mb-6">
             About <span className="text-primary">EduLink</span>
           </h1>
-          <p className="hero-subtitle text-xl md:text-2xl font-light leading-relaxed">
+          <p className="hero-subtitle text-xl md:text-2xl font-semibold leading-relaxed">
             Connecting Dreams to Opportunities
           </p>
           <p className="hero-subtitle text-lg md:text-xl mt-4 opacity-90">
@@ -172,11 +172,6 @@ const AboutPage = () => {
             lifelong achievement
           </p>
         </div>
-
-        {/* Floating Elements */}
-        <div className="absolute top-20 left-10 w-20 h-20 bg-primary/30 rounded-full animate-pulse"></div>
-        <div className="absolute bottom-32 right-16 w-16 h-16 bg-secondary/40 rounded-full animate-bounce"></div>
-        <div className="absolute top-1/2 left-1/4 w-12 h-12 bg-primary/25 rounded-full animate-ping"></div>
       </section>
 
       {/* Mission Section */}
