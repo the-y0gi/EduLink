@@ -308,7 +308,7 @@ const ServicesPage = () => {
       <section ref={overviewRef} className="py-24 px-4">
         <div className="max-w-6xl mx-auto text-center">
           <div className="overview-content">
-            <h2 className="text-5xl font-bold text-secondary mb-8">
+            <h2 className="text-5xl font-momo text-secondary mb-8">
               How We Help You Succeed
             </h2>
             <p className="text-xl text-foreground/80 leading-relaxed max-w-4xl mx-auto mb-12">
@@ -366,7 +366,7 @@ const ServicesPage = () => {
         className="py-24 px-4 bg-linear-to-b from-primary/5 to-background"
       >
         <div className="max-w-7xl mx-auto">
-          <h2 className="text-5xl font-bold text-center text-secondary mb-16">
+          <h2 className="text-5xl font-momo text-center text-secondary mb-16">
             Our Core Services
           </h2>
 
@@ -424,7 +424,7 @@ const ServicesPage = () => {
       {/* Visa Types & Pathways */}
       <section ref={visaTypesRef} className="py-24 px-4">
         <div className="max-w-7xl mx-auto">
-          <h2 className="text-5xl font-bold text-center text-secondary mb-8">
+          <h2 className="text-5xl font-momo text-center text-secondary mb-8">
             Visa Types & Pathways
           </h2>
           <p className="text-xl text-center text-foreground/70 mb-16 max-w-3xl mx-auto">
@@ -476,7 +476,7 @@ const ServicesPage = () => {
         className="py-24 px-4 bg-linear-to-b from-secondary/5 to-primary/5"
       >
         <div className="max-w-7xl mx-auto">
-          <h2 className="text-5xl font-bold text-center text-secondary mb-16">
+          <h2 className="text-5xl font-momo text-center text-secondary mb-16">
             Our 6-Step Process
           </h2>
 
@@ -509,7 +509,7 @@ const ServicesPage = () => {
       {/* Why Choose EduLink */}
       <section ref={whyChooseRef} className="py-24 px-4">
         <div className="max-w-7xl mx-auto">
-          <h2 className="text-5xl font-bold text-center text-secondary mb-16">
+          <h2 className="text-5xl font-momo text-center text-secondary mb-16">
             Why Choose EduLink?
           </h2>
 

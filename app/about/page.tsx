@@ -179,7 +179,7 @@ const AboutPage = () => {
         <div className="max-w-7xl mx-auto">
           <div className="grid lg:grid-cols-2 gap-16 items-center">
             <div className="mission-card">
-              <h2 className="text-5xl font-bold text-secondary mb-8">
+              <h2 className="text-5xl font-momo text-secondary mb-8">
                 Our Mission
               </h2>
               <p className="text-lg text-foreground/80 leading-relaxed mb-6">
@@ -235,7 +235,7 @@ const AboutPage = () => {
         className="py-24 bg-gradient-to-b from-background to-primary/5"
       >
         <div className="max-w-7xl mx-auto px-4">
-          <h2 className="text-5xl font-bold text-center text-secondary mb-16">
+          <h2 className="text-5xl font-momo text-center text-secondary mb-16">
             Our Core Values
           </h2>
 
@@ -293,7 +293,7 @@ const AboutPage = () => {
       {/* Why Choose Us */}
       <section ref={whyChooseRef} className="py-24 px-4">
         <div className="max-w-7xl mx-auto">
-          <h2 className="text-5xl font-bold text-center text-secondary mb-16">
+          <h2 className="text-5xl font-momo text-center text-secondary mb-16">
             Why Choose EduLink?
           </h2>
 
@@ -357,7 +357,7 @@ const AboutPage = () => {
         className="py-24 bg-gradient-to-r from-secondary to-primary"
       >
         <div className="max-w-7xl mx-auto px-4 text-center">
-          <h2 className="text-4xl font-bold text-white mb-16">
+          <h2 className="text-4xl font-momo text-white mb-16">
             Our Impact in Numbers
           </h2>
 
@@ -405,7 +405,7 @@ const AboutPage = () => {
       {/* Team Section */}
       <section ref={teamRef} className="py-24 px-4">
         <div className="max-w-7xl mx-auto">
-          <h2 className="text-5xl font-bold text-center text-secondary mb-16">
+          <h2 className="text-5xl font-momo text-center text-secondary mb-16">
             Meet Our Expert Team
           </h2>
 

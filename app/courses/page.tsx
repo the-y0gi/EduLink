@@ -395,7 +395,7 @@ const CoursesPage = () => {
       {/* Course Categories */}
       <section ref={categoriesRef} className="py-24 px-4">
         <div className="max-w-7xl mx-auto">
-          <h2 className="text-5xl font-bold text-center text-secondary mb-16">
+          <h2 className="text-5xl font-momo text-center text-secondary mb-16">
             Course Categories
           </h2>
 
@@ -442,7 +442,7 @@ const CoursesPage = () => {
         className="py-24 px-4 bg-linear-to-b from-primary/5 to-background"
       >
         <div className="max-w-7xl mx-auto">
-          <h2 className="text-5xl font-bold text-center text-secondary mb-16">
+          <h2 className="text-5xl font-momo text-center text-secondary mb-16">
             Popular Courses
           </h2>
 
@@ -490,7 +490,7 @@ const CoursesPage = () => {
       {/* Study Locations */}
       <section ref={locationsRef} className="py-24 px-4">
         <div className="max-w-7xl mx-auto">
-          <h2 className="text-5xl font-bold text-center text-secondary mb-8">
+          <h2 className="text-5xl font-momo text-center text-secondary mb-8">
             Choose Your Study Destination
           </h2>
           <p className="text-xl text-center text-foreground/70 mb-16 max-w-3xl mx-auto">
