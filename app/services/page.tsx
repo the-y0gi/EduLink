@@ -440,20 +440,7 @@ const ServicesPage = () => {
                   {visa.description}
                 </p>
 
-                <div className="space-y-2 text-sm">
-                  <div className="flex justify-between">
-                    <span className="text-foreground/60">Duration:</span>
-                    <span className="text-secondary font-semibold">
-                      {visa.duration}
-                    </span>
-                  </div>
-                  <div className="flex justify-between">
-                    <span className="text-foreground/60">Work Rights:</span>
-                    <span className="text-secondary font-semibold">
-                      {visa.workRights}
-                    </span>
-                  </div>
-                </div>
+                {/* Only show icon, name and description as requested */}
               </div>
             ))}
           </div>
@@ -595,29 +582,6 @@ const ServicesPage = () => {
                 <span className="text-secondary/60">Success Stats Visual</span>
               </div>
             </div>
-          </div>
-        </div>
-      </section>
-
-      {/* Call to Action */}
-      <section className="py-24 px-4 bg-linear-to-r from-secondary to-primary">
-        <div className="max-w-4xl mx-auto text-center text-white">
-          <h2 className="text-4xl font-bold mb-8">
-            Ready to Begin Your Journey?
-          </h2>
-          <p className="text-xl mb-12 leading-relaxed opacity-90">
-            Take the first step towards your Australian future. Our expert team
-            is ready to provide personalized guidance and support to make your
-            dreams a reality.
-          </p>
-
-          <div className="flex flex-col sm:flex-row gap-6 justify-center">
-            <button className="bg-white text-secondary px-8 py-4 rounded-full text-lg font-semibold hover:bg-gray-100 transition-all duration-300 transform hover:scale-105">
-              Get Free Assessment
-            </button>
-            <button className="border-2 border-white text-white px-8 py-4 rounded-full text-lg font-semibold hover:bg-white hover:text-secondary transition-all duration-300 transform hover:scale-105">
-              View All Services
-            </button>
           </div>
         </div>
       </section>

@@ -542,29 +542,6 @@ const CoursesPage = () => {
           </div>
         </div>
       </section>
-
-      {/* Call to Action */}
-      <section className="py-24 px-4 bg-linear-to-r from-secondary to-primary">
-        <div className="max-w-4xl mx-auto text-center text-white">
-          <h2 className="text-4xl font-bold mb-8">
-            Ready to Start Your Educational Journey?
-          </h2>
-          <p className="text-xl mb-12 leading-relaxed opacity-90">
-            Let our expert counsellors help you choose the perfect course and
-            institution that aligns with your career goals and opens doors to
-            your Australian future.
-          </p>
-
-          <div className="flex flex-col sm:flex-row gap-6 justify-center">
-            <button className="bg-white text-secondary px-8 py-4 rounded-full text-lg font-semibold hover:bg-gray-100 transition-all duration-300 transform hover:scale-105">
-              Get Course Guidance
-            </button>
-            <button className="border-2 border-white text-white px-8 py-4 rounded-full text-lg font-semibold hover:bg-white hover:text-secondary transition-all duration-300 transform hover:scale-105">
-              Download Brochure
-            </button>
-          </div>
-        </div>
-      </section>
     </div>
   );
 };
