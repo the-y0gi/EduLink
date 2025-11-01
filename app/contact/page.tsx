@@ -528,9 +528,16 @@ const ContactPage = () => {
         className="hidden md:block py-24 px-4 bg-linear-to-b from-primary/5 to-background"
       >
         <div className="max-w-7xl mx-auto">
-          <h2 className="text-5xl font-momo text-center text-secondary mb-16">
+          <h2 className="text-5xl font-momo text-center text-secondary mb-2">
             We&apos;re Here to Help
           </h2>
+
+          <p className="text-center text-foreground/70 max-w-2xl mx-auto mb-12">
+            Choose your preferred location to grow your future — whether you are
+            studying onshore or applying from overseas. We provide support for
+            applications and immigration &amp; visa guidance. Book a free
+            consultation or visit your our office to get started.
+          </p>
 
           <div style={{ height: "600px", position: "relative" }}>
             <CircularGallery
