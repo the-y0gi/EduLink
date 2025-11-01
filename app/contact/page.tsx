@@ -1,6 +1,7 @@
 "use client";
 
 import { useEffect, useRef, useState } from "react";
+import Image from "next/image";
 import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import {
@@ -83,14 +84,15 @@ const ContactPage = () => {
   ];
 
   const australianCities = [
-    "Melbourne",
-    "Sydney",
-    "Brisbane",
-    "Adelaide",
-    "Perth",
-    "Canberra",
-    "Gold Coast",
-    "Hobart",
+    { name: "Melbourne", image: "/locations/Melbourne.jpg" },
+    { name: "Sydney", image: "/locations/Sydney.jpg" },
+    // filename contains a space in public folder; use URL-encoded space
+    { name: "Brisbane", image: "/locations/Brisbane%20.jpg" },
+    { name: "Adelaide", image: "/locations/Adelaide.jpg" },
+    { name: "Perth", image: "/locations/Perth.jpg" },
+    { name: "Canberra", image: "/locations/Canberra.jpg" },
+    { name: "Gold Coast", image: "/locations/Gold_Coast.jpg" },
+    { name: "Hobart", image: "/locations/Hobart.jpg" },
   ];
 
   const courseCategories = [
@@ -351,8 +353,8 @@ const ContactPage = () => {
                   >
                     <option value="">Select your preferred city</option>
                     {australianCities.map((city) => (
-                      <option key={city} value={city}>
-                        {city}
+                      <option key={city.name} value={city.name}>
+                        {city.name}
                       </option>
                     ))}
                   </select>
@@ -468,20 +470,29 @@ const ContactPage = () => {
           </h2>
 
           <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
-            {australianCities.map((city) => (
+            {australianCities.map((c) => (
               <div
-                key={city}
-                className="location-item bg-white rounded-xl p-6 text-center shadow-lg hover:shadow-2xl transition-all duration-300"
+                key={c.name}
+                className="location-item rounded-xl overflow-hidden shadow-lg hover:shadow-2xl transition-all duration-300"
               >
-                <div className="w-16 h-16 bg-primary/20 rounded-full flex items-center justify-center mx-auto mb-4">
-                  <span className="text-2xl">🏛️</span>
+                <div className="relative h-40 sm:h-44 lg:h-48 w-full bg-gray-100">
+                  <Image
+                    src={c.image}
+                    alt={`${c.name} skyline`}
+                    fill
+                    className="object-cover"
+                    sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 25vw"
+                  />
+                  {/* gradient overlay */}
+                  <div className="absolute inset-0 bg-linear-to-t from-black/60 to-transparent" />
+
+                  {/* city name overlay */}
+                  <div className="absolute inset-0 flex items-center justify-center">
+                    <h3 className="text-lg font-bold text-white drop-shadow-md">
+                      {c.name}
+                    </h3>
+                  </div>
                 </div>
-                <h3 className="text-lg font-bold text-secondary mb-2">
-                  {city}
-                </h3>
-                <p className="text-foreground/70 text-sm">
-                  Expert guidance available
-                </p>
               </div>
             ))}
           </div>
