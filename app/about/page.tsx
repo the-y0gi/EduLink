@@ -168,8 +168,8 @@ const AboutPage = () => {
             Connecting Dreams to Opportunities
           </p>
           <p className="hero-subtitle text-lg md:text-xl mt-4 opacity-90">
-            Your trusted partner in turning international education into
-            lifelong achievement
+            Empowering onshore students to achieve their Australian goals
+            without wasting time, money, or opportunities
           </p>
         </div>
       </section>
@@ -183,34 +183,38 @@ const AboutPage = () => {
                 Our Mission
               </h2>
               <p className="text-lg text-foreground/80 leading-relaxed mb-6">
-                At EduLink, we connect ambition with opportunity. Our expert
-                team helps students study, work, and build a future in Australia
-                through clear guidance, personalised pathways, and genuine
-                support.
+                At EduLink, our vision is to provide onshore students with the
+                right advice to help them achieve their goals in Australia
+                without wasting time, money, or opportunities. Whether
+                you&apos;re aiming to work in your chosen field, obtain
+                permanent residency, bring your family to Australia, or
+                successfully start a new career - we provide the strategic
+                guidance you need.
               </p>
               <p className="text-lg text-foreground/80 leading-relaxed">
-                From your first inquiry to your career success, we&apos;re your
-                trusted partner in turning international education into lifelong
-                achievement.
+                You&apos;re already in Australia - now let&apos;s ensure you
+                make the most of every opportunity. We specialize in helping
+                onshore students navigate the complexities of Australian systems
+                efficiently and effectively.
               </p>
 
               <div className="mt-8 space-y-4">
                 <div className="flex items-center space-x-4">
                   <div className="w-4 h-4 bg-primary rounded-full"></div>
                   <span className="text-foreground/70">
-                    End-to-end student support
+                    Strategic Australian pathway planning
                   </span>
                 </div>
                 <div className="flex items-center space-x-4">
                   <div className="w-4 h-4 bg-secondary rounded-full"></div>
                   <span className="text-foreground/70">
-                    Trusted education specialists
+                    Comprehensive support for offshore and onshore students
                   </span>
                 </div>
                 <div className="flex items-center space-x-4">
                   <div className="w-4 h-4 bg-primary rounded-full"></div>
                   <span className="text-foreground/70">
-                    Personalized pathway planning
+                    Efficient goal achievement without costly mistakes
                   </span>
                 </div>
               </div>
@@ -363,7 +367,7 @@ const AboutPage = () => {
       >
         <div className="max-w-7xl mx-auto px-4 text-center">
           <h2 className="text-4xl font-momo text-white mb-16">
-            Our Impact in Numbers
+            Our Student Success Impact
           </h2>
 
           <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
@@ -379,20 +383,20 @@ const AboutPage = () => {
             <div className="text-white">
               <div
                 className="stat-number text-5xl font-bold mb-4"
-                data-value="98"
+                data-value="95"
               >
                 0
               </div>
-              <p className="text-xl opacity-90">% Success Rate</p>
+              <p className="text-xl opacity-90">% Goal Achievement Rate</p>
             </div>
             <div className="text-white">
               <div
                 className="stat-number text-5xl font-bold mb-4"
-                data-value="50"
+                data-value="200"
               >
                 0
               </div>
-              <p className="text-xl opacity-90">Partner Institutions</p>
+              <p className="text-xl opacity-90">Australian Employer Partners</p>
             </div>
             <div className="text-white">
               <div

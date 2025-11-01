@@ -298,8 +298,9 @@ const ServicesPage = () => {
             Comprehensive Support for Your Australian Journey
           </p>
           <p className="hero-subtitle text-lg md:text-xl opacity-90">
-            From your first application to your long-term success - we&apos;re
-            with you every step of the way
+            Whether you&apos;re planning to study in Australia or already here
+            pursuing your goals - we help you achieve success without wasting
+            time, money, or opportunities
           </p>
         </div>
       </section>
@@ -309,13 +310,14 @@ const ServicesPage = () => {
         <div className="max-w-6xl mx-auto text-center">
           <div className="overview-content">
             <h2 className="text-5xl font-momo text-secondary mb-8">
-              How We Help You Succeed
+              How We Help Students Succeed
             </h2>
             <p className="text-xl text-foreground/80 leading-relaxed max-w-4xl mx-auto mb-12">
-              At EduLink, we make studying, working, and living in Australia a
-              seamless experience. Our comprehensive range of services is
-              designed to guide you from your first application to your
-              long-term success in Australia.
+              At EduLink, we provide tailored support for every stage of your
+              Australian journey. Whether you&apos;re an offshore student
+              planning your Australian future or an onshore student maximizing
+              your current opportunities - our services help you achieve your
+              goals efficiently without wasting precious time or money.
             </p>
 
             <div className="grid md:grid-cols-3 gap-8 text-center">
@@ -327,7 +329,8 @@ const ServicesPage = () => {
                   Personalized Approach
                 </h3>
                 <p className="text-foreground/70">
-                  Tailored solutions for your unique goals and circumstances
+                  Tailored strategies for both offshore and onshore students to
+                  achieve their Australian goals efficiently
                 </p>
               </div>
 
@@ -349,10 +352,11 @@ const ServicesPage = () => {
                   {renderIcon("🤝", "text-primary", 26)}
                 </div>
                 <h3 className="text-xl font-bold text-secondary mb-2">
-                  End-to-End Support
+                  Goal Achievement Support
                 </h3>
                 <p className="text-foreground/70">
-                  Complete assistance from application to graduation and beyond
+                  Strategic guidance to help you avoid costly mistakes and
+                  achieve Australian success
                 </p>
               </div>
             </div>
@@ -497,22 +501,27 @@ const ServicesPage = () => {
                   Comprehensive Support
                 </h3>
                 <p className="text-lg text-foreground/80 leading-relaxed mb-6">
-                  We don&apos;t just connect students to institutions — we
-                  connect dreams to opportunities. Our end-to-end support covers
-                  every aspect of your Australian journey.
+                  We provide comprehensive support for students at every stage
+                  of their Australian journey. Whether you&apos;re planning to
+                  come to Australia or already here making the most of your
+                  opportunities, we help you achieve your goals - career
+                  success, permanent residency, or bringing family to Australia
+                  - without wasting precious time or money.
                 </p>
                 <ul className="space-y-3">
                   <li className="flex items-center space-x-3">
                     <div className="w-3 h-3 bg-primary rounded-full"></div>
-                    <span>From application to graduation and beyond</span>
+                    <span>
+                      Strategic planning for Australian career success
+                    </span>
                   </li>
                   <li className="flex items-center space-x-3">
                     <div className="w-3 h-3 bg-secondary rounded-full"></div>
-                    <span>24/7 student support and emergency assistance</span>
+                    <span>Permanent residency pathway guidance</span>
                   </li>
                   <li className="flex items-center space-x-3">
                     <div className="w-3 h-3 bg-primary rounded-full"></div>
-                    <span>Ongoing career and settlement guidance</span>
+                    <span>Family reunion and relationship support</span>
                   </li>
                 </ul>
               </div>
@@ -539,15 +548,17 @@ const ServicesPage = () => {
                 <ul className="space-y-3">
                   <li className="flex items-center space-x-3">
                     <div className="w-3 h-3 bg-primary rounded-full"></div>
-                    <span>Registered migration agents (MARA)</span>
+                    <span>Specialized onshore student expertise</span>
                   </li>
                   <li className="flex items-center space-x-3">
                     <div className="w-3 h-3 bg-secondary rounded-full"></div>
-                    <span>Certified education counsellors</span>
+                    <span>Registered migration agents (MARA)</span>
                   </li>
                   <li className="flex items-center space-x-3">
                     <div className="w-3 h-3 bg-primary rounded-full"></div>
-                    <span>15+ years of industry experience</span>
+                    <span>
+                      10+ years helping students achieve Australian goals
+                    </span>
                   </li>
                 </ul>
               </div>
@@ -566,15 +577,17 @@ const ServicesPage = () => {
                 <ul className="space-y-3">
                   <li className="flex items-center space-x-3">
                     <div className="w-3 h-3 bg-primary rounded-full"></div>
-                    <span>5000+ successful student placements</span>
+                    <span>
+                      3000+ onshore students helped achieve their goals
+                    </span>
                   </li>
                   <li className="flex items-center space-x-3">
                     <div className="w-3 h-3 bg-secondary rounded-full"></div>
-                    <span>98% visa approval success rate</span>
+                    <span>95% success rate in goal achievement</span>
                   </li>
                   <li className="flex items-center space-x-3">
                     <div className="w-3 h-3 bg-primary rounded-full"></div>
-                    <span>50+ partner institutions across Australia</span>
+                    <span>200+ Australian employer partnerships</span>
                   </li>
                 </ul>
               </div>

@@ -19,11 +19,13 @@ const WhyChooseUS = () => {
           <p
             className={`text-lg md:text-xl text-secondary/70 max-w-4xl mx-auto leading-relaxed`}
           >
-            At Edulink, we don&apos;t just connect students to institutions — we
-            connect dreams to opportunities. With years of experience in
-            international education and migration support, we provide a one-stop
-            solution for students looking to study, work, and settle abroad with
-            confidence.
+            At Edulink, we provide tailored support for every stage of your
+            Australian journey. Whether you&apos;re an offshore student planning
+            your Australian education or an onshore student maximizing your
+            current opportunities - we help you achieve your goals without
+            wasting time, money, or opportunities. From working in your chosen
+            field to obtaining permanent residency and bringing your family to
+            Australia.
           </p>
         </div>
         <MagicBento />
