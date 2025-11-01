@@ -1,6 +1,7 @@
 "use client";
 
 import { useEffect, useRef, useState } from "react";
+import Image from "next/image";
 import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 
@@ -108,7 +109,7 @@ const CoursesPage = () => {
         "Monash University",
         "Strong job market in IT, healthcare, engineering",
       ],
-      image: "Melbourne skyline placeholder",
+      image: "/locations/Melbourne.jpg",
     },
     {
       name: "Sydney",
@@ -118,7 +119,7 @@ const CoursesPage = () => {
         "UNSW",
         "Largest job market: finance, tech, media",
       ],
-      image: "Sydney skyline placeholder",
+      image: "/locations/Sydney.jpg",
     },
     {
       name: "Brisbane",
@@ -128,7 +129,7 @@ const CoursesPage = () => {
         "QUT",
         "Growing sectors in health, research, education",
       ],
-      image: "Brisbane skyline placeholder",
+      image: "/locations/Brisbane%20.jpg",
     },
     {
       name: "Adelaide",
@@ -138,7 +139,7 @@ const CoursesPage = () => {
         "Flinders University",
         "Affordable living, wine regions",
       ],
-      image: "Adelaide skyline placeholder",
+      image: "/locations/Adelaide.jpg",
     },
     {
       name: "Perth",
@@ -148,7 +149,7 @@ const CoursesPage = () => {
         "Curtin University",
         "Mining, energy, technology",
       ],
-      image: "Perth skyline placeholder",
+      image: "/locations/Perth.jpg",
     },
     {
       name: "Canberra",
@@ -158,7 +159,7 @@ const CoursesPage = () => {
         "University of Canberra",
         "Government opportunities",
       ],
-      image: "Canberra skyline placeholder",
+      image: "/locations/Canberra.jpg",
     },
   ];
 
@@ -502,7 +503,14 @@ const CoursesPage = () => {
                 className="location-card bg-white rounded-xl overflow-hidden shadow-lg hover:shadow-2xl transition-all duration-300 group"
               >
                 <div className="aspect-video bg-linear-to-br from-primary/30 to-secondary/40 flex items-center justify-center">
-                  <span className="text-white font-semibold">{city.image}</span>
+                  <Image
+                    src={city.image}
+                    alt={city.name + " skyline"}
+                    width={400}
+                    height={220}
+                    className="object-cover w-full h-full"
+                    style={{ maxHeight: "220px", width: "100%" }}
+                  />
                 </div>
 
                 <div className="p-6">
