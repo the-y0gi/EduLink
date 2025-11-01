@@ -237,9 +237,6 @@ const ServicePage = ({ params }: ServicePageProps) => {
               <div className="w-20 h-20 bg-white/20 rounded-full flex items-center justify-center mx-auto mb-6 backdrop-blur-sm">
                 {renderIcon(service.icon, "text-white", 32)}
               </div>
-              <span className="bg-white/20 text-white px-4 py-2 rounded-full text-sm font-semibold backdrop-blur-sm">
-                {service.duration}
-              </span>
             </div>
 
             <h1 className="hero-title text-4xl md:text-6xl lg:text-7xl font-momo text-white mb-6 leading-tight">
@@ -283,36 +280,7 @@ const ServicePage = ({ params }: ServicePageProps) => {
               </div>
             </div>
 
-            <div className="bg-linear-to-br from-primary/10 to-secondary/10 rounded-2xl p-8">
-              <div className="text-center">
-                <div className="w-20 h-20 bg-primary/20 rounded-full flex items-center justify-center mx-auto mb-6">
-                  <span className="text-3xl">{service.icon}</span>
-                </div>
-                <h4 className="text-xl font-bold text-secondary mb-4">
-                  Service Details
-                </h4>
-                <div className="space-y-3 text-left">
-                  <div className="flex justify-between">
-                    <span className="text-foreground/70">Duration:</span>
-                    <span className="font-semibold text-secondary">
-                      {service.duration}
-                    </span>
-                  </div>
-                  <div className="flex justify-between">
-                    <span className="text-foreground/70">Pricing:</span>
-                    <span className="font-semibold text-secondary">
-                      {service.pricing}
-                    </span>
-                  </div>
-                  <div className="flex justify-between">
-                    <span className="text-foreground/70">Support Level:</span>
-                    <span className="font-semibold text-secondary">
-                      Comprehensive
-                    </span>
-                  </div>
-                </div>
-              </div>
-            </div>
+            {/* Service details card removed per client instruction */}
           </div>
         </div>
       </section>

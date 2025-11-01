@@ -26,8 +26,7 @@ export interface ServiceData {
     description: string;
   }[];
   whoItsFor: string[];
-  duration: string;
-  pricing: string;
+  // duration and pricing removed per client request
 }
 
 export const servicesData: ServiceData[] = [
@@ -89,8 +88,7 @@ export const servicesData: ServiceData[] = [
       "Career changers looking for new opportunities",
       "International students planning to study in Australia",
     ],
-    duration: "2-4 weeks",
-    pricing: "Free consultation included",
+    // duration and pricing removed
   },
   {
     id: "visa-migration",
@@ -149,8 +147,7 @@ export const servicesData: ServiceData[] = [
       "Family members of Australian residents",
       "Graduates seeking work opportunities",
     ],
-    duration: "4-12 weeks depending on visa type",
-    pricing: "Consultation fees apply",
+    // duration and pricing removed
   },
   {
     id: "settlement-living",
@@ -208,8 +205,7 @@ export const servicesData: ServiceData[] = [
       "Professionals starting new jobs",
       "Anyone needing settlement support",
     ],
-    duration: "1-3 months initial support",
-    pricing: "Package deals available",
+    // duration and pricing removed
   },
   {
     id: "personal-wellbeing",
@@ -267,8 +263,7 @@ export const servicesData: ServiceData[] = [
       "Anyone needing mental health support",
       "People looking to build social connections",
     ],
-    duration: "Ongoing as needed",
-    pricing: "Free basic support included",
+    // duration and pricing removed
   },
   {
     id: "professional-employment",
@@ -326,8 +321,7 @@ export const servicesData: ServiceData[] = [
       "Professionals changing careers",
       "Anyone needing employment guidance",
     ],
-    duration: "4-8 weeks intensive support",
-    pricing: "Workshop packages available",
+    // duration and pricing removed
   },
   {
     id: "ongoing-student",
@@ -385,7 +379,6 @@ export const servicesData: ServiceData[] = [
       "Graduates planning their next steps",
       "Anyone needing ongoing support",
     ],
-    duration: "Throughout your study period and beyond",
-    pricing: "Ongoing support packages available",
+    // duration and pricing removed
   },
 ];
