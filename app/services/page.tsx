@@ -525,16 +525,22 @@ const ServicesPage = () => {
                   </li>
                 </ul>
               </div>
-              <div className="aspect-video bg-linear-to-br from-primary/20 to-secondary/30 rounded-xl flex items-center justify-center">
-                <span className="text-secondary/60">
-                  Comprehensive Support Visual
-                </span>
+              <div className="aspect-video rounded-xl overflow-hidden">
+                <img
+                  src="/images/support.jpg"
+                  alt="Comprehensive Support"
+                  className="w-full h-full object-cover"
+                />
               </div>
             </div>
 
             <div className="why-choose-item grid lg:grid-cols-2 gap-12 items-center">
-              <div className="order-2 lg:order-1 aspect-video bg-linear-to-br from-secondary/20 to-primary/30 rounded-xl flex items-center justify-center">
-                <span className="text-secondary/60">Expert Team Visual</span>
+              <div className="order-2 lg:order-1 aspect-video rounded-xl overflow-hidden">
+                <img
+                  src="/images/expertTeam.jpg"
+                  alt="Expert Team"
+                  className="w-full h-full object-cover"
+                />
               </div>
               <div className="order-1 lg:order-2">
                 <h3 className="text-3xl font-bold text-secondary mb-6">
@@ -591,8 +597,12 @@ const ServicesPage = () => {
                   </li>
                 </ul>
               </div>
-              <div className="aspect-video bg-linear-to-br from-primary/20 to-secondary/30 rounded-xl flex items-center justify-center">
-                <span className="text-secondary/60">Success Stats Visual</span>
+              <div className="aspect-video rounded-xl overflow-hidden">
+                <img
+                  src="/images/success.jpg"
+                  alt="Success Stats"
+                  className="w-full h-full object-cover"
+                />
               </div>
             </div>
           </div>
