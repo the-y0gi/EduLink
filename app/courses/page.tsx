@@ -2,6 +2,14 @@
 
 import { useEffect, useRef, useState } from "react";
 import Image from "next/image";
+import {
+  Laptop,
+  Hospital,
+  Settings,
+  BarChart2,
+  GraduationCap,
+  Coffee,
+} from "lucide-react";
 import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 
@@ -403,19 +411,19 @@ const CoursesPage = () => {
                 className="category-card bg-white rounded-xl p-8 shadow-lg hover:shadow-2xl transition-all duration-300 cursor-pointer group"
               >
                 <div className="w-16 h-16 bg-primary/20 rounded-full flex items-center justify-center mb-6 group-hover:scale-110 transition-transform">
-                  <span className="text-2xl">
-                    {category === "ICT"
-                      ? "💻"
-                      : category === "Healthcare"
-                      ? "🏥"
-                      : category === "Engineering"
-                      ? "⚙️"
-                      : category === "Business"
-                      ? "📊"
-                      : category === "Education"
-                      ? "🎓"
-                      : "🍽️"}
-                  </span>
+                  {category === "ICT" ? (
+                    <Laptop className="text-primary" size={22} />
+                  ) : category === "Healthcare" ? (
+                    <Hospital className="text-primary" size={22} />
+                  ) : category === "Engineering" ? (
+                    <Settings className="text-primary" size={22} />
+                  ) : category === "Business" ? (
+                    <BarChart2 className="text-primary" size={22} />
+                  ) : category === "Education" ? (
+                    <GraduationCap className="text-primary" size={22} />
+                  ) : (
+                    <Coffee className="text-primary" size={22} />
+                  )}
                 </div>
                 <h3 className="text-xl font-bold text-secondary mb-4">
                   {category}
