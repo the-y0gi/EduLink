@@ -23,6 +23,8 @@ const ContactPage = () => {
   const locationsRef = useRef(null);
   const faqRef = useRef(null);
 
+  const [openIndex, setOpenIndex] = useState<number | null>(null);
+
   const [formData, setFormData] = useState({
     firstName: "",
     lastName: "",
@@ -128,22 +130,6 @@ const ContactPage = () => {
           duration: 1,
           scrollTrigger: {
             trigger: contactFormRef.current,
-            start: "top 80%",
-            toggleActions: "play none none reverse",
-          },
-        }
-      );
-
-      // Contact Info Animation
-      gsap.fromTo(
-        ".contact-info",
-        { opacity: 0, x: 50 },
-        {
-          opacity: 1,
-          x: 0,
-          duration: 1,
-          scrollTrigger: {
-            trigger: contactInfoRef.current,
             start: "top 80%",
             toggleActions: "play none none reverse",
           },
@@ -508,19 +494,25 @@ const ContactPage = () => {
           <h2 className="text-5xl font-bold text-center text-secondary mb-16">
             Frequently Asked Questions
           </h2>
-
           <div className="space-y-6">
-            {faqs.map((faq, index) => (
-              <div
-                key={index}
-                className="faq-item bg-white rounded-xl p-6 shadow-lg"
-              >
-                <h3 className="text-xl font-bold text-secondary mb-4">
-                  {index + 1}. {faq.question}
-                </h3>
-                <p className="text-foreground/80 leading-relaxed">
-                  {faq.answer}
-                </p>
+            {faqs.map((faq, idx) => (
+              <div key={idx} className="faq-item bg-white rounded-xl shadow-lg">
+                <button
+                  className="w-full text-left p-6 focus:outline-none flex justify-between items-center"
+                  onClick={() => setOpenIndex(openIndex === idx ? null : idx)}
+                >
+                  <span className="text-xl font-bold text-secondary">
+                    {idx + 1}. {faq.question}
+                  </span>
+                  <span className="ml-4 text-secondary">
+                    {openIndex === idx ? "-" : "+"}
+                  </span>
+                </button>
+                {openIndex === idx && (
+                  <div className="px-6 pb-6 text-foreground/80 leading-relaxed animate-fade-in">
+                    {faq.answer}
+                  </div>
+                )}
               </div>
             ))}
           </div>
@@ -550,5 +542,4 @@ const ContactPage = () => {
     </div>
   );
 };
-
 export default ContactPage;
