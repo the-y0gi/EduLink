@@ -225,17 +225,16 @@ const ContactPage = () => {
 
         {/* Floating Elements */}
       </section>
-
       {/* Contact Form & Info Section */}
       <section className="py-24 px-4">
         <div className="max-w-7xl mx-auto">
           <div className="grid lg:grid-cols-2 gap-16">
             {/* Contact Form */}
             <div ref={contactFormRef} className="form-container">
-              <h2 className="text-4xl font-bold text-secondary mb-8">
+              <h2 className="text-4xl font-momo text-secondary mb-8">
                 Get in Touch
               </h2>
-              <p className="text-lg text-foreground/80 mb-8">
+              <p className="text-lg text-foreground/80 mb-8 ">
                 Ready to start your Australian journey? Fill out the form below
                 and our expert consultants will get back to you within 24 hours.
               </p>
@@ -382,7 +381,7 @@ const ContactPage = () => {
 
             {/* Contact Information */}
             <div ref={contactInfoRef} className="contact-info">
-              <h2 className="text-4xl font-bold text-secondary mb-8">
+              <h2 className="text-4xl font-momo text-secondary mb-8">
                 Contact Information
               </h2>
 
@@ -445,9 +444,6 @@ const ContactPage = () => {
                     <div className="w-10 h-10 bg-primary/20 rounded-full flex items-center justify-center cursor-pointer hover:bg-primary/30 transition-colors">
                       <Linkedin size={16} className="text-primary" />
                     </div>
-                    <div className="w-10 h-10 bg-primary/20 rounded-full flex items-center justify-center cursor-pointer hover:bg-primary/30 transition-colors">
-                      <Music size={16} className="text-primary" />
-                    </div>
                   </div>
                 </div>
               </div>
@@ -455,14 +451,13 @@ const ContactPage = () => {
           </div>
         </div>
       </section>
-
       {/* Office Locations */}
       <section
         ref={locationsRef}
         className="py-24 px-4 bg-linear-to-b from-primary/5 to-background"
       >
         <div className="max-w-7xl mx-auto">
-          <h2 className="text-5xl font-bold text-center text-secondary mb-16">
+          <h2 className="text-5xl font-momo text-center text-secondary mb-16">
             We&apos;re Here to Help
           </h2>
 
@@ -495,11 +490,10 @@ const ContactPage = () => {
           </div>
         </div>
       </section>
-
       {/* FAQ Section */}
       <section ref={faqRef} className="py-24 px-4">
         <div className="max-w-4xl mx-auto">
-          <h2 className="text-5xl font-bold text-center text-secondary mb-16">
+          <h2 className="text-5xl font-momo text-center text-secondary mb-16">
             Frequently Asked Questions
           </h2>
           <div className="space-y-6">
@@ -523,27 +517,6 @@ const ContactPage = () => {
                 )}
               </div>
             ))}
-          </div>
-        </div>
-      </section>
-
-      {/* Call to Action */}
-      <section className="py-24 px-4 bg-linear-to-r from-secondary to-primary">
-        <div className="max-w-4xl mx-auto text-center text-white">
-          <h2 className="text-4xl font-bold mb-8">Still Have Questions?</h2>
-          <p className="text-xl mb-12 leading-relaxed opacity-90">
-            Don&apos;t let uncertainty hold you back. Our experienced
-            consultants are here to provide personalized guidance and answer all
-            your questions about studying in Australia.
-          </p>
-
-          <div className="flex flex-col sm:flex-row gap-6 justify-center">
-            <button className="bg-white text-secondary px-8 py-4 rounded-full text-lg font-semibold hover:bg-gray-100 transition-all duration-300 transform hover:scale-105">
-              Book Free Consultation
-            </button>
-            <button className="border-2 border-white text-white px-8 py-4 rounded-full text-lg font-semibold hover:bg-white hover:text-secondary transition-all duration-300 transform hover:scale-105">
-              Call Us Now
-            </button>
           </div>
         </div>
       </section>
