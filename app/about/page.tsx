@@ -217,11 +217,16 @@ const AboutPage = () => {
             </div>
 
             <div className="relative">
-              {/* Placeholder for mission image/video */}
-              <div className="aspect-video bg-gradient-to-br from-primary/20 to-secondary/30 rounded-2xl flex items-center justify-center">
-                <span className="text-secondary/60 text-xl">
-                  Mission Video Placeholder
-                </span>
+              {/* Mission video (replaced placeholder) */}
+              <div className="aspect-video rounded-2xl overflow-hidden">
+                <video
+                  className="w-full h-full object-cover"
+                  src="/herobg.mp4"
+                  autoPlay
+                  loop
+                  muted
+                  playsInline
+                />
               </div>
               <div className="absolute -bottom-6 -right-6 w-32 h-32 bg-primary/20 rounded-full blur-xl"></div>
             </div>
@@ -291,7 +296,7 @@ const AboutPage = () => {
       </section>
 
       {/* Why Choose Us */}
-      <section ref={whyChooseRef} className="py-24 px-4">
+      {/* <section ref={whyChooseRef} className="py-24 px-4">
         <div className="max-w-7xl mx-auto">
           <h2 className="text-5xl font-momo text-center text-secondary mb-16">
             Why Choose EduLink?
@@ -349,7 +354,7 @@ const AboutPage = () => {
             </div>
           </div>
         </div>
-      </section>
+      </section> */}
 
       {/* Statistics */}
       <section
@@ -445,29 +450,6 @@ const AboutPage = () => {
                 Professional career guidance and industry connections
               </p>
             </div>
-          </div>
-        </div>
-      </section>
-
-      {/* Call to Action */}
-      <section className="py-24 bg-gradient-to-br from-primary/10 to-secondary/20">
-        <div className="max-w-4xl mx-auto text-center px-4">
-          <h2 className="text-4xl font-bold text-secondary mb-8">
-            Ready to Start Your Journey?
-          </h2>
-          <p className="text-xl text-foreground/80 mb-12 leading-relaxed">
-            Your dreams are waiting. Let&apos;s make them a reality together.
-            Book your free consultation today and take the first step towards
-            your Australian future.
-          </p>
-
-          <div className="flex flex-col sm:flex-row gap-6 justify-center">
-            <button className="bg-primary text-white px-8 py-4 rounded-full text-lg font-semibold hover:bg-primary/90 transition-all duration-300 transform hover:scale-105">
-              Get Free Assessment
-            </button>
-            <button className="bg-secondary text-white px-8 py-4 rounded-full text-lg font-semibold hover:bg-secondary/90 transition-all duration-300 transform hover:scale-105">
-              Talk to Consultant
-            </button>
           </div>
         </div>
       </section>
