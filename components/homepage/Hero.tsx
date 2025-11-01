@@ -209,7 +209,7 @@ const Hero = () => {
         {/* Content Section */}
         <div className="relative z-20 flex flex-col items-center justify-center h-full text-center px-6 max-w-4xl mx-auto">
           {/* Main Heading */}
-          <h1 className="text-4xl md:text-6xl lg:text-7xl font-bold text-white mb-6 leading-tight">
+          <h1 className="text-4xl md:text-6xl lg:text-7xl font-momo text-white mb-6 leading-tight">
             Your Global <span className="text-primary">Education</span>{" "}
             <span className="text-gray-300">&</span>{" "}
             <span className="text-primary">Immigration</span> Partner.

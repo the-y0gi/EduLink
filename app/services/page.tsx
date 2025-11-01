@@ -291,7 +291,7 @@ const ServicesPage = () => {
         </div>
 
         <div className="relative z-10 text-center text-white px-4 max-w-5xl mx-auto">
-          <h1 className="hero-title text-6xl md:text-8xl font-bold mb-6">
+          <h1 className="hero-title text-6xl md:text-8xl font-momo mb-6">
             Our <span className="text-primary">Services</span>
           </h1>
           <p className="hero-subtitle text-xl md:text-2xl font-light leading-relaxed mb-4">
