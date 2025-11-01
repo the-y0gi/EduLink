@@ -1,10 +1,21 @@
 @import "tailwindcss";
 
+/* Local font added to /public/fonts */
+@font-face {
+  font-family: "MomoTrustDisplay";
+  src: url("/fonts/MomoTrustDisplay-Regular.ttf") format("truetype");
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+
 :root {
   --background: #ffffff;
   --foreground: #171717;
   --primary: #4ecdc4;
   --secondary: #002868;
+  /* Expose the local font via a CSS variable so components can opt-in */
+  --font-momo: "MomoTrustDisplay", Arial, Helvetica, sans-serif;
 }
 
 @theme inline {
@@ -20,4 +31,9 @@ body {
   background: var(--background);
   color: var(--foreground);
   font-family: Arial, Helvetica, sans-serif;
+}
+
+/* Utility class to opt-in to the new font */
+.font-momo {
+  font-family: var(--font-momo) !important;
 }
