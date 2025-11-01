@@ -1,7 +1,7 @@
 "use client";
 
 import { useEffect, useRef, useState } from "react";
-import Image from "next/image";
+import CircularGallery from "../../components/ui/CircularGallery";
 import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import { MapPin, Phone, Mail } from "lucide-react";
@@ -525,39 +525,23 @@ const ContactPage = () => {
       {/* Office Locations */}
       <section
         ref={locationsRef}
-        className="py-24 px-4 bg-linear-to-b from-primary/5 to-background"
+        className="hidden md:block py-24 px-4 bg-linear-to-b from-primary/5 to-background"
       >
         <div className="max-w-7xl mx-auto">
           <h2 className="text-5xl font-momo text-center text-secondary mb-16">
             We&apos;re Here to Help
           </h2>
 
-          <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
-            {australianCities.map((c) => (
-              <div
-                key={c.name}
-                className="location-item rounded-xl overflow-hidden shadow-lg hover:shadow-2xl transition-all duration-300"
-              >
-                <div className="relative h-40 sm:h-44 lg:h-48 w-full bg-gray-100">
-                  <Image
-                    src={c.image}
-                    alt={`${c.name} skyline`}
-                    fill
-                    className="object-cover"
-                    sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 25vw"
-                  />
-                  {/* gradient overlay */}
-                  <div className="absolute inset-0 bg-linear-to-t from-black/60 to-transparent" />
-
-                  {/* city name overlay */}
-                  <div className="absolute inset-0 flex items-center justify-center">
-                    <h3 className="text-lg font-bold text-white drop-shadow-md">
-                      {c.name}
-                    </h3>
-                  </div>
-                </div>
-              </div>
-            ))}
+          <div style={{ height: "600px", position: "relative" }}>
+            <CircularGallery
+              items={australianCities.map((c) => ({
+                image: c.image,
+                text: c.name,
+              }))}
+              bend={3}
+              borderRadius={0.05}
+              scrollEase={0.02}
+            />
           </div>
         </div>
       </section>
