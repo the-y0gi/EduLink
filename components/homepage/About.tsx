@@ -167,7 +167,7 @@ const About = () => {
                 About Edulink
               </span>
             </div>
-            <h1 className="animate-fade-up text-4xl md:text-6xl lg:text-7xl font-bold mb-8 leading-tight">
+            <h1 className="animate-fade-up text-4xl md:text-6xl lg:text-7xl font-momo mb-8 leading-tight">
               We Are a <span className="text-primary">Trusted</span> Visa and{" "}
               <span className="text-primary">Immigration</span> Agent
             </h1>
@@ -225,7 +225,7 @@ const About = () => {
               {/* Floating card */}
               <div className="absolute -bottom-8 -right-8 bg-primary rounded-2xl p-6 shadow-xl max-w-xs">
                 <div className="text-white">
-                  <div className="text-2xl font-bold mb-1">Your Success</div>
+                  <div className="text-2xl font-momo mb-1">Your Success</div>
                   <div className="text-sm opacity-90">Is Our Priority</div>
                 </div>
               </div>
@@ -237,7 +237,7 @@ const About = () => {
                 <span className="inline-block px-4 py-2 bg-primary/10 text-primary rounded-full text-sm font-medium mb-6">
                   Our Mission
                 </span>
-                <h2 className="text-4xl md:text-5xl font-bold text-gray-900 mb-6 leading-tight">
+                <h2 className="text-4xl md:text-5xl font-momo text-gray-900 mb-6 leading-tight">
                   From Your First Inquiry to Career{" "}
                   <span className="text-primary">Success</span>
                 </h2>
@@ -337,7 +337,7 @@ const About = () => {
         </div>
 
         <div className="relative z-10 max-w-4xl mx-auto text-center">
-          <h2 className="text-4xl md:text-5xl font-bold mb-6 leading-tight">
+          <h2 className="text-4xl md:text-5xl font-momo mb-6 leading-tight">
             Ready to Start Your <span className="text-primary">Journey</span>?
           </h2>
           <p className="text-xl text-gray-300 mb-10 max-w-2xl mx-auto">

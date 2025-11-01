@@ -7,12 +7,12 @@ const WhyChooseUS = () => {
       <div className="max-w-7xl mx-auto">
         <div className="text-center mb-16">
           <h2
-            className={`text-4xl md:text-5xl lg:text-6xl font-bold text-secondary mb-4 tracking-tight`}
+            className={`text-4xl md:text-5xl lg:text-6xl font-momo text-secondary mb-4 tracking-tight`}
           >
             Why Choose <span className="text-primary">Us</span>
           </h2>
           <h3
-            className={`text-2xl md:text-3xl font-semibold text-secondary/80 mb-6`}
+            className={`text-2xl md:text-3xl font-semibold underline text-secondary/80 mb-6`}
           >
             Our Key Advantages
           </h3>

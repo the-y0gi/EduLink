@@ -138,12 +138,9 @@ const Services = () => {
         <div className="flex flex-col lg:flex-row lg:items-end lg:justify-between mb-12 gap-8">
           {/* Left Side - Title and Description */}
           <div className="lg:max-w-xl">
-            <div className="text-sm font-medium text-secondary mb-2">
-              / Services We Offer
-            </div>
             <h2
               ref={titleRef}
-              className="text-4xl md:text-5xl lg:text-6xl font-bold text-secondary mb-6 leading-tight"
+              className="text-4xl md:text-5xl lg:text-6xl font-momo text-secondary mb-6 leading-tight"
             >
               Our Services
             </h2>
