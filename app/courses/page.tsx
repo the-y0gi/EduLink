@@ -12,6 +12,10 @@ import {
 } from "lucide-react";
 import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
+import COURSES_DATA, {
+  CATEGORIES as COURSE_CATEGORIES,
+  LEVELS as COURSE_LEVELS,
+} from "../../lib/courses";
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -33,80 +37,22 @@ const CoursesPage = () => {
   const [selectedCategory, setSelectedCategory] = useState("All");
   const [selectedLevel, setSelectedLevel] = useState("All");
 
-  // Sample courses data based on client info
-  const courses: Course[] = [
-    {
-      code: "261313",
-      title: "Software Engineer",
-      category: "ICT",
-      level: "Bachelor/Master",
-    },
-    {
-      code: "253111",
-      title: "General Practitioner",
-      category: "Healthcare",
-      level: "Master/PhD",
-    },
-    {
-      code: "233211",
-      title: "Civil Engineer",
-      category: "Engineering",
-      level: "Bachelor/Master",
-    },
-    {
-      code: "132111",
-      title: "Corporate Services Manager",
-      category: "Business",
-      level: "Master",
-    },
-    {
-      code: "241111",
-      title: "Early Childhood Teacher",
-      category: "Education",
-      level: "Bachelor",
-    },
-    {
-      code: "351311",
-      title: "Chef",
-      category: "Hospitality",
-      level: "Diploma/Certificate",
-    },
-    {
-      code: "224114",
-      title: "Data Analyst",
-      category: "ICT",
-      level: "Bachelor/Master",
-    },
-    {
-      code: "254111",
-      title: "Midwife",
-      category: "Healthcare",
-      level: "Bachelor",
-    },
-    {
-      code: "233111",
-      title: "Chemical Engineer",
-      category: "Engineering",
-      level: "Bachelor/Master",
-    },
-    {
-      code: "225113",
-      title: "Marketing Specialist",
-      category: "Business",
-      level: "Bachelor/Master",
-    },
-  ];
+  // Use centralized courses data
+  const courses: Course[] = COURSES_DATA;
 
-  const categories = [
-    "All",
-    "ICT",
-    "Healthcare",
-    "Engineering",
-    "Business",
-    "Education",
-    "Hospitality",
-  ];
-  const levels = ["All", "Certificate", "Diploma", "Bachelor", "Master", "PhD"];
+  // Build UI-friendly lists for filters, include an 'All' option
+  const categories = ["All", ...COURSE_CATEGORIES];
+  const levels = Array.from(
+    new Set([
+      "All",
+      ...COURSE_LEVELS,
+      "Certificate",
+      "Diploma",
+      "Bachelor",
+      "Master",
+      "PhD",
+    ])
+  );
 
   const cities = [
     {
@@ -392,16 +338,20 @@ const CoursesPage = () => {
             {categories.slice(1).map((category) => (
               <div
                 key={category}
+                onClick={() => setSelectedCategory(category)}
                 className="category-card bg-white rounded-xl p-8 shadow-lg hover:shadow-2xl transition-all duration-300 cursor-pointer group"
               >
                 <div className="w-16 h-16 bg-primary/20 rounded-full flex items-center justify-center mb-6 group-hover:scale-110 transition-transform">
                   {category === "ICT" ? (
                     <Laptop className="text-primary" size={22} />
-                  ) : category === "Healthcare" ? (
+                  ) : category === "Healthcare" ||
+                    category.includes("Health") ? (
                     <Hospital className="text-primary" size={22} />
-                  ) : category === "Engineering" ? (
+                  ) : category === "Engineering" ||
+                    category.includes("Engineer") ? (
                     <Settings className="text-primary" size={22} />
-                  ) : category === "Business" ? (
+                  ) : category === "Business & Finance" ||
+                    category === "Management" ? (
                     <BarChart2 className="text-primary" size={22} />
                   ) : category === "Education" ? (
                     <GraduationCap className="text-primary" size={22} />
