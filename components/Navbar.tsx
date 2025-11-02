@@ -32,7 +32,7 @@ const MobileDropdownMenu = ({
         <Link
           href={link.path}
           onClick={onLinkClick}
-          className={`text-gray-900 hover:text-primary transition-all duration-300 py-2 text-base sm:text-lg flex-1 ${
+          className={`text-gray-900 hover:text-white transition-all duration-300 py-2 text-base sm:text-lg flex-1 ${
             pathname === link.path ? "font-semibold border-l-4 pl-4" : ""
           }`}
         >
@@ -57,7 +57,7 @@ const MobileDropdownMenu = ({
               key={index}
               href={`/services/${service.slug}`}
               onClick={onLinkClick}
-              className="block py-2 text-sm text-gray-600 dark:text-gray-400 hover:text-primary transition-colors duration-200"
+              className="block py-2 text-sm text-gray-600 dark:text-gray-400 hover:text-white transition-colors duration-200"
             >
               {service.title}
             </Link>
@@ -112,10 +112,10 @@ const Navbar = () => {
         {
           opacity: 1,
           y: 0,
-          duration: 0.8,
-          stagger: 0.1,
+          duration: 0.45,
+          stagger: 0.06,
           ease: "power2.out",
-          delay: 0.2,
+          delay: 0.05,
         }
       );
 
@@ -191,7 +191,7 @@ const Navbar = () => {
       const refreshTimeout = setTimeout(() => {
         ScrollTrigger.refresh();
         checkInitialScroll(); // Double-check the state
-      }, 100);
+      }, 50);
 
       return () => {
         window.removeEventListener("scroll", handleScroll);
@@ -251,10 +251,10 @@ const Navbar = () => {
         {
           opacity: 1,
           x: 0,
-          duration: 0.3,
-          stagger: 0.1,
+          duration: 0.25,
+          stagger: 0.06,
           ease: "power2.out",
-          delay: 0.1,
+          delay: 0.05,
         }
       );
     } else {
@@ -346,7 +346,7 @@ const Navbar = () => {
                       <div key={link.name} className="relative group">
                         <Link
                           href={link.path}
-                          className={`nav-item relative font-sans text-gray-900 hover:text-primary
+                          className={`nav-item relative font-sans text-gray-900 hover:text-white
                            transition-all duration-300 whitespace-nowrap flex items-center gap-1 ${
                              pathname === link.path ? "font-bold" : ""
                            }`}
@@ -370,7 +370,7 @@ const Navbar = () => {
                                   className={`block p-2 rounded-md /10 border border-transparent transition-colors duration-200 group/item`}
                                 >
                                   <div
-                                    className={`font-medium text-sm text-gray-900 group-hover/item:text-primary transition-colors`}
+                                    className={`font-medium text-sm text-gray-900 group-hover/item:text-white transition-colors`}
                                   >
                                     {service.title}
                                   </div>
@@ -386,7 +386,7 @@ const Navbar = () => {
                     <Link
                       key={link.name}
                       href={link.path}
-                      className={`nav-item relative font-sans text-gray-900 hover:text-primary transition-all duration-300 whitespace-nowrap ${
+                      className={`nav-item relative font-sans text-gray-900 hover:text-white transition-all duration-300 whitespace-nowrap ${
                         pathname === link.path ? "font-bold" : ""
                       }`}
                     >
@@ -415,7 +415,7 @@ const Navbar = () => {
             {/* Mobile Menu Button */}
             <button
               onClick={toggleMobileMenu}
-              className={`lg:hidden nav-item p-2 text-gray-900 hover:text-primary transition-colors duration-300 ml-auto`}
+              className={`lg:hidden nav-item p-2 text-gray-900 hover:text-white transition-colors duration-300 ml-auto`}
               aria-label="Toggle mobile menu"
             >
               {isMobileMenuOpen ? (
@@ -454,7 +454,7 @@ const Navbar = () => {
                       key={link.name}
                       href={link.path}
                       onClick={closeMobileMenu}
-                      className={`mobile-nav-item text-gray-900 hover:text-primary transition-all duration-300 py-2 text-base sm:text-lg whitespace-nowrap ${
+                      className={`mobile-nav-item text-gray-900 hover:text-white transition-all duration-300 py-2 text-base sm:text-lg whitespace-nowrap ${
                         pathname === link.path
                           ? "font-semibold border-l-4 pl-4"
                           : ""
