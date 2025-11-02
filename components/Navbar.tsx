@@ -32,7 +32,7 @@ const MobileDropdownMenu = ({
         <Link
           href={link.path}
           onClick={onLinkClick}
-          className={`text-gray-900 hover:text-white transition-all duration-300 py-2 text-base sm:text-lg flex-1 ${
+          className={`text-gray-900 hover:font-semibold transition-all duration-300 py-2 text-base sm:text-lg flex-1 ${
             pathname === link.path ? "font-semibold border-l-4 pl-4" : ""
           }`}
         >
@@ -40,7 +40,7 @@ const MobileDropdownMenu = ({
         </Link>
         <button
           onClick={() => setIsOpen(!isOpen)}
-          className="p-2 text-gray-900 hover:text-primary transition-colors duration-300"
+          className="p-2 text-gray-900 hover:font-semibold transition-all duration-300"
         >
           <ChevronDown
             className={`h-4 w-4 transition-transform duration-200 ${
@@ -57,7 +57,7 @@ const MobileDropdownMenu = ({
               key={index}
               href={`/services/${service.slug}`}
               onClick={onLinkClick}
-              className="block py-2 text-sm text-gray-600 dark:text-gray-400 hover:text-white transition-colors duration-200"
+              className="block py-2 text-sm text-gray-600 dark:text-gray-400 hover:font-semibold transition-all duration-200"
             >
               {service.title}
             </Link>
@@ -298,6 +298,39 @@ const Navbar = () => {
         .custom-scrollbar::-webkit-scrollbar-thumb:hover {
           background: rgba(156, 163, 175, 0.5);
         }
+
+        /* Nav link underline animation and bold-on-hover (no color change) */
+        .nav-item,
+        .mobile-nav-item {
+          position: relative;
+          /* ensure text color is inherited and not overridden on hover */
+          color: inherit;
+        }
+
+        .nav-item::after,
+        .mobile-nav-item::after {
+          content: "";
+          position: absolute;
+          left: 0;
+          bottom: -3px;
+          height: 2px;
+          width: 100%;
+          background: currentColor;
+          transform-origin: left;
+          transform: scaleX(0);
+          transition: transform 180ms ease;
+          pointer-events: none;
+        }
+
+        .nav-item:hover::after,
+        .mobile-nav-item:hover::after {
+          transform: scaleX(1);
+        }
+
+        .nav-item:hover,
+        .mobile-nav-item:hover {
+          font-weight: 600; /* slightly bolder on hover */
+        }
       `}</style>
       <nav
         ref={navRef}
@@ -346,7 +379,7 @@ const Navbar = () => {
                       <div key={link.name} className="relative group">
                         <Link
                           href={link.path}
-                          className={`nav-item relative font-sans text-gray-900 hover:text-white
+                          className={`nav-item relative font-sans text-gray-900 hover:font-semibold
                            transition-all duration-300 whitespace-nowrap flex items-center gap-1 ${
                              pathname === link.path ? "font-bold" : ""
                            }`}
@@ -367,10 +400,10 @@ const Navbar = () => {
                                 <Link
                                   key={index}
                                   href={`/services/${service.slug}`}
-                                  className={`block p-2 rounded-md /10 border border-transparent transition-colors duration-200 group/item`}
+                                  className={`block p-2 rounded-md /10 border border-transparent transition-all duration-200 group/item`}
                                 >
                                   <div
-                                    className={`font-medium text-sm text-gray-900 group-hover/item:text-white transition-colors`}
+                                    className={`font-medium text-sm text-gray-900 group-hover/item:font-semibold transition-all`}
                                   >
                                     {service.title}
                                   </div>
@@ -386,7 +419,7 @@ const Navbar = () => {
                     <Link
                       key={link.name}
                       href={link.path}
-                      className={`nav-item relative font-sans text-gray-900 hover:text-white transition-all duration-300 whitespace-nowrap ${
+                      className={`nav-item relative font-sans text-gray-900 hover:font-semibold transition-all duration-300 whitespace-nowrap ${
                         pathname === link.path ? "font-bold" : ""
                       }`}
                     >
@@ -415,7 +448,7 @@ const Navbar = () => {
             {/* Mobile Menu Button */}
             <button
               onClick={toggleMobileMenu}
-              className={`lg:hidden nav-item p-2 text-gray-900 hover:text-white transition-colors duration-300 ml-auto`}
+              className={`lg:hidden nav-item p-2 text-gray-900 hover:font-semibold transition-all duration-300 ml-auto`}
               aria-label="Toggle mobile menu"
             >
               {isMobileMenuOpen ? (
@@ -454,7 +487,7 @@ const Navbar = () => {
                       key={link.name}
                       href={link.path}
                       onClick={closeMobileMenu}
-                      className={`mobile-nav-item text-gray-900 hover:text-white transition-all duration-300 py-2 text-base sm:text-lg whitespace-nowrap ${
+                      className={`mobile-nav-item text-gray-900 hover:font-semibold transition-all duration-300 py-2 text-base sm:text-lg whitespace-nowrap ${
                         pathname === link.path
                           ? "font-semibold border-l-4 pl-4"
                           : ""
