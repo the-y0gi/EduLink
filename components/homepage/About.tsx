@@ -1,6 +1,7 @@
 "use client";
 import React, { useEffect, useRef } from "react";
 import Image from "next/image";
+import Link from "next/link";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 
@@ -345,12 +346,18 @@ const About = () => {
             Get personalized guidance from our expert team today.
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
-            <button className="bg-primary hover:bg-primary/90 text-white font-semibold px-8 py-4 rounded-full transition-all duration-300 text-lg hover:scale-105 hover:shadow-xl">
+            <Link
+              href="tel:+61403158014"
+              className="bg-primary hover:bg-primary/90 text-white font-semibold px-8 py-4 rounded-full transition-all duration-300 text-lg hover:scale-105 hover:shadow-xl"
+            >
               Get Free Consultation →
-            </button>
-            <button className="border-2 border-white text-white hover:bg-white hover:text-gray-900 font-semibold px-8 py-4 rounded-full transition-all duration-300 text-lg hover:scale-105">
+            </Link>
+            <Link
+              href="/about"
+              className="border-2 border-white text-white hover:bg-white hover:text-gray-900 font-semibold px-8 py-4 rounded-full transition-all duration-300 text-lg hover:scale-105"
+            >
               Learn More About Us
-            </button>
+            </Link>
           </div>
         </div>
       </div>

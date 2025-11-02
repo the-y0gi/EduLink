@@ -438,7 +438,7 @@ const Navbar = () => {
             {/* Right Section - Book Appointment Button */}
             <div className="hidden lg:flex shrink-0">
               <Link
-                href="/"
+                href="tel:+61403158014"
                 className="nav-item relative font-semibold px-4 py-2 rounded-lg  hover:shadow-lg transition-all duration-300 whitespace-nowrap border-2 bg-secondary text-white"
               >
                 Talk to us
