@@ -16,12 +16,7 @@ const WhyChooseUS = () => {
             className={`text-lg md:text-xl text-secondary/70 max-w-4xl mx-auto leading-relaxed`}
           >
             At Edulink, we provide tailored support for every stage of your
-            Australian journey. Whether you&apos;re an offshore student planning
-            your Australian education or an onshore student maximizing your
-            current opportunities - we help you achieve your goals without
-            wasting time, money, or opportunities. From working in your chosen
-            field to obtaining permanent residency and bringing your family to
-            Australia.
+            Australian journey.
           </p>
         </div>
         <MagicBento />
