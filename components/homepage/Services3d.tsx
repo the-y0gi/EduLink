@@ -89,7 +89,7 @@ export default function Services3D() {
       </div>
 
       {/* Services Section */}
-      <section className="relative py-0 z-40 mb-0">
+      <section className="relative  z-40 mb-0">
         <div className="container mx-auto px-4 relative z-10">
           <div className="text-center mb-16">
             {/* Badge / Bubble */}

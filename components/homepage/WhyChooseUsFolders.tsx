@@ -79,8 +79,8 @@ const WhyChooseUsFolders = () => {
     <section className="py-32 md:py-40 bg-gradient-to-br from-gray-50 to-white overflow-hidden min-h-[1200px]">
       <div className="container mx-auto px-4 max-w-7xl">
         <div className="text-center mb-24 md:mb-32">
-          <h2 className="text-4xl md:text-5xl lg:text-6xl font-bold text-gray-900 mb-6">
-            Why Choose <span className="text-blue-600">EduLink</span>?
+          <h2 className="text-4xl md:text-5xl lg:text-6xl font-momo text-gray-900 mb-6">
+            Why Choose <span className="text-primary">EduLink</span>?
           </h2>
           <p className="text-lg md:text-xl text-gray-600 max-w-3xl mx-auto leading-relaxed">
             Discover what makes us the preferred choice for thousands of
