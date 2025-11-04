@@ -21,8 +21,8 @@ const Home = () => {
       {/* <About /> */}
       <Services3D />
       {/* <Services /> */}
-      <WhyChooseUsFolders />
       <WhyChooseUS />
+      <WhyChooseUsFolders />
 
       <Testimonials />
       <Cta />

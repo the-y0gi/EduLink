@@ -14,61 +14,84 @@ const WhyChooseUsFolders = () => {
   // Toggle this to switch between layouts: true for single folder, false for two folders
   const useSingleFolder = true;
 
-  // Option 1: Single folder with 3 cards
+  // Option 1: Single folder with 6 site-aligned cards (pulled from /lib/index.ts)
   const singleFolderItems = [
     {
       icon: <GraduationCap className="w-8 h-8" />,
-      title: "Expert Educators",
+      title: "Education & Career",
       description:
-        "Qualified teachers with years of experience in their respective fields",
+        "Strategic education and career guidance to help students succeed in Australia",
+    },
+    {
+      icon: <Target className="w-8 h-8" />,
+      title: "Visa & Migration",
+      description:
+        "Complete visa assistance from application to approval with expert guidance",
     },
     {
       icon: <BookOpen className="w-8 h-8" />,
-      title: "Quality Content",
+      title: "Settlement & Living",
       description:
-        "Carefully curated learning materials and resources for optimal learning",
+        "Comprehensive settlement support to help new arrivals build strong foundations",
+    },
+    {
+      icon: <HeartHandshake className="w-8 h-8" />,
+      title: "Personal & Wellbeing",
+      description:
+        "Culturally sensitive mental health and wellbeing support for students and migrants",
     },
     {
       icon: <Award className="w-8 h-8" />,
-      title: "Proven Results",
-      description: "Track record of student success and academic excellence",
+      title: "Professional & Employment",
+      description:
+        "Employment guidance, resume help and interview coaching for the Australian job market",
+    },
+    {
+      icon: <Users className="w-8 h-8" />,
+      title: "Student Support",
+      description:
+        "Ongoing support throughout your study journey — from planning to post-graduation",
     },
   ];
 
   // Option 2: Two folders approach
+  // Option 2: Two-folder layout (split the same site-aligned cards into two sets)
   const folderSets = [
     [
       {
         icon: <GraduationCap className="w-8 h-8" />,
-        title: "Expert Educators",
-        description: "Qualified teachers with years of experience",
+        title: "Education & Career",
+        description:
+          "Strategic planning and career pathways for Australian success",
+      },
+      {
+        icon: <Target className="w-8 h-8" />,
+        title: "Visa & Migration",
+        description: "Expert visa assistance and higher approval support",
       },
       {
         icon: <BookOpen className="w-8 h-8" />,
-        title: "Quality Content",
-        description: "Carefully curated learning materials",
-      },
-      {
-        icon: <Award className="w-8 h-8" />,
-        title: "Proven Results",
-        description: "Track record of student success",
+        title: "Settlement & Living",
+        description:
+          "Settlement help, financial guidance and community integration",
       },
     ],
     [
       {
-        icon: <Users className="w-8 h-8" />,
-        title: "Small Classes",
-        description: "Personalized attention for every student",
-      },
-      {
-        icon: <Target className="w-8 h-8" />,
-        title: "Goal Oriented",
-        description: "Focused approach to achieve objectives",
-      },
-      {
         icon: <HeartHandshake className="w-8 h-8" />,
-        title: "Supportive Community",
-        description: "Caring environment for growth",
+        title: "Personal & Wellbeing",
+        description:
+          "Culturally sensitive mental health and wellbeing services",
+      },
+      {
+        icon: <Award className="w-8 h-8" />,
+        title: "Professional & Employment",
+        description: "Resume, interview coaching and job search strategies",
+      },
+      {
+        icon: <Users className="w-8 h-8" />,
+        title: "Student Support",
+        description: "Ongoing guidance from pre-departure to post-graduation",
       },
     ],
   ];
@@ -76,7 +99,7 @@ const WhyChooseUsFolders = () => {
   const colors = ["#5227FF", "#FF6B35"];
 
   return (
-    <section className="py-32 md:py-40 bg-gradient-to-br from-gray-50 to-white overflow-hidden min-h-[1200px]">
+    <section className="py-32 md:py-40 bg-linear-to-br from-gray-50 to-white overflow-hidden min-h-[1200px]">
       <div className="container mx-auto px-4 max-w-7xl">
         <div className="text-center mb-24 md:mb-32">
           <h2 className="text-4xl md:text-5xl lg:text-6xl font-momo text-gray-900 mb-6">

@@ -108,32 +108,58 @@ const testimonialsData: Testimonial[] = [
 const TestimonialCard: React.FC<{ testimonial: Testimonial }> = ({
   testimonial,
 }) => {
+  const initial = testimonial.name
+    ? testimonial.name.charAt(0).toUpperCase()
+    : "U";
+
   return (
-    <div className="shrink-0 w-96 bg-white rounded-2xl shadow-lg p-6 mx-4 hover:shadow-2xl transition-shadow duration-300">
-      {/* Quote Icon */}
-      <div className="flex justify-between items-start mb-4">
-        <Quote className="text-primary/30 w-8 h-8" />
-        <div className="flex space-x-1">
-          {[...Array(testimonial.rating)].map((_, i) => (
-            <Star key={i} className="w-4 h-4 text-yellow-400 fill-current" />
-          ))}
+    <div className="shrink-0 w-96 mx-4">
+      <div className="group relative bg-white border border-gray-100 rounded-2xl shadow-lg hover:shadow-xl p-6 transition-all duration-300 hover:border-primary/30 hover:-translate-y-1">
+        {/* Top row: avatar, quote icon, rating */}
+        <div className="flex items-start justify-between mb-4">
+          <div className="flex items-center gap-3">
+            <div className="w-12 h-12 rounded-full bg-linear-to-br from-primary to-primary/80 flex items-center justify-center text-white font-bold text-lg shadow-md">
+              {initial}
+            </div>
+            <div>
+              <h4 className="text-secondary font-bold text-lg leading-tight">
+                {testimonial.name}
+              </h4>
+              <p className="text-primary font-medium text-sm mt-0.5">
+                {testimonial.service}
+              </p>
+            </div>
+          </div>
+
+          <div className="flex items-center gap-2">
+            <Quote className="w-6 h-6 text-primary/30 group-hover:text-primary/50 transition-colors duration-300" />
+            <div className="flex">
+              {[...Array(testimonial.rating)].map((_, i) => (
+                <Star key={i} className="w-4 h-4 text-primary fill-current" />
+              ))}
+            </div>
+          </div>
         </div>
-      </div>
 
-      {/* Testimonial Text */}
-      <p className="text-gray-700 text-sm leading-relaxed mb-6 italic">
-        "{testimonial.testimonial}"
-      </p>
-
-      {/* Client Info */}
-      <div className="border-t pt-4">
-        <h4 className="font-bold text-gray-900 text-lg">{testimonial.name}</h4>
-        <p className="text-primary font-medium text-sm">
-          {testimonial.service}
+        {/* Testimonial Text */}
+        <p className="text-secondary/80 text-sm leading-relaxed italic mb-6 line-clamp-3">
+          &ldquo;{testimonial.testimonial}&rdquo;
         </p>
-        {testimonial.location && (
-          <p className="text-gray-500 text-xs mt-1">{testimonial.location}</p>
-        )}
+
+        {/* Divider + location */}
+        <div className="border-t border-gray-100 pt-4 flex items-center justify-between">
+          <div>
+            {testimonial.location && (
+              <p className="text-secondary/60 text-xs font-medium flex items-center gap-1">
+                <span className="w-2 h-2 bg-primary rounded-full"></span>
+                {testimonial.location}
+              </p>
+            )}
+          </div>
+          <div className="text-primary/20 group-hover:text-primary/40 transition-colors duration-300">
+            <Quote className="w-4 h-4" />
+          </div>
+        </div>
       </div>
     </div>
   );
@@ -144,13 +170,18 @@ const Testimonials: React.FC = () => {
   const duplicatedTestimonials = [...testimonialsData, ...testimonialsData];
 
   return (
-    <section className="py-16 bg-linear-to-b from-gray-50 to-white overflow-hidden">
-      <div className="max-w-7xl mx-auto px-4 mb-12">
+    <section className="py-16 px-4 sm:px-6 lg:px-8 bg-white overflow-hidden">
+      <div className="max-w-7xl mx-auto mb-12">
         <div className="text-center">
-          <h2 className="text-4xl md:text-5xl font-momo text-secondary mb-4">
+          {/* Badge / Bubble */}
+          <div className="inline-flex items-center px-4 py-2 bg-primary/20 backdrop-blur-sm border border-primary/30 rounded-full text-primary font-medium text-sm mb-6">
+            <span className="w-2 h-2 bg-primary rounded-full mr-2 animate-pulse"></span>
+            Student Success Stories
+          </div>
+          <h2 className="text-4xl md:text-5xl lg:text-6xl font-momo text-secondary mb-6 leading-tight">
             What Our Students Say
           </h2>
-          <p className="text-xl text-gray-600 max-w-2xl mx-auto">
+          <p className="text-lg text-secondary/70 leading-relaxed max-w-2xl mx-auto">
             Discover how EduLink has helped thousands of students achieve their
             Australian dreams
           </p>
@@ -160,7 +191,7 @@ const Testimonials: React.FC = () => {
       {/* Marquee Container */}
       <div className="relative">
         {/* Gradient Overlays for smooth fade */}
-        <div className="absolute left-0 top-0 bottom-0 w-20 bg-linear-to-r from-gray-50 to-transparent z-10 pointer-events-none" />
+        <div className="absolute left-0 top-0 bottom-0 w-20 bg-linear-to-r from-white to-transparent z-10 pointer-events-none" />
         <div className="absolute right-0 top-0 bottom-0 w-20 bg-linear-to-l from-white to-transparent z-10 pointer-events-none" />
 
         {/* Scrolling Container */}
@@ -175,14 +206,25 @@ const Testimonials: React.FC = () => {
       </div>
 
       {/* Call to Action */}
-      <div className="text-center mt-12">
-        <p className="text-gray-600 mb-6">
-          Ready to start your Australian journey?
-        </p>
-        <button className="bg-primary hover:bg-primary/90 text-white px-8 py-3 rounded-full font-semibold transition-colors duration-300 shadow-lg hover:shadow-xl">
-          Book Free Consultation
-        </button>
-      </div>
+      {/* <div className="text-center mt-16">
+        <div className="bg-linear-to-r from-primary/5 to-secondary/5 rounded-2xl p-8 max-w-4xl mx-auto">
+          <p className="text-secondary/70 text-lg mb-6">
+            Ready to start your Australian journey?
+          </p>
+          <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
+            <button className="group bg-primary hover:bg-primary/90 text-white px-8 py-3 rounded-full font-semibold transition-all duration-300 shadow-lg hover:shadow-xl hover:-translate-y-0.5 flex items-center gap-2">
+              Book Free Consultation
+              <Quote className="w-4 h-4 group-hover:rotate-12 transition-transform duration-300" />
+            </button>
+            <button className="text-primary hover:text-primary/80 font-semibold transition-colors duration-300 flex items-center gap-1">
+              Read More Success Stories
+              <span className="transform transition-transform group-hover:translate-x-1">
+                →
+              </span>
+            </button>
+          </div>
+        </div>
+      </div> */}
     </section>
   );
 };
