@@ -224,7 +224,7 @@ const AnotherHero = () => {
             playsInline
           />
           {/* Overlay on video - solid dark with subtle blur */}
-          <div className="absolute inset-0 bg-black/40 backdrop-blur-sm z-10 pointer-events-none" />
+          <div className="absolute inset-0 bg-black/40  z-10 pointer-events-none" />
 
           {/* Content Section */}
           <div className="relative z-20 flex flex-col items-center justify-center h-full text-center px-6 max-w-4xl mx-auto">
