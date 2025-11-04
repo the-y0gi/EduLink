@@ -12,7 +12,7 @@ import {
   Heart,
   Globe,
 } from "lucide-react";
-import { FaPlaneDeparture } from "react-icons/fa";
+// FaPlaneDeparture removed (unused) to avoid lint errors
 import Link from "next/link";
 import { servicesData } from "@/lib/index";
 
@@ -55,10 +55,10 @@ export default function Services3D() {
               <span className="w-2 h-2 bg-primary rounded-full mr-2 animate-pulse"></span>
               Explore Our Services
             </div>
-            <h2 className="text-4xl md:text-8xl font-semibold mb-4 text-white">
+            <h2 className="text-4xl md:text-8xl font-semibold mb-4 text-secondary">
               Our Services
             </h2>
-            <p className="text-lg md:text-xl text-white font-serif max-w-3xl mx-auto">
+            <p className="text-lg md:text-xl text-secondary/70 font-serif max-w-3xl mx-auto">
               From visa assistance to career guidance, we&apos;ve got you
               covered. Choose reliability, choose Edulink.
             </p>
@@ -67,7 +67,7 @@ export default function Services3D() {
             className="flex justify-center items-center"
             style={{ height: "300px" }}
           >
-            <div className="animate-pulse text-white">Loading...</div>
+            <div className="animate-pulse text-secondary">Loading...</div>
           </div>
         </div>
       </div>
@@ -76,7 +76,7 @@ export default function Services3D() {
 
   return (
     <div
-      className="relative bg-primary overflow-hidden py-20 pb-5"
+      className="relative overflow-hidden py-20 pb-5"
       style={{
         height: "auto",
         perspective: "800px",
@@ -93,16 +93,16 @@ export default function Services3D() {
         <div className="container mx-auto px-4 relative z-10">
           <div className="text-center mb-16">
             {/* Badge / Bubble */}
-            <div className="inline-flex items-center px-4 py-2 bg-white/20 backdrop-blur-sm border border-white/30 rounded-full text-white font-medium text-sm mb-6">
-              <span className="w-2 h-2 bg-white rounded-full mr-2 animate-pulse"></span>
+            <div className="inline-flex items-center px-4 py-2 bg-primary/20 backdrop-blur-sm border border-primary/30 rounded-full text-primary font-medium text-sm mb-6">
+              <span className="w-2 h-2 bg-primary rounded-full mr-2 animate-pulse"></span>
               Explore Our Services
             </div>
             {/* More relevant icon above heading */}
-            <FaPlaneDeparture className="mx-auto mb-4 w-12 h-12 text-white drop-shadow-lg" />
-            <h2 className="text-2xl md:text-6xl font-semibold mb-4 text-white">
+            {/* <FaPlaneDeparture className="mx-auto mb-4 w-12 h-12 text-secondary drop-shadow-lg" /> */}
+            <h2 className="text-2xl md:text-6xl font-momo mb-4 text-secondary">
               Our Services
             </h2>
-            <p className="text-lg md:text-xl text-white font-serif max-w-3xl mx-auto">
+            <p className="text-lg md:text-xl text-secondary/70  max-w-3xl mx-auto">
               From visa assistance to career guidance, we&apos;ve got you
               covered. Choose reliability, choose Edulink.
             </p>
@@ -269,7 +269,7 @@ export default function Services3D() {
                   currentIndex === 0 ? SERVICES.length - 1 : currentIndex - 1;
                 setActiveDemo(SERVICES[prevIndex].demo);
               }}
-              className="bg-white/30 border-none text-white hover:bg-[#F8991D] hover:text-white shadow-xl flex items-center justify-center w-16 h-16 rounded-full transition-all duration-200"
+              className="bg-secondary/10 border-none text-secondary hover:bg-primary hover:text-white shadow-xl flex items-center justify-center w-16 h-16 rounded-full transition-all duration-200"
             >
               <ChevronLeft className="w-10 h-10" />
             </button>
@@ -283,7 +283,7 @@ export default function Services3D() {
                   currentIndex === SERVICES.length - 1 ? 0 : currentIndex + 1;
                 setActiveDemo(SERVICES[nextIndex].demo);
               }}
-              className="bg-white/30 border-none text-white hover:bg-[#F8991D] hover:text-white shadow-xl flex items-center justify-center w-16 h-16 rounded-full transition-all duration-200"
+              className="bg-secondary/10 border-none text-secondary hover:bg-primary hover:text-white shadow-xl flex items-center justify-center w-16 h-16 rounded-full transition-all duration-200"
             >
               <ChevronRight className="w-10 h-10" />
             </button>
@@ -293,13 +293,13 @@ export default function Services3D() {
           <div className="flex flex-col sm:flex-row justify-center items-center gap-4 mt-12">
             <Link
               href="/services"
-              className="text-white font-semibold hover:text-white/80 transition-colors"
+              className="text-primary font-semibold hover:text-primary/80 transition-colors"
             >
               View All Services →
             </Link>
             <Link
               href="/contact"
-              className="text-white font-semibold hover:text-white/80 transition-colors"
+              className="text-primary font-semibold hover:text-primary/80 transition-colors"
             >
               Call For Booking →
             </Link>

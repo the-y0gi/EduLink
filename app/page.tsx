@@ -1,6 +1,8 @@
 // import About from "@/components/homepage/About";
+import AnotherHero from "@/components/homepage/AnotherHero";
 import Cta from "@/components/homepage/Cta";
 import Hero from "@/components/homepage/Hero";
+import NewHero from "@/components/homepage/NewHero";
 import Services from "@/components/homepage/Services";
 import Services3D from "@/components/homepage/Services3d";
 // import WhyChooseUS from "@/components/homepage/WhyChooseUS";
@@ -8,10 +10,12 @@ import Services3D from "@/components/homepage/Services3d";
 const Home = () => {
   return (
     <main>
-      <Hero />
+      {/* <NewHero /> */}
+      <AnotherHero />
+      {/* <Hero /> */}
       {/* <About /> */}
       <Services3D />
-      <Services />
+      {/* <Services /> */}
       <Cta />
       {/* <WhyChooseUS /> */}
     </main>

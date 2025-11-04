@@ -11,7 +11,11 @@ type TypingTextProps = {
   // either pass a plain text string (legacy) or segments to preserve styling
   text?: string;
   segments?: Segment[];
+  // For multiple sentences animation
+  sentences?: Segment[][];
   speed?: number; // ms per character
+  backspaceSpeed?: number; // ms per character for backspacing
+  pauseDuration?: number; // ms to pause between sentences
   className?: string;
   cursorChar?: string;
 };
@@ -19,47 +23,121 @@ type TypingTextProps = {
 const TypingText: React.FC<TypingTextProps> = ({
   text,
   segments,
+  sentences,
   speed = 60,
+  backspaceSpeed = 30,
+  pauseDuration = 1500,
   className = "",
   cursorChar = "|",
 }) => {
   const [displayedLen, setDisplayedLen] = useState(0);
+  const [currentSentenceIndex, setCurrentSentenceIndex] = useState(0);
   const [isCursorVisible, setIsCursorVisible] = useState(true);
   const { isStartupComplete } = useStartup();
 
-  // build a unified string length from segments or text
-  const full = segments ? segments.map((s) => s.text).join("") : text || "";
+  // For multi-sentence mode, use sentences array, otherwise fall back to single text/segments
+  const isMultiSentence = sentences && sentences.length > 0;
+  const currentSegments = isMultiSentence
+    ? sentences[currentSentenceIndex]
+    : segments || [{ text: text || "" }];
 
   useEffect(() => {
     // Only start typing animation when startup is complete
     if (!isStartupComplete) {
-      const reset = setTimeout(() => setDisplayedLen(0), 0);
-      return () => clearTimeout(reset);
+      return;
     }
 
-    // Add delay after startup completes
-    const startDelay = setTimeout(() => {
-      // reset asynchronously to avoid sync setState inside effect
-      const reset = setTimeout(() => setDisplayedLen(0), 0);
+    if (!isMultiSentence) {
+      // Original single sentence behavior
+      const startDelay = setTimeout(() => {
+        let idx = 0;
+        const singleFull = segments
+          ? segments.map((s) => s.text).join("")
+          : text || "";
+        const t = setInterval(() => {
+          setDisplayedLen(++idx);
+          if (idx >= singleFull.length) {
+            clearInterval(t);
+          }
+        }, speed);
+      }, 800);
+
+      return () => clearTimeout(startDelay);
+    } else {
+      // Multi-sentence cycling behavior
+      let sentenceIdx = 0;
       let idx = 0;
-      const t = setInterval(() => {
-        idx += 1;
-        setDisplayedLen(idx);
-        if (idx >= full.length) {
-          clearInterval(t);
+      let isTyping = true;
+      let timeoutId: NodeJS.Timeout;
+      let cleanup = false;
+
+      const cycle = () => {
+        if (cleanup) return;
+
+        const currentFull = sentences[sentenceIdx].map((s) => s.text).join("");
+
+        if (isTyping) {
+          // Typing phase
+          idx += 1;
+          setDisplayedLen(idx);
+          setCurrentSentenceIndex(sentenceIdx);
+
+          if (idx >= currentFull.length) {
+            // Finished typing, pause then start backspacing
+            timeoutId = setTimeout(() => {
+              if (!cleanup) {
+                isTyping = false;
+                cycle();
+              }
+            }, pauseDuration);
+          } else {
+            timeoutId = setTimeout(() => {
+              if (!cleanup) cycle();
+            }, speed);
+          }
+        } else {
+          // Backspacing phase
+          idx -= 1;
+          setDisplayedLen(Math.max(0, idx));
+
+          if (idx <= 0) {
+            // Finished backspacing, move to next sentence
+            sentenceIdx = (sentenceIdx + 1) % sentences.length;
+            isTyping = true;
+            idx = 0;
+            timeoutId = setTimeout(() => {
+              if (!cleanup) cycle();
+            }, 200); // Small pause before next sentence
+          } else {
+            timeoutId = setTimeout(() => {
+              if (!cleanup) cycle();
+            }, backspaceSpeed);
+          }
         }
-      }, speed);
+      };
+
+      const startDelay = setTimeout(() => {
+        if (!cleanup) {
+          cycle();
+        }
+      }, 800);
 
       return () => {
-        clearTimeout(reset);
-        clearInterval(t);
+        cleanup = true;
+        clearTimeout(startDelay);
+        clearTimeout(timeoutId);
       };
-    }, 800); // Wait 800ms after startup completes
-
-    return () => {
-      clearTimeout(startDelay);
-    };
-  }, [full, speed, isStartupComplete]);
+    }
+  }, [
+    speed,
+    backspaceSpeed,
+    pauseDuration,
+    isStartupComplete,
+    isMultiSentence,
+    sentences,
+    segments,
+    text,
+  ]);
 
   useEffect(() => {
     const c = setInterval(() => {
@@ -68,25 +146,23 @@ const TypingText: React.FC<TypingTextProps> = ({
     return () => clearInterval(c);
   }, []);
 
-  // render logic: if segments provided, render per-segment partial slices
-  const content = segments
-    ? (() => {
-        const nodes: React.ReactNode[] = [];
-        let remaining = displayedLen;
-        for (let i = 0; i < segments.length; i++) {
-          const seg = segments[i];
-          if (remaining <= 0) break;
-          const take = Math.min(seg.text.length, remaining);
-          nodes.push(
-            <span key={i} className={seg.className}>
-              {seg.text.slice(0, take)}
-            </span>
-          );
-          remaining -= take;
-        }
-        return nodes;
-      })()
-    : full.slice(0, displayedLen);
+  // render logic: render per-segment partial slices using current segments
+  const content = (() => {
+    const nodes: React.ReactNode[] = [];
+    let remaining = displayedLen;
+    for (let i = 0; i < currentSegments.length; i++) {
+      const seg = currentSegments[i];
+      if (remaining <= 0) break;
+      const take = Math.min(seg.text.length, remaining);
+      nodes.push(
+        <span key={`${currentSentenceIndex}-${i}`} className={seg.className}>
+          {seg.text.slice(0, take)}
+        </span>
+      );
+      remaining -= take;
+    }
+    return nodes;
+  })();
 
   return (
     <span className={className}>
