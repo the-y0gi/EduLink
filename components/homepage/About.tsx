@@ -142,71 +142,6 @@ const About = () => {
       className="bg-secondary/10 min-h-screen overflow-hidden"
       id="about"
     >
-      {/* Hero Section */}
-      <div
-        ref={heroRef}
-        className="relative py-20 px-4 sm:px-6 lg:px-8 bg-linear-to-br text-white overflow-hidden"
-      >
-        {/* Background Video */}
-        <video
-          className="absolute inset-0 w-full h-full object-cover opacity-70"
-          src="/herobg.mp4"
-          autoPlay
-          loop
-          muted
-          playsInline
-        />
-
-        {/* Overlay */}
-        <div className="absolute inset-0 bg-linear-to-br from-secondary/80 via-gray-900/70 to-secondary/80" />
-
-        {/* Content */}
-        <div className="relative z-10 max-w-7xl mx-auto">
-          <div className="text-center mb-16">
-            <div className="animate-fade-up">
-              <span className="inline-block px-4 py-2 bg-primary/20 text-white rounded-full text-sm font-medium mb-6 backdrop-blur-sm border border-primary/30">
-                About Edulink
-              </span>
-            </div>
-            <h1 className="animate-fade-up text-4xl md:text-6xl lg:text-7xl font-momo mb-8 leading-tight">
-              We Are a <span className="text-primary">Trusted</span> Visa and{" "}
-              <span className="text-primary">Immigration</span> Agent
-            </h1>
-            <p className="animate-fade-up text-xl md:text-2xl text-gray-200 max-w-4xl mx-auto leading-relaxed">
-              At Edulink, we connect ambition with opportunity. Our expert team
-              helps students study, work, and build a future in Australia
-              through clear guidance, personalised pathways, and genuine
-              support.
-            </p>
-          </div>
-
-          {/* Stats Section */}
-          {/* <div
-            ref={statsRef}
-            className="grid grid-cols-2 md:grid-cols-4 gap-6 md:gap-8"
-          >
-            {stats.map((stat, index) => (
-              <div
-                key={index}
-                className="stat-item bg-white/10 backdrop-blur-sm rounded-2xl p-6 text-center border border-white/20 hover:bg-white/15 transition-all duration-300"
-              >
-                <div className="text-3xl mb-3">{stat.icon}</div>
-                <div className="text-3xl md:text-4xl font-bold text-[#4ECDC4] mb-2">
-                  {stat.number}
-                </div>
-                <div className="text-sm md:text-base text-gray-300 font-medium">
-                  {stat.label}
-                </div>
-              </div>
-            ))}
-          </div> */}
-        </div>
-
-        {/* Decorative Elements */}
-        <div className="absolute top-20 left-10 w-32 h-32 bg-primary/10 rounded-full blur-3xl" />
-        <div className="absolute bottom-20 right-10 w-40 h-40 bg-secondary/10 rounded-full blur-3xl" />
-      </div>
-
       {/* Mission Section */}
       <div ref={missionRef} className="py-20 px-4 sm:px-6 lg:px-8 bg-white">
         <div className="max-w-7xl mx-auto">
@@ -286,6 +221,70 @@ const About = () => {
           </div>
         </div>
       </div>
+      {/* Hero Section */}
+      <div
+        ref={heroRef}
+        className="relative py-20 px-4 sm:px-6 lg:px-8 bg-linear-to-br text-white overflow-hidden"
+      >
+        {/* Background Video */}
+        <video
+          className="absolute inset-0 w-full h-full object-cover opacity-70"
+          src="/herobg.mp4"
+          autoPlay
+          loop
+          muted
+          playsInline
+        />
+
+        {/* Overlay */}
+        <div className="absolute inset-0 bg-linear-to-br from-secondary/80 via-gray-900/70 to-secondary/80" />
+
+        {/* Content */}
+        <div className="relative z-10 max-w-7xl mx-auto">
+          <div className="text-center mb-16">
+            <div className="animate-fade-up">
+              <span className="inline-block px-4 py-2 bg-primary/20 text-white rounded-full text-sm font-medium mb-6 backdrop-blur-sm border border-primary/30">
+                About Edulink
+              </span>
+            </div>
+            <h1 className="animate-fade-up text-4xl md:text-6xl lg:text-7xl font-momo mb-8 leading-tight">
+              We Are a <span className="text-primary">Trusted</span> Visa and{" "}
+              <span className="text-primary">Immigration</span> Agent
+            </h1>
+            <p className="animate-fade-up text-xl md:text-2xl text-gray-200 max-w-4xl mx-auto leading-relaxed">
+              At Edulink, we connect ambition with opportunity. Our expert team
+              helps students study, work, and build a future in Australia
+              through clear guidance, personalised pathways, and genuine
+              support.
+            </p>
+          </div>
+
+          {/* Stats Section */}
+          {/* <div
+            ref={statsRef}
+            className="grid grid-cols-2 md:grid-cols-4 gap-6 md:gap-8"
+          >
+            {stats.map((stat, index) => (
+              <div
+                key={index}
+                className="stat-item bg-white/10 backdrop-blur-sm rounded-2xl p-6 text-center border border-white/20 hover:bg-white/15 transition-all duration-300"
+              >
+                <div className="text-3xl mb-3">{stat.icon}</div>
+                <div className="text-3xl md:text-4xl font-bold text-[#4ECDC4] mb-2">
+                  {stat.number}
+                </div>
+                <div className="text-sm md:text-base text-gray-300 font-medium">
+                  {stat.label}
+                </div>
+              </div>
+            ))}
+          </div> */}
+        </div>
+
+        {/* Decorative Elements */}
+        <div className="absolute top-20 left-10 w-32 h-32 bg-primary/10 rounded-full blur-3xl" />
+        <div className="absolute bottom-20 right-10 w-40 h-40 bg-secondary/10 rounded-full blur-3xl" />
+      </div>
 
       {/* Values Section */}
       {/* <div
@@ -328,39 +327,6 @@ const About = () => {
           </div>
         </div>
       </div> */}
-
-      {/* CTA Section */}
-      <div className="py-20 px-4 sm:px-6 lg:px-8 bg-linear-to-br from-gray-900 via-secondary to-gray-800 text-white relative overflow-hidden">
-        {/* Background Pattern */}
-        <div className="absolute inset-0 opacity-10">
-          <div className="absolute top-0 left-0 w-96 h-96 bg-primary rounded-full blur-3xl" />
-          <div className="absolute bottom-0 right-0 w-96 h-96 bg-secondary rounded-full blur-3xl" />
-        </div>
-
-        <div className="relative z-10 max-w-4xl mx-auto text-center">
-          <h2 className="text-4xl md:text-5xl font-momo mb-6 leading-tight">
-            Ready to Start Your <span className="text-primary">Journey</span>?
-          </h2>
-          <p className="text-xl text-gray-300 mb-10 max-w-2xl mx-auto">
-            Let us help you turn your dreams of studying abroad into reality.
-            Get personalized guidance from our expert team today.
-          </p>
-          <div className="flex flex-col sm:flex-row gap-4 justify-center">
-            <Link
-              href="tel:+61403158014"
-              className="bg-primary hover:bg-primary/90 text-white font-semibold px-8 py-4 rounded-full transition-all duration-300 text-lg hover:scale-105 hover:shadow-xl"
-            >
-              Get Free Consultation →
-            </Link>
-            <Link
-              href="/about"
-              className="border-2 border-white text-white hover:bg-white hover:text-gray-900 font-semibold px-8 py-4 rounded-full transition-all duration-300 text-lg hover:scale-105"
-            >
-              Learn More About Us
-            </Link>
-          </div>
-        </div>
-      </div>
     </section>
   );
 };

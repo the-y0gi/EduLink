@@ -68,12 +68,23 @@ const MobileDropdownMenu = ({
   );
 };
 
-const Navbar = () => {
+interface NavbarProps {
+  isStartupComplete?: boolean;
+}
+
+const Navbar = ({ isStartupComplete = true }: NavbarProps) => {
   const navRef = useRef<HTMLElement>(null);
   const mobileMenuRef = useRef<HTMLDivElement>(null);
   const pathname = usePathname();
   const [isScrolled, setIsScrolled] = useState(false);
+  // keep a ref of isScrolled to avoid stale closures inside scroll handlers / ScrollTrigger
+  const isScrolledRef = useRef<boolean>(isScrolled);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
+
+  // sync ref whenever state changes
+  useEffect(() => {
+    isScrolledRef.current = isScrolled;
+  }, [isScrolled]);
 
   useEffect(() => {
     // Check initial scroll position
@@ -102,6 +113,14 @@ const Navbar = () => {
       }
     };
 
+    // Initially hide navbar if startup animation is not complete
+    if (!isStartupComplete && navRef.current) {
+      gsap.set(navRef.current, {
+        opacity: 0,
+        y: -100,
+      });
+    }
+
     // Check initial state immediately
     checkInitialScroll();
 
@@ -124,8 +143,16 @@ const Navbar = () => {
         const scrollY = window.scrollY;
         const shouldBeScrolled = scrollY > 50;
 
-        if (shouldBeScrolled !== isScrolled) {
+        // compare with the ref to avoid stale closure issues
+        if (shouldBeScrolled !== isScrolledRef.current) {
+          // update both state and ref
           setIsScrolled(shouldBeScrolled);
+          isScrolledRef.current = shouldBeScrolled;
+
+          // kill any in-flight tweens on the nav before animating to the new state
+          if (navRef.current) {
+            gsap.killTweensOf(navRef.current);
+          }
 
           if (shouldBeScrolled) {
             gsap.to(navRef.current, {
@@ -135,6 +162,7 @@ const Navbar = () => {
               duration: 0.25,
               ease: "power2.out",
               transformOrigin: "center top",
+              overwrite: true,
             });
           } else {
             gsap.to(navRef.current, {
@@ -144,6 +172,7 @@ const Navbar = () => {
               duration: 0.25,
               ease: "power2.out",
               transformOrigin: "center top",
+              overwrite: true,
             });
           }
         }
@@ -160,8 +189,14 @@ const Navbar = () => {
         onUpdate: (self) => {
           const isScrolledNow = self.progress > 0;
 
-          if (isScrolledNow !== isScrolled) {
+          // use ref to avoid stale comparisons
+          if (isScrolledNow !== isScrolledRef.current) {
             setIsScrolled(isScrolledNow);
+            isScrolledRef.current = isScrolledNow;
+
+            if (navRef.current) {
+              gsap.killTweensOf(navRef.current);
+            }
 
             if (isScrolledNow) {
               gsap.to(navRef.current, {
@@ -171,6 +206,7 @@ const Navbar = () => {
                 duration: 0.25,
                 ease: "power2.out",
                 transformOrigin: "center top",
+                overwrite: true,
               });
             } else {
               gsap.to(navRef.current, {
@@ -180,6 +216,7 @@ const Navbar = () => {
                 duration: 0.25,
                 ease: "power2.out",
                 transformOrigin: "center top",
+                overwrite: true,
               });
             }
           }
@@ -200,7 +237,20 @@ const Navbar = () => {
     }, navRef);
 
     return () => ctx.revert();
-  }, [isScrolled]); // Add isScrolled as dependency to prevent stale state
+  }, [isScrolled, isStartupComplete]); // Add isScrolled and isStartupComplete as dependencies to prevent stale state
+
+  // Animate navbar in when startup is complete
+  useEffect(() => {
+    if (isStartupComplete && navRef.current) {
+      gsap.to(navRef.current, {
+        opacity: 1,
+        y: 0,
+        duration: 0.3,
+        ease: "power2.out",
+        delay: 0, // No delay - appear immediately
+      });
+    }
+  }, [isStartupComplete]);
 
   // Handle route changes - reset scroll state
   useEffect(() => {
@@ -239,11 +289,15 @@ const Navbar = () => {
       setIsMobileMenuOpen(true);
       // Ensure menu is visible before animation
       gsap.set(mobileMenuRef.current, { display: "block", opacity: 0, y: -20 });
+      if (mobileMenuRef.current) {
+        gsap.killTweensOf(mobileMenuRef.current);
+      }
       gsap.to(mobileMenuRef.current, {
         opacity: 1,
         y: 0,
         duration: 0.3,
         ease: "power2.out",
+        overwrite: true,
       });
       gsap.fromTo(
         ".mobile-nav-item",
@@ -258,11 +312,15 @@ const Navbar = () => {
         }
       );
     } else {
+      if (mobileMenuRef.current) {
+        gsap.killTweensOf(mobileMenuRef.current);
+      }
       gsap.to(mobileMenuRef.current, {
         opacity: 0,
         y: -20,
         duration: 0.2,
         ease: "power2.in",
+        overwrite: true,
         onComplete: () => {
           setIsMobileMenuOpen(false);
         },
@@ -271,11 +329,15 @@ const Navbar = () => {
   };
 
   const closeMobileMenu = () => {
+    if (mobileMenuRef.current) {
+      gsap.killTweensOf(mobileMenuRef.current);
+    }
     gsap.to(mobileMenuRef.current, {
       opacity: 0,
       y: -20,
       duration: 0.2,
       ease: "power2.in",
+      overwrite: true,
       onComplete: () => {
         setIsMobileMenuOpen(false);
       },
@@ -303,19 +365,19 @@ const Navbar = () => {
         .nav-item,
         .mobile-nav-item {
           position: relative;
-          /* ensure text color is inherited and not overridden on hover */
-          color: inherit;
+          color: #111827; /* dark text to match the design */
         }
 
+        /* thicker, darker underline that animates from left to right */
         .nav-item::after,
         .mobile-nav-item::after {
           content: "";
           position: absolute;
           left: 0;
-          bottom: -3px;
-          height: 2px;
+          bottom: -6px;
+          height: 3px;
           width: 100%;
-          background: currentColor;
+          background: #111827; /* solid dark underline */
           transform-origin: left;
           transform: scaleX(0);
           transition: transform 180ms ease;
@@ -329,16 +391,17 @@ const Navbar = () => {
 
         .nav-item:hover,
         .mobile-nav-item:hover {
-          font-weight: 600; /* slightly bolder on hover */
+          font-weight: 700; /* bolder on hover */
+        }
+
+        /* make dropdown text clearly visible on the gray bar */
+        .group:hover .group-hover\\:visible {
+          visibility: visible;
         }
       `}</style>
       <nav
         ref={navRef}
-        className={`fixed top-0 z-999 w-full transition-all duration-300 ${
-          isScrolled
-            ? "bg-white/20 backdrop-blur-lg border-b border-primary/30 shadow-xl max-w-screen-2xl mx-auto left-0 right-0 w-[96vw]"
-            : "w-full"
-        }`}
+        className={`fixed top-0 z-50 w-full transition-all duration-300 bg-gray-300`}
         style={{ transformOrigin: "center top" }}
       >
         <div className="container mx-auto px-2 sm:px-4 md:px-6">
@@ -350,13 +413,13 @@ const Navbar = () => {
                 className="nav-item flex items-center space-x-1 md:space-x-2 group min-w-[140px] lg:min-w-[180px]"
               >
                 {/* Logo Icon */}
-                <div className="w-8 h-8 sm:w-12 sm:h-12 flex items-center justify-center">
+                <div className="w-12 h-12 sm:w-16 sm:h-16 flex items-center justify-center">
                   {/* eslint-disable-next-line @next/next/no-img-element */}
                   <img
                     src={"Logo.png"}
                     alt="Logo"
-                    width={60}
-                    height={60}
+                    width={80}
+                    height={80}
                     className="w-full h-full object-contain"
                   />
                 </div>
@@ -435,13 +498,13 @@ const Navbar = () => {
               </div>
             </div>
 
-            {/* Right Section - Book Appointment Button */}
+            {/* Right Section - Sign In Button */}
             <div className="hidden lg:flex shrink-0">
               <Link
-                href="tel:+61403158014"
-                className="nav-item relative font-semibold px-4 py-2 rounded-lg  hover:shadow-lg transition-all duration-300 whitespace-nowrap border-2 bg-secondary text-white"
+                href="tel:0403 158 014"
+                className="nav-item relative font-semibold px-4 py-2 rounded-full hover:shadow-lg transition-all duration-300 whitespace-nowrap bg-gray-900 text-white"
               >
-                Talk to us
+                Talk to Us
               </Link>
             </div>
 

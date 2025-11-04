@@ -145,8 +145,8 @@ const AboutPage = () => {
             muted
             playsInline
           />
-          {/* subtle overlay to match previous design */}
-          <div className="absolute inset-0 bg-gradient-to-r from-secondary/80 to-primary/60 opacity-60 pointer-events-none"></div>
+          {/* Overlay on video - solid dark with subtle blur */}
+          <div className="absolute inset-0 bg-black/40 backdrop-blur-sm z-10 pointer-events-none" />
         </div>
 
         <div className="relative z-10 text-center text-white px-4 max-w-4xl mx-auto">
@@ -214,7 +214,7 @@ const AboutPage = () => {
               <div className="aspect-video rounded-2xl overflow-hidden">
                 <video
                   className="w-full h-full object-cover"
-                  src="/herobg.mp4"
+                  src="/video/about2.mp4"
                   autoPlay
                   loop
                   muted
@@ -349,52 +349,67 @@ const AboutPage = () => {
         </div>
       </section> */}
 
-      {/* Statistics */}
+      {/* Statistics - improved card layout */}
       <section
         ref={statsRef}
-        className="py-24 bg-gradient-to-r from-secondary to-primary"
+        className="py-20 bg-linear-to-r from-secondary to-primary"
       >
-        <div className="max-w-7xl mx-auto px-4 text-center">
-          <h2 className="text-4xl font-momo text-white mb-16">
+        <div className="max-w-7xl mx-auto px-4">
+          <h2 className="text-4xl font-momo text-white text-center mb-12">
             Our Student Success Impact
           </h2>
 
-          <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
-            <div className="text-white">
+          <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
+            <div className="stat-card bg-white/10 backdrop-blur-sm rounded-2xl p-8 flex flex-col items-center text-center shadow-lg">
+              <div className="w-16 h-16 bg-white/10 rounded-full flex items-center justify-center mb-4">
+                <Target className="text-white" size={28} />
+              </div>
               <div
-                className="stat-number text-5xl font-bold mb-4"
+                className="stat-number text-4xl md:text-5xl font-extrabold text-white mb-2"
                 data-value="5000"
               >
                 0
               </div>
-              <p className="text-xl opacity-90">Students Guided</p>
+              <div className="text-white/90">Students Guided</div>
             </div>
-            <div className="text-white">
+
+            <div className="stat-card bg-white/10 backdrop-blur-sm rounded-2xl p-8 flex flex-col items-center text-center shadow-lg">
+              <div className="w-16 h-16 bg-white/10 rounded-full flex items-center justify-center mb-4">
+                <Star className="text-white" size={28} />
+              </div>
               <div
-                className="stat-number text-5xl font-bold mb-4"
+                className="stat-number text-4xl md:text-5xl font-extrabold text-white mb-2"
                 data-value="95"
               >
                 0
               </div>
-              <p className="text-xl opacity-90">% Goal Achievement Rate</p>
+              <div className="text-white/90">% Goal Achievement Rate</div>
             </div>
-            <div className="text-white">
+
+            <div className="stat-card bg-white/10 backdrop-blur-sm rounded-2xl p-8 flex flex-col items-center text-center shadow-lg">
+              <div className="w-16 h-16 bg-white/10 rounded-full flex items-center justify-center mb-4">
+                <Handshake className="text-white" size={28} />
+              </div>
               <div
-                className="stat-number text-5xl font-bold mb-4"
+                className="stat-number text-4xl md:text-5xl font-extrabold text-white mb-2"
                 data-value="200"
               >
                 0
               </div>
-              <p className="text-xl opacity-90">Australian Employer Partners</p>
+              <div className="text-white/90">Australian Employer Partners</div>
             </div>
-            <div className="text-white">
+
+            <div className="stat-card bg-white/10 backdrop-blur-sm rounded-2xl p-8 flex flex-col items-center text-center shadow-lg">
+              <div className="w-16 h-16 bg-white/10 rounded-full flex items-center justify-center mb-4">
+                <Heart className="text-white" size={28} />
+              </div>
               <div
-                className="stat-number text-5xl font-bold mb-4"
+                className="stat-number text-4xl md:text-5xl font-extrabold text-white mb-2"
                 data-value="15"
               >
                 0
               </div>
-              <p className="text-xl opacity-90">Years Experience</p>
+              <div className="text-white/90">Years Experience</div>
             </div>
           </div>
         </div>
@@ -409,7 +424,7 @@ const AboutPage = () => {
 
           <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-12">
             <div className="team-member text-center">
-              <div className="w-48 h-48 mx-auto bg-gradient-to-br from-primary/30 to-secondary/40 rounded-full mb-6 flex items-center justify-center">
+              <div className="w-48 h-48 mx-auto bg-linear-to-br from-primary/30 to-secondary/40 rounded-full mb-6 flex items-center justify-center">
                 <span className="text-secondary/60">Team Photo</span>
               </div>
               <h3 className="text-xl font-bold text-secondary mb-2">
@@ -421,7 +436,7 @@ const AboutPage = () => {
             </div>
 
             <div className="team-member text-center">
-              <div className="w-48 h-48 mx-auto bg-gradient-to-br from-secondary/30 to-primary/40 rounded-full mb-6 flex items-center justify-center">
+              <div className="w-48 h-48 mx-auto bg-linear-to-br from-secondary/30 to-primary/40 rounded-full mb-6 flex items-center justify-center">
                 <span className="text-secondary/60">Team Photo</span>
               </div>
               <h3 className="text-xl font-bold text-secondary mb-2">
@@ -433,7 +448,7 @@ const AboutPage = () => {
             </div>
 
             <div className="team-member text-center">
-              <div className="w-48 h-48 mx-auto bg-gradient-to-br from-primary/30 to-secondary/40 rounded-full mb-6 flex items-center justify-center">
+              <div className="w-48 h-48 mx-auto bg-linear-to-br from-primary/30 to-secondary/40 rounded-full mb-6 flex items-center justify-center">
                 <span className="text-secondary/60">Team Photo</span>
               </div>
               <h3 className="text-xl font-bold text-secondary mb-2">

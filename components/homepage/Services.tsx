@@ -1,6 +1,6 @@
 "use client";
 
-import { useRef, useEffect, useState } from "react";
+import { useRef, useEffect, useState, useCallback } from "react";
 import Image from "next/image";
 import { useRouter } from "next/navigation";
 import { gsap } from "gsap";
@@ -20,6 +20,9 @@ const Services = () => {
   const scrollContainerRef = useRef<HTMLDivElement>(null);
   const [canScrollLeft, setCanScrollLeft] = useState(false);
   const [canScrollRight, setCanScrollRight] = useState(true);
+  const [activePage, setActivePage] = useState(0);
+  const [pages, setPages] = useState(0);
+  const [itemsPerPage, setItemsPerPage] = useState(3); // number of cards visible per "page"
 
   useEffect(() => {
     const container = containerRef.current;
@@ -86,21 +89,39 @@ const Services = () => {
   }, []);
 
   // Check scroll position to update button states
-  const checkScrollPosition = () => {
+  const checkScrollPosition = useCallback(() => {
     if (scrollContainerRef.current) {
       const { scrollLeft, scrollWidth, clientWidth } =
         scrollContainerRef.current;
       setCanScrollLeft(scrollLeft > 0);
       setCanScrollRight(scrollLeft < scrollWidth - clientWidth - 1);
+      // update active page based on current scroll position
+      const firstCard = cardsRef.current[0];
+      if (firstCard) {
+        const gap = parseInt(
+          getComputedStyle(scrollContainerRef.current as Element).gap || "0",
+          10
+        );
+        const cardFull = firstCard.offsetWidth + gap;
+        const pageIndex = Math.round(scrollLeft / (cardFull * itemsPerPage));
+        setActivePage(Math.max(0, Math.min(pageIndex, pages - 1)));
+      }
     }
-  };
+  }, [pages, itemsPerPage]);
 
   // Navigation functions
   const scrollLeft = () => {
     if (scrollContainerRef.current) {
-      const cardWidth = 320; // 80 * 4 (20rem = 320px)
+      const firstCard = cardsRef.current[0];
+      if (!firstCard) return;
+      const gap = parseInt(
+        getComputedStyle(scrollContainerRef.current as Element).gap || "0",
+        10
+      );
+      const cardFull = firstCard.offsetWidth + gap;
+      const distance = cardFull * itemsPerPage;
       scrollContainerRef.current.scrollBy({
-        left: -cardWidth,
+        left: -distance,
         behavior: "smooth",
       });
     }
@@ -108,9 +129,16 @@ const Services = () => {
 
   const scrollRight = () => {
     if (scrollContainerRef.current) {
-      const cardWidth = 320; // 80 * 4 (20rem = 320px)
+      const firstCard = cardsRef.current[0];
+      if (!firstCard) return;
+      const gap = parseInt(
+        getComputedStyle(scrollContainerRef.current as Element).gap || "0",
+        10
+      );
+      const cardFull = firstCard.offsetWidth + gap;
+      const distance = cardFull * itemsPerPage;
       scrollContainerRef.current.scrollBy({
-        left: cardWidth,
+        left: distance,
         behavior: "smooth",
       });
     }
@@ -119,7 +147,47 @@ const Services = () => {
   // Initialize scroll position check
   useEffect(() => {
     checkScrollPosition();
-  }, []);
+  }, [checkScrollPosition]);
+
+  // compute pages and active page responsively (itemsPerPage: 1/2/3)
+  useEffect(() => {
+    const getItemsForWidth = (w: number) => {
+      if (w < 640) return 1; // mobile
+      if (w < 1024) return 2; // tablet
+      return 3; // desktop
+    };
+
+    const computeFor = (ip: number) => {
+      const total = servicesData.length;
+      const p = Math.max(1, Math.ceil(total / ip));
+      setPages(p);
+
+      // ensure active page recalculated to current scroll
+      if (scrollContainerRef.current && cardsRef.current[0]) {
+        const gap = parseInt(
+          getComputedStyle(scrollContainerRef.current as Element).gap || "0",
+          10
+        );
+        const cardFull = cardsRef.current[0].offsetWidth + gap;
+        const { scrollLeft } = scrollContainerRef.current;
+        const pageIndex = Math.round(scrollLeft / (cardFull * ip));
+        setActivePage(Math.max(0, Math.min(pageIndex, p - 1)));
+      }
+      // also make sure button states are updated
+      checkScrollPosition();
+    };
+
+    const onResize = () => {
+      const ip = getItemsForWidth(window.innerWidth);
+      setItemsPerPage((prev) => (prev !== ip ? ip : prev));
+      computeFor(ip);
+    };
+
+    // run once on mount
+    onResize();
+    window.addEventListener("resize", onResize);
+    return () => window.removeEventListener("resize", onResize);
+  }, [checkScrollPosition]);
 
   const addToRefs = (el: HTMLDivElement | null) => {
     if (el && !cardsRef.current.includes(el)) {
@@ -138,6 +206,11 @@ const Services = () => {
         <div className="flex flex-col lg:flex-row lg:items-end lg:justify-between mb-12 gap-8">
           {/* Left Side - Title and Description */}
           <div className="lg:max-w-xl">
+            {/* Badge / Bubble */}
+            <div className="inline-flex items-center px-4 py-2 bg-primary/20 backdrop-blur-sm border border-primary/30 rounded-full text-primary font-medium text-sm mb-6">
+              <span className="w-2 h-2 bg-primary rounded-full mr-2 animate-pulse"></span>
+              Explore Our Services
+            </div>
             <h2
               ref={titleRef}
               className="text-4xl md:text-5xl lg:text-6xl font-momo text-secondary mb-6 leading-tight"
@@ -182,7 +255,16 @@ const Services = () => {
               <div
                 key={index}
                 ref={addToRefs}
-                className="group relative shrink-0 w-80 h-96 rounded-2xl overflow-hidden cursor-pointer"
+                // make cards responsive so exactly `itemsPerPage` fit in view
+                className="group relative shrink-0 h-96 rounded-2xl overflow-hidden cursor-pointer"
+                style={{
+                  flex: `0 0 calc((100% - ${
+                    24 * (itemsPerPage - 1)
+                  }px) / ${itemsPerPage})`,
+                  maxWidth: `calc((100% - ${
+                    24 * (itemsPerPage - 1)
+                  }px) / ${itemsPerPage})`,
+                }}
                 onClick={() => router.push(`/services/${service.slug}`)}
               >
                 {/* Service Image */}
@@ -223,12 +305,34 @@ const Services = () => {
           </div>
 
           {/* Scroll Indicators */}
+          {/* Pagination Dots (pages) */}
           <div className="flex justify-center mt-6 gap-2">
-            {servicesData.map((_, index) => (
-              <div
-                key={index}
-                className="w-2 h-2 rounded-full bg-gray-300 hover:bg-gray-400 transition-colors cursor-pointer"
-              ></div>
+            {Array.from({ length: pages }).map((_, pageIndex) => (
+              <button
+                key={pageIndex}
+                onClick={() => {
+                  if (!scrollContainerRef.current || !cardsRef.current[0])
+                    return;
+                  const gap = parseInt(
+                    getComputedStyle(scrollContainerRef.current as Element)
+                      .gap || "0",
+                    10
+                  );
+                  const cardFull = cardsRef.current[0].offsetWidth + gap;
+                  const left = pageIndex * cardFull * itemsPerPage;
+                  scrollContainerRef.current.scrollTo({
+                    left,
+                    behavior: "smooth",
+                  });
+                  setActivePage(pageIndex);
+                }}
+                aria-label={`Go to page ${pageIndex + 1}`}
+                className={`w-3 h-3 rounded-full transition-all duration-200 ${
+                  pageIndex === activePage
+                    ? "bg-primary scale-110"
+                    : "bg-gray-300 hover:bg-gray-400"
+                }`}
+              />
             ))}
           </div>
 

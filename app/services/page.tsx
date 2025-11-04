@@ -276,7 +276,8 @@ const ServicesPage = () => {
             muted
             playsInline
           />
-          <div className="absolute inset-0 bg-linear-to-r from-secondary/80 to-primary/60 opacity-60 pointer-events-none"></div>
+          {/* Overlay on video - solid dark with subtle blur */}
+          <div className="absolute inset-0 bg-black/40 backdrop-blur-sm z-10 pointer-events-none" />
         </div>
 
         <div className="relative z-10 text-center text-white px-4 max-w-5xl mx-auto">
