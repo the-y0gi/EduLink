@@ -76,9 +76,9 @@ const WhyChooseUsFolders = () => {
   const colors = ["#5227FF", "#FF6B35"];
 
   return (
-    <section className="py-16 md:py-24 bg-gradient-to-br from-gray-50 to-white overflow-hidden min-h-[800px]">
+    <section className="py-32 md:py-40 bg-gradient-to-br from-gray-50 to-white overflow-hidden min-h-[1200px]">
       <div className="container mx-auto px-4 max-w-7xl">
-        <div className="text-center mb-16 md:mb-20">
+        <div className="text-center mb-24 md:mb-32">
           <h2 className="text-4xl md:text-5xl lg:text-6xl font-bold text-gray-900 mb-6">
             Why Choose <span className="text-blue-600">EduLink</span>?
           </h2>
