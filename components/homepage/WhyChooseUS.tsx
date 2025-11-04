@@ -11,11 +11,7 @@ const WhyChooseUS = () => {
           >
             Why Choose <span className="text-primary">Us</span>
           </h2>
-          <h3
-            className={`text-2xl md:text-3xl font-semibold underline text-secondary/80 mb-6`}
-          >
-            Our Key Advantages
-          </h3>
+
           <p
             className={`text-lg md:text-xl text-secondary/70 max-w-4xl mx-auto leading-relaxed`}
           >
