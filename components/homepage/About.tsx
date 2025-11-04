@@ -150,7 +150,7 @@ const About = () => {
             <div className="mission-content relative">
               <div className="relative rounded-3xl overflow-hidden shadow-2xl">
                 <Image
-                  src="/Services/StudentSupport.jpg"
+                  src="/Services/mission.jpg"
                   alt="Students studying abroad"
                   width={600}
                   height={400}
