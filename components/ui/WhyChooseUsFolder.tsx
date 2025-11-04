@@ -101,8 +101,8 @@ const WhyChooseUsFolder: React.FC<WhyChooseUsFolderProps> = ({
 
   const getOpenTransform = (index: number) => {
     if (index === 0) return "translate(-120%, -70%) rotate(-15deg)";
-    if (index === 1) return "translate(20%, -70%) rotate(15deg)";
-    if (index === 2) return "translate(-50%, -110%) rotate(5deg)";
+    if (index === 1) return "translate(10%, -70%) rotate(15deg)";
+    if (index === 2) return "translate(-50%, -100%) rotate(5deg)";
     return "";
   };
 
@@ -147,13 +147,20 @@ const WhyChooseUsFolder: React.FC<WhyChooseUsFolderProps> = ({
                 key={i}
                 onMouseMove={(e) => handlePaperMouseMove(e, i)}
                 onMouseLeave={(e) => handlePaperMouseLeave(e, i)}
-                className={`absolute z-20 bottom-[8%] left-1/2 transition-all duration-300 ease-in-out ${
+                className={`absolute ${
+                  open ? "z-50" : "z-20"
+                } bottom-[8%] left-1/2 transition-all duration-300 ease-in-out ${
                   !open
                     ? "transform -translate-x-1/2 translate-y-[8%] group-hover:translate-y-0"
-                    : "hover:scale-110"
+                    : "hover:scale-110 shadow-2xl"
                 } ${sizeClasses} rounded-lg shadow-md border border-gray-100 flex flex-col items-center justify-center p-3 md:p-5 lg:p-6`}
                 style={{
-                  ...(!open ? {} : { transform: transformStyle }),
+                  ...(!open
+                    ? {}
+                    : {
+                        transform: transformStyle,
+                        zIndex: 50 + i, // Ensure proper stacking order when open
+                      }),
                   backgroundColor: i === 0 ? paper1 : i === 1 ? paper2 : paper3,
                 }}
               >

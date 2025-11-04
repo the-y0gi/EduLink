@@ -76,7 +76,7 @@ const WhyChooseUsFolders = () => {
   const colors = ["#5227FF", "#FF6B35"];
 
   return (
-    <section className="py-16 md:py-24 bg-gradient-to-br from-gray-50 to-white overflow-hidden">
+    <section className="py-16 md:py-24 bg-gradient-to-br from-gray-50 to-white overflow-hidden min-h-[800px]">
       <div className="container mx-auto px-4 max-w-7xl">
         <div className="text-center mb-16 md:mb-20">
           <h2 className="text-4xl md:text-5xl lg:text-6xl font-bold text-gray-900 mb-6">
@@ -91,8 +91,8 @@ const WhyChooseUsFolders = () => {
 
         {/* Conditional rendering based on useSingleFolder */}
         {useSingleFolder ? (
-          // Option 1: Single Large Folder
-          <div className="flex justify-center mb-8">
+          // Option 1: Single Large Folder with proper spacing for open cards
+          <div className="flex justify-center mb-8 px-8 py-16">
             <div className="flex flex-col items-center">
               <WhyChooseUsFolder
                 items={singleFolderItems}
@@ -109,8 +109,8 @@ const WhyChooseUsFolders = () => {
             </div>
           </div>
         ) : (
-          // Option 2: Two Folders
-          <div className="flex flex-col md:flex-row justify-center items-center gap-16 md:gap-24 lg:gap-32">
+          // Option 2: Two Folders with proper spacing for open cards
+          <div className="flex flex-col md:flex-row justify-center items-center gap-16 md:gap-24 lg:gap-32 px-8 py-16">
             {folderSets.map((folderItems, index) => (
               <div key={index} className="flex flex-col items-center">
                 <WhyChooseUsFolder
