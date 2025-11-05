@@ -21,6 +21,24 @@ const Footer = () => {
   // Removed unused mounted state
   return (
     <section className="bg-secondary text-gray-100 pt-8 pb-4 relative overflow-hidden">
+      {/* Wavy top decorative SVG - sits above the footer background to create a wave between sections */}
+      <div
+        className="absolute left-0 right-0 -top-6 pointer-events-none"
+        style={{ zIndex: 3 }}
+        aria-hidden="true"
+      >
+        <svg
+          className="w-full h-20"
+          viewBox="0 0 1440 120"
+          preserveAspectRatio="none"
+          xmlns="http://www.w3.org/2000/svg"
+        >
+          <path
+            d="M0,40 C240,120 480,0 720,40 C960,80 1200,0 1440,40 L1440,120 L0,120 Z"
+            fill="var(--secondary)"
+          />
+        </svg>
+      </div>
       {/* Footer background image: hidden on mobile, block on md+ */}
       {/* <div
         className="hidden 2xl:block absolute inset-x-0 bottom-0 w-full h-full pointer-events-none"
