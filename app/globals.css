@@ -70,10 +70,24 @@ body {
   }
 }
 
+/* Make marquee duration configurable via a CSS variable.
+   Default (desktop) is 60s. On small screens we'll override this
+   to a faster value so the marquee feels snappier. */
+:root {
+  --marquee-duration: 60s;
+}
+
 .animate-marquee {
-  animation: marquee 60s linear infinite;
+  animation: marquee var(--marquee-duration) linear infinite;
 }
 
 .pause-marquee:hover {
   animation-play-state: paused;
+}
+
+/* Faster marquee on small screens */
+@media (max-width: 640px) {
+  :root {
+    --marquee-duration: 18s; /* faster on mobile */
+  }
 }
