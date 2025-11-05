@@ -196,9 +196,7 @@ const Testimonials: React.FC = () => {
 
       {/* Marquee Container */}
       <div className="relative">
-        {/* Gradient Overlays for smooth fade */}
-        <div className="absolute left-0 top-0 bottom-0 w-20 bg-linear-to-r from-white to-transparent z-10 pointer-events-none" />
-        <div className="absolute right-0 top-0 bottom-0 w-20 bg-linear-to-l from-white to-transparent z-10 pointer-events-none" />
+        {/* (Removed left/right white gradient overlays to avoid white blur borders on mobile) */}
 
         {/* Scrolling Container */}
         <div className="flex animate-marquee hover:pause-marquee">

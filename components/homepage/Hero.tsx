@@ -3,10 +3,12 @@ import React, { useEffect, useRef } from "react";
 import Link from "next/link";
 import gsap from "gsap";
 import TypingText from "../ui/TypingText";
+import Image from "next/image";
 
 const Hero = () => {
   const videoRef = useRef<HTMLVideoElement>(null);
   const contentRef = useRef<HTMLDivElement>(null);
+  const heroImageRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
     if (videoRef.current) {
@@ -16,6 +18,25 @@ const Hero = () => {
         { scaleY: 1, duration: 1.2, ease: "power3.out" }
       );
     }
+
+    // animate hero image with simple scaling
+    if (heroImageRef.current) {
+      gsap.fromTo(
+        heroImageRef.current,
+        {
+          scale: 0,
+          opacity: 0,
+        },
+        {
+          scale: 1,
+          opacity: 1,
+          duration: 1.2,
+          delay: 0.8,
+          ease: "power2.out",
+        }
+      );
+    }
+
     // animate overlay content after video reveal
     if (contentRef.current) {
       gsap.fromTo(
@@ -43,7 +64,22 @@ const Hero = () => {
           playsInline
         />
         {/* Overlay on video */}
-        <div className="absolute inset-0 bg-black/40 backdrop-blur-sm z-10 pointer-events-none" />
+        <div className="absolute inset-0 bg-black/40 z-10 pointer-events-none" />
+
+        {/* Hero Image */}
+        <div
+          ref={heroImageRef}
+          className="absolute bottom-0 right-0 z-30 pointer-events-none"
+        >
+          <Image
+            src="/newnewheroimage.png"
+            alt="Hero Image"
+            width={600}
+            height={450}
+            className="w-64 h-48 md:w-96 md:h-72 lg:w-[500px] lg:h-[375px] xl:w-[600px] xl:h-[450px] object-cover"
+          />
+        </div>
+
         {/* Left-centered content inside the video (center on small screens, left on md+) */}
         <div
           ref={contentRef}
