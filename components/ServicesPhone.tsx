@@ -70,7 +70,7 @@ const ServicesPhone = () => {
           </div>
 
 
-          <div className="absolute top-[60%] -translate-y-[55%] hidden lg:block pointer-events-none z-50 right-[30%]">
+          <div className="absolute top-[60%] -translate-y-[55%] hidden lg:block pointer-events-none z-50 right-[24%]">
             <Image
               src="/Services/girlImage.png"
               width={350}
@@ -92,7 +92,7 @@ const ServicesPhone = () => {
             grabCursor
             modules={[Pagination, Autoplay]}
             onSlideChange={(swiper) => setActiveIndex(swiper.realIndex)}
-            // pagination={{ clickable: true }}
+            pagination={{ clickable: true }}
             className="mySwiper"
           >
             {SERVICES.map((service, index) => {

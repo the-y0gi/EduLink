@@ -239,19 +239,19 @@ const AnotherHero = () => {
                     { text: "&", className: "text-gray-300" },
                     { text: " " },
                     { text: "Immigration", className: "text-primary" },
-                    { text: " Partner." },
+                    { text: " Partner" },
                   ],
                   [
                     { text: "Your Gateway to " },
                     { text: "World-Class", className: "text-primary" },
-                    { text: " Universities." },
+                    { text: " Universities" },
                   ],
                   [
                     { text: "Expert " },
                     { text: "Visa Guidance", className: "text-primary" },
                     { text: " " },
                     { text: "&", className: "text-gray-300" },
-                    { text: " Support." },
+                    { text: " Support" },
                   ],
                 ]}
                 speed={80}
