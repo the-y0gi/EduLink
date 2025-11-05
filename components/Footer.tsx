@@ -54,19 +54,18 @@ const Footer = () => {
             {/* Logo & Company Info */}
             <div className="flex-1 min-w-0 flex flex-col items-start mb-6 md:mb-0">
               <div className="flex flex-col items-center mb-4">
-                <div className="w-20 h-20 sm:w-24 sm:h-24 lg:w-28 lg:h-28 relative flex items-center justify-center">
-                  {/* Background circle to improve logo contrast */}
-                  {/* slightly larger and moved down for better contrast */}
+                <div className="w-32 h-24 sm:w-36 sm:h-28 lg:w-40 lg:h-32 relative flex items-center justify-center">
+                  {/* Enlarged white rectangular background behind the logo (not circular) */}
                   <span
-                    className="absolute z-0 translate-y-3 -translate-x-2 w-28 h-28 sm:w-32 sm:h-32 lg:w-36 lg:h-36 rounded-full bg-primary/15 dark:bg-primary/20 backdrop-blur-sm"
+                    className="absolute z-0 left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 w-44 sm:w-52 lg:w-40 h-14 sm:h-16 lg:h-25 rounded-md bg-white shadow-lg"
                     aria-hidden="true"
                   />
                   <Image
                     src={"/footerlogo.png"}
-                    alt="Logo"
-                    width={160}
-                    height={160}
-                    className="relative z-10 w-full h-full object-contain drop-shadow-lg"
+                    alt="Edulink logo"
+                    width={200}
+                    height={200}
+                    className="relative z-10 w-24 h-24 sm:w-28 sm:h-28 lg:w-32 lg:h-32 object-contain"
                   />
                 </div>
                 <span className="text-base sm:text-lg lg:text-xl font-medium italic text-primary text-center drop-shadow-md">

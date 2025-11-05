@@ -175,9 +175,9 @@ const WhyChooseUS = () => {
             <span>Trusted by 10,000+ Students</span>
           </div>
 
-          <h2 className="text-4xl md:text-5xl lg:text-6xl font-bold text-[var(--secondary)] mb-6 tracking-tight">
+          <h2 className="text-4xl md:text-5xl lg:text-6xl font-momo text-[var(--secondary)] mb-6 tracking-tight">
             Why Choose{" "}
-            <span className="bg-gradient-to-r from-[var(--primary)] to-teal-600 bg-clip-text text-transparent">
+            <span className="bg-gradient-to-r from-[var(--primary)] to-teal-600 bg-clip-text font-momo text-transparent">
               EduLink
             </span>
             ?
