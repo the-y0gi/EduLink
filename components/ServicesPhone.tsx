@@ -14,7 +14,7 @@ import {
 import Image from "next/image";
 import "swiper/css";
 import "swiper/css/pagination";
-import { Pagination } from "swiper/modules";
+import { Pagination, Autoplay } from "swiper/modules";
 import Link from "next/link";
 import { servicesData } from "@/lib/index";
 
@@ -70,7 +70,7 @@ const ServicesPhone = () => {
           </div>
 
 
-          <div className="absolute top-[60%] -translate-y-[55%] hidden lg:block pointer-events-none z-50 right-[33%]">
+          <div className="absolute top-[60%] -translate-y-[55%] hidden lg:block pointer-events-none z-50 right-[30%]">
             <Image
               src="/Services/girlImage.png"
               width={350}
@@ -85,14 +85,14 @@ const ServicesPhone = () => {
             slidesPerView={5}
             centeredSlides
             autoplay={{
-              delay: 1000, 
-              disableOnInteraction: false, 
+              delay: 2000,
+              disableOnInteraction: false,
             }}
             loop
             grabCursor
+            modules={[Pagination, Autoplay]}
             onSlideChange={(swiper) => setActiveIndex(swiper.realIndex)}
-            pagination={{ clickable: true }}
-            modules={[Pagination]}
+            // pagination={{ clickable: true }}
             className="mySwiper"
           >
             {SERVICES.map((service, index) => {
@@ -146,12 +146,23 @@ const ServicesPhone = () => {
                           <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-transparent to-transparent z-20 rounded-[2rem]" />
 
                           {/* Title + Button */}
-                          <div className="absolute bottom-0 left-0 right-0 text-white text-center p-4 z-30">
-                            <div className="flex justify-center mb-2">
+                          <div className="absolute  left-0 text-white text-center p-4 z-30">
+                            <div className="flex justify-between mb-2">
                               <div className="bg-white/20 backdrop-blur-sm p-2 rounded-lg border border-white/30">
                                 <Icon className="w-5 h-5" />
                               </div>
                             </div>
+                          </div>
+                          <div className="absolute  right-0 text-white text-center p-4 z-30">
+                            <div className="flex justify-between mb-2">
+                              <span className="bg-primary text-white px-3 py-1 text-xs rounded-full font-medium shadow-lg">
+                                Active
+                              </span>
+
+                            </div>
+                          </div>
+                          <div className="absolute bottom-0 left-0 right-0 text-white text-center p-4 z-30">
+
                             <h3 className="text-lg font-semibold mb-3 drop-shadow-md">
                               {service.title}
                             </h3>

@@ -9,6 +9,8 @@ import WhyChooseUS from "@/components/homepage/WhyChooseUS";
 import WhyChooseUsFolders from "@/components/homepage/WhyChooseUsFolders";
 import ServicesPhone from "@/components/ServicesPhone";
 import Folder from "@/components/ui/Folder";
+import BuildDreamTeam from "@/components/WhyChoose2";
+import WhyChoose2 from "@/components/WhyChoose2";
 
 // import WhyChooseUS from "@/components/homepage/WhyChooseUS";
 
@@ -23,7 +25,9 @@ const Home = () => {
       
       {/* <Services3D /> */}
       {/* <Services /> */}
-      <WhyChooseUS />
+      {/* <WhyChooseUS /> */}
+      {/* <WhyChoose2/> */}
+      <BuildDreamTeam/>
       {/* <WhyChooseUsFolders /> */}
 
       <Testimonials />
