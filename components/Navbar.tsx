@@ -32,7 +32,7 @@ const MobileDropdownMenu = ({
         <Link
           href={link.path}
           onClick={onLinkClick}
-          className={`text-gray-900 hover:font-semibold transition-all duration-300 py-2 text-base sm:text-lg flex-1 ${
+          className={`text-secondary hover:font-semibold hover:text-primary transition-all duration-300 py-2 text-base sm:text-lg flex-1 ${
             pathname === link.path ? "font-semibold border-l-4 pl-4" : ""
           }`}
         >
@@ -40,7 +40,7 @@ const MobileDropdownMenu = ({
         </Link>
         <button
           onClick={() => setIsOpen(!isOpen)}
-          className="p-2 text-gray-900 hover:font-semibold transition-all duration-300"
+          className="p-2 text-secondary hover:font-semibold hover:text-primary transition-all duration-300"
         >
           <ChevronDown
             className={`h-4 w-4 transition-transform duration-200 ${
@@ -365,7 +365,6 @@ const Navbar = ({ isStartupComplete = true }: NavbarProps) => {
         .nav-item,
         .mobile-nav-item {
           position: relative;
-          color: #111827; /* dark text to match the design */
         }
 
         /* thicker, darker underline that animates from left to right */
@@ -377,7 +376,7 @@ const Navbar = ({ isStartupComplete = true }: NavbarProps) => {
           bottom: -6px;
           height: 3px;
           width: 100%;
-          background: #111827; /* solid dark underline */
+          background: currentColor; /* underline matches the link color */
           transform-origin: left;
           transform: scaleX(0);
           transition: transform 180ms ease;
@@ -401,11 +400,11 @@ const Navbar = ({ isStartupComplete = true }: NavbarProps) => {
       `}</style>
       <nav
         ref={navRef}
-        className={`fixed top-0 z-50 w-full transition-all duration-300 bg-gray-300`}
+        className={`fixed top-0 z-50 w-full transition-all duration-300 bg-white`}
         style={{ transformOrigin: "center top" }}
       >
         <div className="container mx-auto px-2 sm:px-4 md:px-6">
-          <div className="flex flex-nowrap items-center min-h-16">
+          <div className="flex flex-nowrap items-center min-h-16 py-2">
             {/* Logo - Left Section */}
             <div className="shrink-0">
               <Link
@@ -442,7 +441,7 @@ const Navbar = ({ isStartupComplete = true }: NavbarProps) => {
                       <div key={link.name} className="relative group">
                         <Link
                           href={link.path}
-                          className={`nav-item relative font-sans text-gray-900 hover:font-semibold
+                          className={`nav-item relative font-sans text-secondary hover:font-semibold hover:text-primary
                            transition-all duration-300 whitespace-nowrap flex items-center gap-1 ${
                              pathname === link.path ? "font-bold" : ""
                            }`}
@@ -463,10 +462,10 @@ const Navbar = ({ isStartupComplete = true }: NavbarProps) => {
                                 <Link
                                   key={index}
                                   href={`/services/${service.slug}`}
-                                  className={`block p-2 rounded-md /10 border border-transparent transition-all duration-200 group/item`}
+                                  className={`block p-2 rounded-md /10 border border-transparent transition-all duration-200 group/item hover:text-primary`}
                                 >
                                   <div
-                                    className={`font-medium text-sm text-gray-900 group-hover/item:font-semibold transition-all`}
+                                    className={`font-medium text-sm text-secondary group-hover/item:font-semibold transition-all`}
                                   >
                                     {service.title}
                                   </div>
@@ -482,7 +481,7 @@ const Navbar = ({ isStartupComplete = true }: NavbarProps) => {
                     <Link
                       key={link.name}
                       href={link.path}
-                      className={`nav-item relative font-sans text-gray-900 hover:font-semibold transition-all duration-300 whitespace-nowrap ${
+                      className={`nav-item relative font-sans text-secondary hover:font-semibold hover:text-primary transition-all duration-300 whitespace-nowrap ${
                         pathname === link.path ? "font-bold" : ""
                       }`}
                     >
@@ -502,7 +501,7 @@ const Navbar = ({ isStartupComplete = true }: NavbarProps) => {
             <div className="hidden lg:flex shrink-0">
               <Link
                 href="tel:0403 158 014"
-                className="nav-item relative font-semibold px-4 py-2 rounded-full hover:shadow-lg transition-all duration-300 whitespace-nowrap bg-gray-900 text-white"
+                className="nav-item relative font-semibold px-4 py-2 rounded-full hover:shadow-lg transition-all duration-300 whitespace-nowrap bg-primary text-white"
               >
                 Talk to Us
               </Link>
@@ -511,7 +510,7 @@ const Navbar = ({ isStartupComplete = true }: NavbarProps) => {
             {/* Mobile Menu Button */}
             <button
               onClick={toggleMobileMenu}
-              className={`lg:hidden nav-item p-2 text-gray-900 hover:font-semibold transition-all duration-300 ml-auto`}
+              className={`lg:hidden nav-item p-2 text-secondary hover:font-semibold hover:text-primary transition-all duration-300 ml-auto`}
               aria-label="Toggle mobile menu"
             >
               {isMobileMenuOpen ? (
@@ -550,7 +549,7 @@ const Navbar = ({ isStartupComplete = true }: NavbarProps) => {
                       key={link.name}
                       href={link.path}
                       onClick={closeMobileMenu}
-                      className={`mobile-nav-item text-gray-900 hover:font-semibold transition-all duration-300 py-2 text-base sm:text-lg whitespace-nowrap ${
+                      className={`mobile-nav-item text-secondary hover:font-semibold hover:text-primary transition-all duration-300 py-2 text-base sm:text-lg whitespace-nowrap ${
                         pathname === link.path
                           ? "font-semibold border-l-4 pl-4"
                           : ""
