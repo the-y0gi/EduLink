@@ -16,8 +16,8 @@ const Home = () => {
   return (
     <main>
       {/* <NewHero /> */}
-      <AnotherHero />
-      {/* <Hero /> */}
+      {/* <AnotherHero /> */}
+      <Hero />
       {/* <About /> */}
       <Services3D />
       {/* <Services /> */}
