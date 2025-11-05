@@ -45,8 +45,12 @@ export default function Services3D() {
   if (!mounted || windowWidth === null) {
     return (
       <div
-        className="relative bg-linear-to-br from-secondary to-primary/20 overflow-hidden py-20 pb-5"
-        style={{ height: "clamp(400px, 70vh, 600px)" }}
+        className="relative overflow-hidden py-20 pb-5"
+        style={{
+          height: "clamp(400px, 70vh, 600px)",
+          background:
+            "linear-gradient(135deg, rgba(78,205,196,0.25) 0%, rgba(78,205,196,0.18) 25%, rgba(78,205,196,0.12) 50%, rgba(240,249,255,0.8) 75%, rgba(255,255,255,0.95) 100%)",
+        }}
       >
         <div className="container mx-auto px-4 relative z-10">
           <div className="text-center mb-16">
@@ -81,6 +85,8 @@ export default function Services3D() {
         height: "auto",
         perspective: "800px",
         perspectiveOrigin: "center center",
+        background:
+          "linear-gradient(135deg, rgba(78,205,196,0.25) 0%, rgba(78,205,196,0.18) 25%, rgba(78,205,196,0.12) 50%, rgba(240,249,255,0.8) 75%, rgba(255,255,255,0.95) 100%)",
       }}
     >
       {/* Background decorative elements */}
@@ -167,41 +173,55 @@ export default function Services3D() {
                       left: "50%",
                       top: "50%",
                       transform: `translate(-50%, -50%) rotateY(${angle}deg) translateZ(${translateZ}px) scale(${
-                        isActive ? 1 : 0.8
+                        isActive ? 1 : 0.88
                       })`,
-                      opacity: isActive ? 1 : 0.5,
+                      opacity: isActive ? 1 : 0.55,
                       transition: "1s",
-                      borderRadius: "12px",
-                      overflow: "hidden",
+                      // visual styling moved to classNames + inner wrapper
                     }}
                   >
                     {/* Image Background */}
                     <div
-                      className="w-full h-full relative rounded-xl overflow-hidden shadow-2xl"
+                      className="w-full h-full relative overflow-hidden rounded-3xl shadow-2xl"
                       style={{
                         backgroundImage: `url(${service.image})`,
                         backgroundSize: "cover",
                         backgroundPosition: "center",
+                        willChange: "transform, opacity",
+                        boxShadow:
+                          "0 25px 50px -12px rgba(0, 40, 104, 0.25), 0 0 0 1px rgba(0, 40, 104, 0.05)",
                       }}
                     >
-                      {/* Overlay */}
-                      <div className="absolute inset-0 bg-linear-to-t from-black/60 via-black/30 to-transparent" />
+                      {/* Semi-transparent navy overlay for text readability */}
+                      <div
+                        className="absolute inset-0"
+                        style={{
+                          background: `linear-gradient(to top, rgba(0, 40, 104, 0.7) 0%, rgba(0, 40, 104, 0.45) 35%, rgba(0, 40, 104, 0.2) 65%, rgba(0, 40, 104, 0.1) 100%)`,
+                        }}
+                      />
+                      {/* Additional subtle gradient for depth */}
+                      <div
+                        className="absolute inset-0"
+                        style={{
+                          background: `linear-gradient(to top, rgba(0,0,0,0.3) 0%, rgba(0,0,0,0.1) 35%, transparent 65%)`,
+                        }}
+                      />
 
                       {/* Content */}
-                      <div className="absolute inset-0 flex flex-col justify-between p-6 text-secondary">
+                      <div className="absolute inset-0 flex flex-col justify-between p-6 text-white">
                         {/* Top Section - Icon */}
                         <div className="flex justify-between items-start">
                           <div
-                            className={`p-3 rounded-lg ${
+                            className={`p-3 rounded-xl backdrop-blur-sm border ${
                               isActive
-                                ? "bg-white/20 backdrop-blur-sm"
-                                : "bg-black/20"
+                                ? "bg-white/25 border-white/30 text-white"
+                                : "bg-white/15 border-white/20 text-white/90"
                             }`}
                           >
                             <Icon className="w-6 h-6" />
                           </div>
                           {isActive && (
-                            <span className="bg-white text-secondary px-3 py-1 text-xs rounded-full font-medium">
+                            <span className="bg-primary text-white px-3 py-1 text-xs rounded-full font-medium shadow-lg">
                               Active
                             </span>
                           )}
@@ -210,7 +230,7 @@ export default function Services3D() {
                         {/* Bottom Section - Title and Button */}
                         <div className="space-y-4">
                           <div>
-                            <h3 className="text-xl text-white  font-bold mb-2 line-clamp-2">
+                            <h3 className="text-xl text-white font-bold mb-2 line-clamp-2 drop-shadow-lg">
                               {service.title}
                             </h3>
                           </div>
@@ -224,9 +244,9 @@ export default function Services3D() {
                             }`}
                           >
                             <Link href={`/services/${service.slug}`}>
-                              <button className="w-full bg-white text-black hover:bg-white/90 flex items-center justify-center gap-2 px-4 py-2 rounded-lg font-medium transition-colors">
+                              <button className="w-full bg-primary text-white hover:bg-primary/90 flex items-center justify-center gap-2 px-4 py-2 rounded-xl font-medium transition-all duration-200 shadow-lg hover:shadow-xl">
                                 Learn More
-                                <ArrowRight className="w-4 h-4" />
+                                <ArrowRight className="w-4 h-4 text-white" />
                               </button>
                             </Link>
                           </div>
@@ -269,7 +289,7 @@ export default function Services3D() {
                   currentIndex === 0 ? SERVICES.length - 1 : currentIndex - 1;
                 setActiveDemo(SERVICES[prevIndex].demo);
               }}
-              className="bg-secondary/10 border-none text-secondary hover:bg-primary hover:text-white shadow-xl flex items-center justify-center w-16 h-16 rounded-full transition-all duration-200"
+              className="bg-white/80 backdrop-blur-sm border border-secondary/20 text-secondary hover:bg-primary hover:text-white hover:border-primary shadow-lg hover:shadow-xl flex items-center justify-center w-16 h-16 rounded-2xl transition-all duration-200 transform hover:scale-105"
             >
               <ChevronLeft className="w-10 h-10" />
             </button>
@@ -283,7 +303,7 @@ export default function Services3D() {
                   currentIndex === SERVICES.length - 1 ? 0 : currentIndex + 1;
                 setActiveDemo(SERVICES[nextIndex].demo);
               }}
-              className="bg-secondary/10 border-none text-secondary hover:bg-primary hover:text-white shadow-xl flex items-center justify-center w-16 h-16 rounded-full transition-all duration-200"
+              className="bg-white/80 backdrop-blur-sm border border-secondary/20 text-secondary hover:bg-primary hover:text-white hover:border-primary shadow-lg hover:shadow-xl flex items-center justify-center w-16 h-16 rounded-2xl transition-all duration-200 transform hover:scale-105"
             >
               <ChevronRight className="w-10 h-10" />
             </button>
@@ -293,13 +313,13 @@ export default function Services3D() {
           <div className="flex flex-col sm:flex-row justify-center items-center gap-4 mt-12">
             <Link
               href="/services"
-              className="text-primary font-semibold hover:text-primary/80 transition-colors"
+              className="bg-primary text-white px-6 py-3 rounded-xl font-semibold hover:bg-primary/90 transition-all duration-200 shadow-lg hover:shadow-xl transform hover:scale-105"
             >
               View All Services →
             </Link>
             <Link
               href="/contact"
-              className="text-primary font-semibold hover:text-primary/80 transition-colors"
+              className="bg-primary text-white px-6 py-3 rounded-xl font-semibold hover:bg-primary/90 transition-all duration-200 shadow-lg hover:shadow-xl transform hover:scale-105"
             >
               Call For Booking →
             </Link>

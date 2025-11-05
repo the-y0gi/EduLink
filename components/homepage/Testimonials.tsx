@@ -170,7 +170,13 @@ const Testimonials: React.FC = () => {
   const duplicatedTestimonials = [...testimonialsData, ...testimonialsData];
 
   return (
-    <section className="py-16 px-4 sm:px-6 lg:px-8 bg-white overflow-hidden">
+    <section
+      className="py-16 px-4 sm:px-6 lg:px-8 overflow-hidden"
+      style={{
+        background:
+          "linear-gradient(135deg, rgba(78,205,196,0.25) 0%, rgba(78,205,196,0.18) 25%, rgba(78,205,196,0.12) 50%, rgba(240,249,255,0.8) 75%, rgba(255,255,255,0.95) 100%)",
+      }}
+    >
       <div className="max-w-7xl mx-auto mb-12">
         <div className="text-center">
           {/* Badge / Bubble */}
