@@ -25,7 +25,7 @@ const Home = () => {
       {/* <WhyChooseUsFolders /> */}
 
       <Testimonials />
-      <Cta />
+      {/* <Cta /> */}
     </main>
   );
 };
