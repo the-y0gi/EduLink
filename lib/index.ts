@@ -533,7 +533,7 @@ export const servicesData: ServiceData[] = [
     detailedDescription:
       "Whether you're just arriving in Australia or already here looking to optimize your experience, we provide the support you need. From initial settlement assistance to building foundations for permanent residency and career success.",
     // image: "/Services/Settlement.jpg",
-        image: "/Services/SettlementLivingSupport.jpg",
+        image: "/Services/SettlementLivingSupporT.jpg",
 
     icon: "🏠",
     keyFeatures: [
