@@ -22,81 +22,81 @@
 //   const headerRef = useRef<HTMLDivElement>(null);
 //   const cardsRef = useRef<HTMLDivElement>(null);
 
-  // const features = [
-  //   {
-  //     icon: <GraduationCap className="w-8 h-8" />,
-  //     title: "Expert Guidance",
-  //     description:
-  //       "From student to post-study visas, our experienced consultants ensure a smooth application process.",
-  //     label: "Guidance",
-  //     gradient: "from-blue-600 to-blue-800",
-  //     delay: 0.1,
-  //   },
-  //   {
-  //     icon: <BookOpen className="w-8 h-8" />,
-  //     title: "Study Pathways",
-  //     description:
-  //       "Choose the right course and university that aligns with your career goals for real success.",
-  //     label: "Expertise",
-  //     gradient: "from-[var(--primary)] to-teal-600",
-  //     delay: 0.2,
-  //   },
-  //   {
-  //     icon: <Award className="w-8 h-8" />,
-  //     title: "95% Success Rate",
-  //     description:
-  //       "Our proven track record speaks for itself with excellent results.",
-  //     label: "Results",
-  //     gradient: "from-[var(--secondary)] to-blue-900",
-  //     stats: { number: "95%", label: "Visa Success Rate" },
-  //     delay: 0.3,
-  //   },
-  //   {
-  //     icon: <Users className="w-8 h-8" />,
-  //     title: "Career Support",
-  //     description:
-  //       "Employment advice, internships, and work opportunities to gain global experience.",
-  //     label: "Support",
-  //     gradient: "from-[var(--primary)] to-cyan-600",
-  //     delay: 0.4,
-  //   },
-  //   {
-  //     icon: <HeartHandshake className="w-8 h-8" />,
-  //     title: "Settlement Assistance",
-  //     description:
-  //       "Practical support for accommodation and cultural adaptation wherever you go.",
-  //     label: "Care",
-  //     gradient: "from-purple-600 to-purple-800",
-  //     delay: 0.5,
-  //   },
-  //   {
-  //     icon: <Globe className="w-8 h-8" />,
-  //     title: "50+ Universities",
-  //     description: "Connected to universities worldwide",
-  //     label: "Network",
-  //     gradient: "from-gray-600 to-gray-800",
-  //     stats: { number: "50+", label: "Partner Universities" },
-  //     delay: 0.6,
-  //   },
-  //   {
-  //     icon: <Target className="w-8 h-8" />,
-  //     title: "Student Reviews",
-  //     description:
-  //       "Join thousands of successful students who achieved their dreams",
-  //     label: "Trust",
-  //     gradient: "from-indigo-600 to-indigo-800",
-  //     delay: 0.7,
-  //   },
-  //   {
-  //     icon: <TrendingUp className="w-8 h-8" />,
-  //     title: "10+ Years",
-  //     description: "A decade of expertise in international education",
-  //     label: "Experience",
-  //     gradient: "from-[var(--primary)] to-teal-700",
-  //     stats: { number: "10+", label: "Years Experience" },
-  //     delay: 0.8,
-  //   },
-  // ];
+// const features = [
+//   {
+//     icon: <GraduationCap className="w-8 h-8" />,
+//     title: "Expert Guidance",
+//     description:
+//       "From student to post-study visas, our experienced consultants ensure a smooth application process.",
+//     label: "Guidance",
+//     gradient: "from-blue-600 to-blue-800",
+//     delay: 0.1,
+//   },
+//   {
+//     icon: <BookOpen className="w-8 h-8" />,
+//     title: "Study Pathways",
+//     description:
+//       "Choose the right course and university that aligns with your career goals for real success.",
+//     label: "Expertise",
+//     gradient: "from-[var(--primary)] to-teal-600",
+//     delay: 0.2,
+//   },
+//   {
+//     icon: <Award className="w-8 h-8" />,
+//     title: "95% Success Rate",
+//     description:
+//       "Our proven track record speaks for itself with excellent results.",
+//     label: "Results",
+//     gradient: "from-[var(--secondary)] to-blue-900",
+//     stats: { number: "95%", label: "Visa Success Rate" },
+//     delay: 0.3,
+//   },
+//   {
+//     icon: <Users className="w-8 h-8" />,
+//     title: "Career Support",
+//     description:
+//       "Employment advice, internships, and work opportunities to gain global experience.",
+//     label: "Support",
+//     gradient: "from-[var(--primary)] to-cyan-600",
+//     delay: 0.4,
+//   },
+//   {
+//     icon: <HeartHandshake className="w-8 h-8" />,
+//     title: "Settlement Assistance",
+//     description:
+//       "Practical support for accommodation and cultural adaptation wherever you go.",
+//     label: "Care",
+//     gradient: "from-purple-600 to-purple-800",
+//     delay: 0.5,
+//   },
+//   {
+//     icon: <Globe className="w-8 h-8" />,
+//     title: "50+ Universities",
+//     description: "Connected to universities worldwide",
+//     label: "Network",
+//     gradient: "from-gray-600 to-gray-800",
+//     stats: { number: "50+", label: "Partner Universities" },
+//     delay: 0.6,
+//   },
+//   {
+//     icon: <Target className="w-8 h-8" />,
+//     title: "Student Reviews",
+//     description:
+//       "Join thousands of successful students who achieved their dreams",
+//     label: "Trust",
+//     gradient: "from-indigo-600 to-indigo-800",
+//     delay: 0.7,
+//   },
+//   {
+//     icon: <TrendingUp className="w-8 h-8" />,
+//     title: "10+ Years",
+//     description: "A decade of expertise in international education",
+//     label: "Experience",
+//     gradient: "from-[var(--primary)] to-teal-700",
+//     stats: { number: "10+", label: "Years Experience" },
+//     delay: 0.8,
+//   },
+// ];
 
 //   useEffect(() => {
 //     const ctx = gsap.context(() => {
@@ -201,8 +201,8 @@
 //             <div
 //               key={index}
 //               className={`
-//                 group relative overflow-hidden rounded-3xl bg-white border border-primary/10 
-//                 transition-all duration-300 ease-out hover:shadow-2xl hover:shadow-primary/20 
+//                 group relative overflow-hidden rounded-3xl bg-white border border-primary/10
+//                 transition-all duration-300 ease-out hover:shadow-2xl hover:shadow-primary/20
 //                 hover:-translate-y-1 hover:border-primary/30 cursor-pointer shadow-lg
 //                 ${
 //                   feature.stats
@@ -294,7 +294,6 @@
 
 // export default WhyChooseUS;
 
-
 // 'use client'
 // import React, { useEffect, useRef } from "react";
 // import { Snowflake, User, DollarSign, Building2, Truck, Phone } from "lucide-react";
@@ -370,7 +369,7 @@
 //       <div className="max-w-7xl mx-auto">
 //         <div className="grid lg:grid-cols-2 gap-12 lg:gap-16 items-center">
 //           {/* Left side - Image */}
-//           <div 
+//           <div
 //             ref={imageRef}
 //             className="relative opacity-0 transition-all duration-1000 ease-out"
 //             style={{ transform: "translateX(-50px)" }}
@@ -387,7 +386,7 @@
 
 //           {/* Right side - Content */}
 //           <div>
-//             <div 
+//             <div
 //               ref={headerRef}
 //               className="opacity-0 transition-all duration-1000 ease-out"
 //               style={{ transform: "translateY(30px)" }}
@@ -407,40 +406,40 @@
 //             </div>
 
 //             {/* Feature Cards Grid */}
-            // <div className="grid sm:grid-cols-2 gap-6">
-            //   {features.map((feature, index) => (
-            //     <div
-            //       key={index}
-            //       ref={el => cardsRef.current[index] = el}
-            //       className="group relative opacity-0 transition-all duration-700 ease-out"
-            //       style={{ 
-            //         transform: "translateY(30px)",
-            //         transitionDelay: `${index * 100}ms`
-            //       }}
-            //     >
-            //       <div className="flex gap-4 items-start">
-            //         {/* Icon Box */}
-            //         <div className="relative flex-shrink-0">
-            //           <div className="w-16 h-16 bg-white border-2 border-[#D85B7F] rounded-lg flex items-center justify-center transition-all duration-300 group-hover:bg-[#D85B7F] group-hover:scale-110 group-hover:shadow-lg">
-            //             <div className="text-[#2D3436] transition-colors duration-300 group-hover:text-white">
-            //               {feature.icon}
-            //             </div>
-            //           </div>
-            //           {/* Bottom border accent */}
-            //           <div className="absolute -bottom-1 left-0 w-full h-1 bg-gradient-to-r from-[#D85B7F] to-transparent"></div>
-            //         </div>
+// <div className="grid sm:grid-cols-2 gap-6">
+//   {features.map((feature, index) => (
+//     <div
+//       key={index}
+//       ref={el => cardsRef.current[index] = el}
+//       className="group relative opacity-0 transition-all duration-700 ease-out"
+//       style={{
+//         transform: "translateY(30px)",
+//         transitionDelay: `${index * 100}ms`
+//       }}
+//     >
+//       <div className="flex gap-4 items-start">
+//         {/* Icon Box */}
+//         <div className="relative flex-shrink-0">
+//           <div className="w-16 h-16 bg-white border-2 border-[#D85B7F] rounded-lg flex items-center justify-center transition-all duration-300 group-hover:bg-[#D85B7F] group-hover:scale-110 group-hover:shadow-lg">
+//             <div className="text-[#2D3436] transition-colors duration-300 group-hover:text-white">
+//               {feature.icon}
+//             </div>
+//           </div>
+//           {/* Bottom border accent */}
+//           <div className="absolute -bottom-1 left-0 w-full h-1 bg-gradient-to-r from-[#D85B7F] to-transparent"></div>
+//         </div>
 
-            //         {/* Content */}
-            //         <div className="flex-1">
-            //           <h3 className="text-lg font-bold text-[#2D3436] mb-2 transition-colors duration-300 group-hover:text-[#D85B7F]">
-            //             {feature.title}
-            //           </h3>
-            //           <p className="text-[#9B9B9B] text-sm leading-relaxed">
-            //             {feature.description}
-            //           </p>
-            //         </div>
-            //       </div>
-            //     </div>
+//         {/* Content */}
+//         <div className="flex-1">
+//           <h3 className="text-lg font-bold text-[#2D3436] mb-2 transition-colors duration-300 group-hover:text-[#D85B7F]">
+//             {feature.title}
+//           </h3>
+//           <p className="text-[#9B9B9B] text-sm leading-relaxed">
+//             {feature.description}
+//           </p>
+//         </div>
+//       </div>
+//     </div>
 //               ))}
 //             </div>
 //           </div>
@@ -452,10 +451,7 @@
 
 // export default WhyChooseUS;
 
-
-
 //working cde without animation
-
 
 // 'use client'
 // import React, { useEffect, useRef } from "react";
@@ -485,7 +481,7 @@
 //   },
 //   {
 //     icon: <GraduationCap className="w-8 h-8" />,
-//     title: "Expert Guidance", 
+//     title: "Expert Guidance",
 //     description: "Experienced consultants ensure smooth application process",
 //   },
 //   {
@@ -552,7 +548,7 @@
 //       <div className="max-w-7xl mx-auto relative z-10">
 //         <div className="grid lg:grid-cols-2 gap-12 lg:gap-16 items-center">
 //           {/* Left side - Image */}
-//           <div 
+//           <div
 //             ref={imageRef}
 //             className="relative opacity-0 transition-all duration-1000 ease-out"
 //             style={{ transform: "translateX(-50px)" }}
@@ -569,12 +565,11 @@
 
 //           {/* Right side - Content */}
 //           <div>
-//             <div 
+//             <div
 //               ref={headerRef}
 //               className="opacity-0 transition-all duration-1000 ease-out"
 //               style={{ transform: "translateY(30px)" }}
 //             >
-           
 
 //               <h2 className="text-4xl md:text-5xl font-bold text-[var(--secondary)] mb-6">
 //                  Why Choose {" "}
@@ -588,8 +583,6 @@
 //                Discover why thousands of students and parents trust EduLink for guidance and success. <span className="text-[var(--primary)] font-semibold">Your success is our mission.</span>
 //               </p>
 //             </div>
-
-       
 
 //             {/* Feature Cards Grid */}
 // <div className="grid sm:grid-cols-2 gap-6">
@@ -638,9 +631,7 @@
 
 // export default WhyChooseUS;
 
-
-
-'use client'
+"use client";
 import React, { useEffect, useRef } from "react";
 import {
   GraduationCap,
@@ -698,9 +689,14 @@ const WhyChooseUS = () => {
 
     const observer = new IntersectionObserver((entries) => {
       entries.forEach((entry) => {
+        const target = entry.target as HTMLElement;
         if (entry.isIntersecting) {
-          entry.target.style.opacity = "1";
-          entry.target.style.transform = "translateY(0)";
+          target.style.opacity = "1";
+          target.style.transform = "translateY(0) scale(1)";
+          target.style.transition = "all 0.8s cubic-bezier(0.16, 1, 0.3, 1)";
+        } else {
+          target.style.opacity = "0";
+          target.style.transform = "translateY(20px) scale(0.95)";
         }
       });
     }, observerOptions);
@@ -726,7 +722,8 @@ const WhyChooseUS = () => {
       {/* Animation Style */}
       <style jsx>{`
         @keyframes cardFloat {
-          0%, 100% {
+          0%,
+          100% {
             transform: translateY(0);
           }
           50% {
@@ -778,7 +775,8 @@ const WhyChooseUS = () => {
               </h2>
 
               <p className="text-lg text-[var(--secondary)]/70 leading-relaxed mb-12">
-                Discover why thousands of students and parents trust EduLink for guidance and success.{" "}
+                Discover why thousands of students and parents trust EduLink for
+                guidance and success.{" "}
                 <span className="text-[var(--primary)] font-semibold">
                   Your success is our mission.
                 </span>
@@ -790,7 +788,9 @@ const WhyChooseUS = () => {
               {features.map((feature, index) => (
                 <div
                   key={index}
-                  ref={(el) => (cardsRef.current[index] = el)}
+                  ref={(el) => {
+                    if (el) cardsRef.current[index] = el;
+                  }}
                   className="group relative opacity-0 transition-all duration-700 ease-out auto-motion"
                   style={{
                     transform: "translateY(30px)",
@@ -823,7 +823,6 @@ const WhyChooseUS = () => {
                 </div>
               ))}
             </div>
-
           </div>
         </div>
       </div>
@@ -832,4 +831,3 @@ const WhyChooseUS = () => {
 };
 
 export default WhyChooseUS;
-
